@@ -267,9 +267,38 @@ class ClientTests(unittest.TestCase):
             self.assertNotIn(secret, str(caught.exception))
 
     def test_builtin_option_ids_are_bounded_exact_strings(self):
-        for ident in ["", " open", "open\n", "x" * 129, {}, []]:
+        for ident in ["", " open", "open\n", "o\tpen", "x" * 129, {}, []]:
             row = {"field_code": "status", "field_name": "Status", "field_type": "enum", "options": [{"id": ident, "label": "Open"}]}
             with patch.object(crm.DealClient, "get", return_value={"data": [row]}), self.assertRaises(crm.DealAdapterError):
+                crm.DealClient("synthetic-token").fields()
+
+    def test_option_label_horizontal_tabs_are_preserved_not_normalized(self):
+        # Pasted labels can contain tabs even though the option is valid metadata.
+        # This must not prevent discovery of unrelated fields or alter identity.
+        label = "  Example\t\tChoice\t"
+        for code, kind, ident in [(AHJ, "enum", 991), (SECOND, "set", 992), ("status", "enum", "open")]:
+            with self.subTest(code=code, kind=kind):
+                rows = [
+                    {"field_code": code, "field_name": "Choices", "field_type": kind,
+                     "options": [{"id": ident, "label": label}]},
+                    {"field_code": PERMIT, "field_name": "Permit", "field_type": "varchar"},
+                ]
+                with patch.object(crm.DealClient, "get", return_value={"data": rows}) as get:
+                    fields = crm.DealClient("synthetic-token").fields()
+                self.assertEqual(fields[0]["options"], [{"id": ident, "label": label}])
+                self.assertEqual(fields[1]["code"], PERMIT)
+                self.assertNotIn("\t", json.dumps(fields))
+                self.assertIn("\\t", json.dumps(fields))
+                self.assertEqual(get.call_count, 1)
+
+    def test_label_tab_support_does_not_allow_blank_or_other_controls(self):
+        labels = ["\t", " \t ", "Example\nChoice", "Example\rChoice",
+                  "Example\x00Choice", "Example\x1bChoice", "Example\x7fChoice",
+                  "Example\u200bChoice", "Example\u2028Choice"]
+        for label in labels:
+            row = {"field_code": AHJ, "field_name": "Authority", "field_type": "enum",
+                   "options": [{"id": 991, "label": label}]}
+            with self.subTest(label=repr(label)), patch.object(crm.DealClient, "get", return_value={"data": [row]}), self.assertRaises(crm.DealAdapterError):
                 crm.DealClient("synthetic-token").fields()
 
     def test_metadata_option_counts_are_bounded_per_field_and_across_pages(self):

@@ -147,7 +147,10 @@ def _field_options(row: dict, code: str, kind: str) -> list[dict] | None:
 
     Missing/null options mean metadata was not supplied; an explicit empty list
     is retained. Custom option IDs are integers; built-in IDs may be strings.
-    Bounds are local safety limits, not claims about Pipedrive account limits.
+    Option labels can contain horizontal tabs (for example, pasted labels).
+    Preserve those exactly; JSON serialization escapes them. Other unprintable
+    characters are rejected. Bounds are local safety limits, not claims about
+    Pipedrive account limits.
     """
     if kind not in {"enum", "set"} or row.get("options") is None:
         return None
@@ -163,7 +166,9 @@ def _field_options(row: dict, code: str, kind: str) -> list[dict] | None:
         valid_id = type(ident) is int and 0 < ident <= (2 ** 63 - 1)
         if not CUSTOM_CODE.fullmatch(code) and isinstance(ident, str):
             valid_id = 0 < len(ident) <= 128 and ident == ident.strip() and ident.isprintable()
-        valid_label = isinstance(label, str) and 0 < len(label) <= 1000 and bool(label.strip()) and label.isprintable()
+        valid_label = (isinstance(label, str) and 0 < len(label) <= 1000
+                       and bool(label.strip())
+                       and all(char.isprintable() or char == "\t" for char in label))
         if not valid_id or not valid_label:
             raise DealAdapterError("Pipedrive returned malformed deal field option metadata.")
         if str(ident) in seen_ids:
