@@ -1,10 +1,10 @@
-# Solar Bridge roadmap
+# Sun Bridge roadmap
 
-Solar Bridge aims to make permitting work easier to understand, supervise, and improve. Operators, technical contributors, and public agencies should be able to contribute expertise and review the results. These phases describe proposed work and the evidence needed to advance; they are not delivery dates or commitments from partner organizations.
+Sun Bridge aims to make permitting work easier to understand, supervise, and improve. Operators, technical contributors, and public agencies should be able to contribute expertise and review the results. These phases describe proposed work and the evidence needed to advance; they are not delivery dates or commitments from partner organizations.
 
 ## 1. Learn and review locally — available now
 
-The starter includes three profiles: two sourced real AHJs with disabled email parsers, and one fictional training authority. Fourteen synthetic input messages demonstrate event interpretation, matching, duplicates, and exceptions. The local review tool makes no CRM changes. Optional Pipedrive discovery reads organization fields and a Building Department roster into private local files; it does not import deals or monitor messages.
+The starter includes three profiles: two sourced real AHJs with disabled rule parsers, and one fictional training authority. Fourteen synthetic input messages demonstrate event interpretation, matching, duplicates, and exceptions. The local review tool makes no CRM changes. Guided setup, offline readiness checks, local EML/MBOX import, and private browser-readable reports support a bounded pilot. Optional Pipedrive adapters discover fields and organizations and read explicitly selected deals using account-specific mappings. Optional model extraction is experimental, requires explicit data-transfer authorization, and cannot choose deals or update records. Neither the new deal reads nor any model/provider is live-certified; there is no inbox monitoring.
 
 Start with the [learning path](learning-path.md). The immediate contribution is clearer documentation, a sourced jurisdiction correction, or a synthetic example with an expected result. Synthetic test success does not establish real-world accuracy.
 
@@ -34,7 +34,7 @@ For every aggregate, state the observation period, source coverage, sample size,
 
 **Operator outcome:** explain what a timeline measures, identify unfair comparisons or missing evidence, and handle a correction request. Learners should be able to distinguish an observed delay from an unsupported attribution of blame.
 
-[SolarTRACE's permitting, inspection, and interconnection dataset](https://data.openei.org/submissions/8221) is existing work to study: it reports timeline results across AHJs and utilities and documents coverage limitations. Solar Bridge has no partnership with that project and does not currently import its data or produce comparable analytics.
+[SolarTRACE's permitting, inspection, and interconnection dataset](https://data.openei.org/submissions/8221) is existing work to study: it reports timeline results across AHJs and utilities and documents coverage limitations. Sun Bridge has no partnership with that project and does not currently import its data or produce comparable analytics.
 
 ## 5. Utility workflows and agency collaboration — proposed
 
@@ -42,7 +42,7 @@ Extend the model to utilities only with distinct utility IDs, interconnection ap
 
 Invite willing AHJs and utilities to help define structured notifications, downloadable exports, or supported APIs. Agree on field meanings, access, change notices, correction paths, and ongoing ownership. A useful collaboration could reduce repeated status inquiries while retaining clear accountability for decisions.
 
-[SolarAPP+ already automates eligible solar permitting for participating authorities](https://www.energy.gov/cmei/systems/streamlining-solar-permitting-solarapp), and its [integration documentation](https://help.gosolarapp.org/article/120-how-does-solarapp-work-with-existing-ahj-permitting-software) describes working with local permitting systems. These are references for compatibility and learning, not claimed Solar Bridge partnerships or implemented integrations.
+[SolarAPP+ already automates eligible solar permitting for participating authorities](https://www.energy.gov/cmei/systems/streamlining-solar-permitting-solarapp), and its [integration documentation](https://help.gosolarapp.org/article/120-how-does-solarapp-work-with-existing-ahj-permitting-software) describes working with local permitting systems. These are references for compatibility and learning, not claimed Sun Bridge partnerships or implemented integrations.
 
 Any later AI assistance should make evidence review easier, expose uncertainty, and undergo independent evaluation and operator feedback. Work affecting official code review or permit approval would require the responsible authority's participation and approval process. An LLM's output must not become unilateral authority to approve a permit.
 

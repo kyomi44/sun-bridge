@@ -5,7 +5,7 @@ This is a read-only setup step for an operator's own Pipedrive account. It reads
 From the repository folder, run:
 
 ```sh
-python3 -m solarbridge pipedrive-import --token-file /absolute/path/to/your-token-file --output private/pipedrive
+python3 -m sunbridge pipedrive-import --token-file /absolute/path/to/your-token-file --output private/pipedrive
 ```
 
 The token file is a plain text file containing only your own API token. Keep it outside the repository. Alternatively, a technical helper can supply `PIPEDRIVE_API_TOKEN` through their environment or secret manager. Do not put the token in a command, contribution, screenshot, or issue.
@@ -39,6 +39,8 @@ The importer writes four JSON files in `private/pipedrive/`:
 
 Original account IDs and field codes stay in these private files.
 
+The command refuses to overwrite an existing inventory. Choose a fresh private output directory for a later snapshot and retain the earlier files according to your organization's policy.
+
 Candidate IDs beginning with `pending` identify local CRM records only. They are not shared AHJ IDs and must not be used to identify an incoming email's authority. Candidates contain empty `status_channels` and `official_sources` lists. Use `templates/ahj-profile.json` to add the full submission, notification, verification, and parser structure, then fill it from official information and reviewed observations.
 
 To turn a candidate into a shared profile:
@@ -50,7 +52,7 @@ To turn a candidate into a shared profile:
 5. Add dated official sources, and keep unresearched capabilities unknown.
 6. Submit only the reviewed public profile and fictional examples. Keep the mapping to your CRM organization ID in `private/`.
 
-The current importer does not import deals, establish confirmed AHJ boundaries, publish profiles automatically, or create CRM fields. Those operations need their own mapping and validation.
+This organization importer does not import deals, establish confirmed AHJ boundaries, publish profiles automatically, or create CRM fields. For a separate, explicitly selected deal read, use the [Pipedrive deal adapter](pipedrive-deals.md) with its own private mapping and validation. Organization inventory alone does not establish a permit's jurisdiction.
 
 ## API behavior
 

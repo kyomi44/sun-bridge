@@ -1,0 +1,10 @@
+{
+  "schema_version": 1,
+  "ahj_field": "org_id",
+  "permit_fields": ["REPLACE_WITH_EXACT_PERMIT_FIELD_CODE"],
+  "address_field": "REPLACE_WITH_EXACT_SERVICE_ADDRESS_FIELD_CODE",
+  "customer_name_field": null,
+  "ahj_map": {
+    "fictional_org_id": "example-training-county"
+  }
+}

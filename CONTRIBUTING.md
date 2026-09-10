@@ -1,6 +1,6 @@
 # Contributing
 
-Permit operators, installers, reviewers, mentors, and developers can all improve Solar Bridge. A clear correction with an official source can be as useful as a code change. Start with the [charter](CHARTER.md) and [governance guide](GOVERNANCE.md): the project's primary goal is people gaining the skills and authority to shape automated work.
+Permit operators, installers, reviewers, mentors, and developers can all improve Sun Bridge. A clear correction with an official source can be as useful as a code change. Start with the [charter](CHARTER.md) and [governance guide](GOVERNANCE.md): the project's primary goal is people gaining the skills and authority to shape automated work.
 
 ## Contribute without code
 
@@ -14,14 +14,16 @@ Use **Learning feedback** to improve an exercise, explain an accessibility barri
 
 ## Make a change
 
+For a CRM connection, start with **CRM integration** and the [adapter contract](docs/crm-integrations.md). For a model connection, read the [provider protocol and privacy boundaries](docs/llm-providers.md). A manifest or API key alone is not an integration: contribute a narrow implementation, private mapping/setup, offline tests, documented limits, and an operator learning outcome. Keep planned integrations distinct from tested capabilities.
+
 Keep each contribution focused: one jurisdiction change, one parser case, or one documentation improvement. Read the [profile guide](docs/jurisdiction-profiles.md), [event model](docs/event-model.md), and [data handling rules](docs/data-handling.md) before adding examples.
 
 From the repository folder, check your changes with:
 
 ```sh
-python3 -m solarbridge validate
+python3 -m sunbridge validate
 python3 -m unittest discover -s tests -v
-python3 -m solarbridge demo
+python3 -m sunbridge demo
 ```
 
 Inspect the demo report as well as the command results. A technically valid output can still misrepresent what a permit message means. In the pull request, identify the source, describe the behavior before and after, and explain how you checked it.

@@ -3,8 +3,8 @@ requires = ["setuptools>=68"]
 build-backend = "setuptools.build_meta"
 
 [project]
-name = "solar-bridge"
-version = "0.1.0"
+name = "sun-bridge"
+version = "0.2.0"
 description = "People-first learning and review tools for increasingly automated solar operations"
 readme = "README.md"
 requires-python = ">=3.10"
@@ -12,4 +12,4 @@ license = {text = "MIT"}
 dependencies = []
 
 [tool.setuptools]
-packages = ["permitkit", "solarbridge"]
+packages = ["permitkit", "solarbridge", "sunbridge"]
