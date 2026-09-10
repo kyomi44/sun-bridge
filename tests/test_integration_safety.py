@@ -10,10 +10,10 @@ from contextlib import redirect_stderr, redirect_stdout
 from pathlib import Path
 from unittest.mock import Mock, patch
 
-from permitkit.__main__ import main
-from permitkit.llm import LLMError, PROMPT_VERSION
-from permitkit.validation import ROOT, load_profiles
-from permitkit.workspace import doctor, llm_parser, run_workspace
+from sunbridge.__main__ import main
+from sunbridge.llm import LLMError, PROMPT_VERSION
+from sunbridge.validation import ROOT, load_profiles
+from sunbridge.workspace import doctor, llm_parser, run_workspace
 
 
 class FakeResponse:
@@ -98,7 +98,7 @@ class IntegrationSafetyTests(unittest.TestCase):
                 output = self.root / ("analyze-" + source_name)
                 collision = self.save(output / "review.json", content)
                 original = collision.read_bytes()
-                with patch("permitkit.llm.LLMClient.extract") as extraction:
+                with patch("sunbridge.llm.LLMClient.extract") as extraction:
                     code, _, error = self.analyze(output, **{source_name: collision})
                 self.assertEqual(code, 1)
                 self.assertIn("overwrite an input or configuration", error)
@@ -110,7 +110,7 @@ class IntegrationSafetyTests(unittest.TestCase):
     def test_analyze_refuses_output_nested_inside_profiles_before_extraction(self):
         profiles = self.root / "private-profiles"
         self.save(profiles / "example.json", self.profiles[self.ahj])
-        with patch("permitkit.llm.LLMClient.extract") as extraction:
+        with patch("sunbridge.llm.LLMClient.extract") as extraction:
             code, _, error = self.analyze(profiles / "reports", profiles=profiles)
         self.assertEqual(code, 1)
         self.assertIn("overwrite an input or configuration", error)
@@ -138,7 +138,7 @@ class IntegrationSafetyTests(unittest.TestCase):
                     config_path = collision
                 self.save(config_path, config)
                 original = collision.read_bytes()
-                with patch("permitkit.llm.LLMClient.extract") as extraction, patch("permitkit.crm.import_deal_permits") as crm:
+                with patch("sunbridge.llm.LLMClient.extract") as extraction, patch("sunbridge.crm.import_deal_permits") as crm:
                     readiness = doctor(config_path)
                     self.assertFalse(readiness["ready"])
                     check = next(item for item in readiness["checks"] if item["name"] == "private outputs")
@@ -161,7 +161,7 @@ class IntegrationSafetyTests(unittest.TestCase):
                     output.mkdir()
                     link = output / name
                     link.symlink_to(protected)
-                    with patch("permitkit.llm.LLMClient.extract") as extraction, patch("permitkit.crm.import_deal_permits") as crm:
+                    with patch("sunbridge.llm.LLMClient.extract") as extraction, patch("sunbridge.crm.import_deal_permits") as crm:
                         if mode == "analyze":
                             code, _, error = self.analyze(output)
                             self.assertEqual(code, 1)
@@ -197,7 +197,7 @@ class IntegrationSafetyTests(unittest.TestCase):
                     "token_file": str(token_path) if token_path else None,
                 }}
                 config_path = self.save(self.root / (source_name + "-pipedrive.json"), config)
-                with patch.dict(os.environ, {"PIPEDRIVE_API_TOKEN": "fictional-token"}), patch("permitkit.crm.import_deal_permits") as crm, patch("permitkit.crm.DealClient.fields") as fields, patch("permitkit.llm.LLMClient.extract") as extraction:
+                with patch.dict(os.environ, {"PIPEDRIVE_API_TOKEN": "fictional-token"}), patch("sunbridge.crm.import_deal_permits") as crm, patch("sunbridge.crm.DealClient.fields") as fields, patch("sunbridge.llm.LLMClient.extract") as extraction:
                     self.assertFalse(doctor(config_path)["ready"])
                     with self.assertRaisesRegex(ValueError, "needs attention"):
                         run_workspace(config_path, allow_data_transfer=True)
@@ -213,7 +213,7 @@ class IntegrationSafetyTests(unittest.TestCase):
         output.mkdir()
         os.link(self.messages_path, output / "review.json")
         original = self.messages_path.read_bytes()
-        with patch("permitkit.llm.LLMClient.extract") as extraction:
+        with patch("sunbridge.llm.LLMClient.extract") as extraction:
             code, _, error = self.analyze(output)
         self.assertEqual(code, 1)
         self.assertIn("linked to an input", error)
@@ -223,7 +223,7 @@ class IntegrationSafetyTests(unittest.TestCase):
     def test_llm_parser_requires_literal_true_before_config_or_client_access(self):
         for consent in (False, "false", 1, None):
             with self.subTest(consent=consent):
-                with patch("permitkit.workspace.read_json_file") as read, patch("permitkit.llm.LLMClient") as client:
+                with patch("sunbridge.workspace.read_json_file") as read, patch("sunbridge.llm.LLMClient") as client:
                     with self.assertRaisesRegex(ValueError, "allow-llm-data-transfer"):
                         llm_parser(self.llm_path, consent)
                     read.assert_not_called()
@@ -231,7 +231,7 @@ class IntegrationSafetyTests(unittest.TestCase):
 
     def test_transport_error_retains_safe_provenance_without_rule_fallback(self):
         parser = llm_parser(self.llm_path, True)
-        with patch("permitkit.llm.LLMClient.extract", side_effect=LLMError("fictional-sensitive-response-detail", "llm_http_error")), patch("permitkit.events.parse_message", side_effect=AssertionError("Rule fallback is not permitted")):
+        with patch("sunbridge.llm.LLMClient.extract", side_effect=LLMError("fictional-sensitive-response-detail", "llm_http_error")), patch("sunbridge.events.parse_message", side_effect=AssertionError("Rule fallback is not permitted")):
             event = parser(self.message, self.profiles[self.ahj])
         self.assertEqual(event["event_type"], "unknown")
         self.assertEqual(event["scope"], "unknown")
@@ -256,7 +256,7 @@ class IntegrationSafetyTests(unittest.TestCase):
         response = {"choices": [{"finish_reason": "stop", "message": {"role": "assistant", "content": json.dumps(proposed)}}]}
         opener = Mock()
         opener.open.return_value = FakeResponse(response)
-        with patch.dict(os.environ, {"SUNBRIDGE_INTEGRATION_TEST_KEY": "fictional-key"}), patch("permitkit.llm.urllib.request.build_opener", return_value=opener):
+        with patch.dict(os.environ, {"SUNBRIDGE_INTEGRATION_TEST_KEY": "fictional-key"}), patch("sunbridge.llm.urllib.request.build_opener", return_value=opener):
             result = run_workspace(self.config_path, allow_data_transfer=True)
         self.assertTrue(result["llm_enabled"])
         self.assertEqual(result["crm_writes"], 0)

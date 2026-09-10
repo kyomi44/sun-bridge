@@ -4,7 +4,7 @@ import unittest
 from pathlib import Path
 from unittest.mock import patch
 
-from permitkit.mail import MailImportError, load_mail
+from sunbridge.mail import MailImportError, load_mail
 
 BASE = b"From: Example Office <notifications@example.invalid>\nSubject: Application DEMO-001 received\nMessage-ID: <demo@example.invalid>\nDate: Tue, 06 Jan 2026 09:00:00 -0500\n\nFictional receipt.\n"
 
@@ -85,9 +85,9 @@ class MailTests(unittest.TestCase):
         (self.root / "second.eml").write_bytes(BASE)
         with self.assertRaisesRegex(MailImportError, "count"):
             load_mail(self.root, "example-training-county", 1)
-        with patch("permitkit.mail.MAX_INPUT_BYTES", 10), self.assertRaisesRegex(MailImportError, "total limit"):
+        with patch("sunbridge.mail.MAX_INPUT_BYTES", 10), self.assertRaisesRegex(MailImportError, "total limit"):
             load_mail(self.root / "sample.eml", "example-training-county")
-        with patch("permitkit.mail.MAX_MESSAGE_BYTES", 10), self.assertRaisesRegex(MailImportError, "message exceeds"):
+        with patch("sunbridge.mail.MAX_MESSAGE_BYTES", 10), self.assertRaisesRegex(MailImportError, "message exceeds"):
             load_mail(self.root / "sample.eml", "example-training-county")
         (self.root / "link.eml").symlink_to(self.root / "sample.eml")
         with self.assertRaisesRegex(MailImportError, "symbolic"):
@@ -116,7 +116,7 @@ class MailTests(unittest.TestCase):
 
     def test_mime_part_limit_and_linked_parent(self):
         raw = b"MIME-Version: 1.0\nContent-Type: multipart/mixed; boundary=x\n\n--x\nContent-Type: text/plain\n\nOne\n--x\nContent-Type: text/plain\n\nTwo\n--x--\n"
-        with patch("permitkit.mail.MAX_MIME_PARTS", 2), self.assertRaisesRegex(MailImportError, "MIME parts"):
+        with patch("sunbridge.mail.MAX_MIME_PARTS", 2), self.assertRaisesRegex(MailImportError, "MIME parts"):
             self.read(raw)
         regular = self.root / "regular"
         regular.mkdir()

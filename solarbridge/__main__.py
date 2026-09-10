@@ -1,7 +1,0 @@
-"""Historical command alias for the Sun Bridge review-only CLI."""
-
-from permitkit.__main__ import main
-
-
-if __name__ == "__main__":
-    raise SystemExit(main())

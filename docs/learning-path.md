@@ -10,7 +10,7 @@ From the repository folder, run:
 python3 -m sunbridge demo
 ```
 
-Read `private/demo/review.md` in your editor's Markdown preview. The exercise uses fictional messages and permits. It proposes events and matches for review; it does not monitor an inbox, change a CRM, or include controls to pause or roll back a monitor. The legacy `python3 -m permitkit` command remains available for compatibility.
+Read `private/demo/review.html` in your browser or `private/demo/review.md` in a Markdown preview. The exercise uses fictional messages and permits. It proposes events and matches for review; it does not monitor an inbox, change a CRM, or include controls to pause or roll back a monitor.
 
 ## Five competency milestones
 

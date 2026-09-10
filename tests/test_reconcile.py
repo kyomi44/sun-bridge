@@ -1,7 +1,7 @@
 import copy
 import unittest
 
-from permitkit.reconcile import match_event, normalize_address
+from sunbridge.reconcile import match_event, normalize_address
 
 
 def permit(**changes):

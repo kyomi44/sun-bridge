@@ -9,9 +9,9 @@ import urllib.error
 from pathlib import Path
 from unittest.mock import patch
 
-from permitkit import crm
-from permitkit.pipedrive import PipedriveClient, PipedriveError
-from permitkit.reconcile import match_event
+from sunbridge import crm
+from sunbridge.pipedrive import PipedriveClient, PipedriveError
+from sunbridge.reconcile import match_event
 
 
 AHJ, PERMIT, SECOND, ADDRESS, CUSTOMER = (letter * 40 for letter in "abcde")

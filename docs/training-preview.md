@@ -43,6 +43,6 @@ The fictional profile has no verified status-checking channel. “Research the o
 
 ## What to do next
 
-Ask a technical helper to run the [working demo](../README.md#try-it-in-20-minutes), then complete the [20-minute operator exercise](operator-guide.md). It adds duplicate notifications, unknown senders, unmatched permit numbers, and address-only matching.
+Run the [working review example](../README.md#review-a-permitting-inbox-sample), with a technical helper if useful, then complete the [20-minute operator exercise](operator-guide.md). It adds duplicate notifications, unknown senders, unmatched permit numbers, and address-only matching.
 
 Already know a department's official process? You can contribute through **Issues → New issue → Jurisdiction knowledge**, with public source links and no customer data. Read the [contribution guide](../CONTRIBUTING.md).

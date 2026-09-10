@@ -4,12 +4,12 @@ build-backend = "setuptools.build_meta"
 
 [project]
 name = "sun-bridge"
-version = "0.2.0"
-description = "People-first learning and review tools for increasingly automated solar operations"
+version = "0.3.0"
+description = "Open AHJ and utility data, historical solar timelines, and reviewable CRM workflows"
 readme = "README.md"
 requires-python = ">=3.10"
 license = {text = "MIT"}
 dependencies = []
 
 [tool.setuptools]
-packages = ["permitkit", "solarbridge", "sunbridge"]
+packages = ["sunbridge"]

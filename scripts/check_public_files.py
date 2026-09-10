@@ -6,6 +6,7 @@ No matched secret values are printed by this checker.
 from __future__ import annotations
 
 import argparse
+import hashlib
 import json
 import os
 import re
@@ -24,6 +25,15 @@ PATTERNS = [
     ("credential assignment", re.compile(r"(?i)(?:api[_-]?token|api[_-]?key|password)\s*[=:]\s*[\"']?[a-zA-Z0-9_-]{32,}")),
 ]
 MAX_FILE_BYTES = 500_000
+# The only reviewed public binary. This pin is independent of its manifest:
+# editing a manifest must not make arbitrary compressed/private data publishable.
+PUBLIC_ASSETS = {
+    "catalog/solartrace/rows.json.gz": (677916, "e08bb523511a27509c2940f6786e5ecdfb7aa9c502f9d01e719da177d10f946c"),
+}
+
+
+def _size_limit(name: str) -> int:
+    return PUBLIC_ASSETS.get(name, (MAX_FILE_BYTES, ""))[0]
 
 
 def _path_problem(name: str) -> str | None:
@@ -35,7 +45,10 @@ def _path_problem(name: str) -> str | None:
     return None
 
 
-def _content_problems(raw: bytes) -> list[str]:
+def _content_problems(raw: bytes, name: str = "") -> list[str]:
+    if name in PUBLIC_ASSETS:
+        size, digest = PUBLIC_ASSETS[name]
+        return [] if len(raw) == size and hashlib.sha256(raw).hexdigest() == digest else ["public source asset differs from its reviewed checksum"]
     if len(raw) > MAX_FILE_BYTES:
         return ["unexpectedly large file; manually review before release"]
     try:
@@ -102,7 +115,7 @@ def check_index(root: Path) -> tuple[int, list[tuple[str, str]]]:
             size_value = int(size.stdout.strip())
             if size_value < 0:
                 raise ValueError
-            if size_value > MAX_FILE_BYTES:
+            if size_value > _size_limit(name):
                 errors.append((name, "unexpectedly large file; manually review before release"))
                 continue
             blob = _git(root, "cat-file", "blob", object_id)
@@ -112,7 +125,7 @@ def check_index(root: Path) -> tuple[int, list[tuple[str, str]]]:
         except (OSError, ValueError):
             errors.append((name, "could not read staged blob"))
             continue
-        errors.extend((name, label) for label in _content_problems(blob.stdout))
+        errors.extend((name, label) for label in _content_problems(blob.stdout, name))
     return len(entries), errors
 
 
@@ -129,14 +142,14 @@ def check_worktree(root: Path) -> tuple[int, list[tuple[str, str]]]:
             errors.append((name, "symbolic link is not allowed in public files"))
             continue
         try:
-            if path.stat().st_size > MAX_FILE_BYTES:
+            if path.stat().st_size > _size_limit(name):
                 errors.append((name, "unexpectedly large file; manually review before release"))
                 continue
             raw = path.read_bytes()
         except OSError:
             errors.append((name, "could not read public file"))
             continue
-        errors.extend((name, label) for label in _content_problems(raw))
+        errors.extend((name, label) for label in _content_problems(raw, name))
     return len(names), errors
 
 

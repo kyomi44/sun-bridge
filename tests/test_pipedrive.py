@@ -11,7 +11,7 @@ import urllib.error
 from pathlib import Path
 from unittest.mock import Mock, patch
 
-from permitkit.pipedrive import (
+from sunbridge.pipedrive import (
     PipedriveClient, PipedriveError, _NoRedirects, build_summary, decode_value,
     discover_metadata_fields, discover_type_field, import_building_departments,
     project_organization, read_token, resolve_inventory_relationships,
@@ -75,7 +75,7 @@ class TokenTests(unittest.TestCase):
         path.write_bytes(b"x" * 9000)
         actual = path.stat()
         metadata = Mock(st_mode=actual.st_mode, st_size=1)
-        with patch("permitkit.pipedrive.os.fstat", return_value=metadata):
+        with patch("sunbridge.pipedrive.os.fstat", return_value=metadata):
             with self.assertRaises(PipedriveError):
                 read_token(path)
 
@@ -238,7 +238,7 @@ class ClientTests(unittest.TestCase):
         client = PipedriveClient("synthetic-token")
         def fail(*args, **kwargs):
             raise urllib.error.HTTPError("hidden", 429, "hidden", {"Retry-After": "1000"}, None)
-        with patch.object(client._opener, "open", side_effect=fail) as opened, patch("permitkit.pipedrive.time.sleep") as sleep:
+        with patch.object(client._opener, "open", side_effect=fail) as opened, patch("sunbridge.pipedrive.time.sleep") as sleep:
             with self.assertRaises(PipedriveError):
                 client.get("/api/v2/organizations")
         self.assertEqual(opened.call_count, 4)

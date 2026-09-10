@@ -1,12 +1,12 @@
-# Solar Bridge charter
+# Sun Bridge charter
 
 ## Purpose
 
-Solar Bridge exists to empower people to understand, supervise, and improve increasingly automated solar operations. Shared permitting knowledge and useful software are means to that end—not a substitute for the people doing the work.
+Sun Bridge exists to empower people to understand, supervise, and improve increasingly automated solar operations. Shared permitting knowledge and useful software are means to that end—not a substitute for the people doing the work.
 
 We want operators to gain transferable skills, meaningful decision-making authority, and opportunities to help shape the systems they use. We welcome people learning these skills as well as experienced practitioners.
 
-The project currently provides a read-only review tool, synthetic training examples, and documented jurisdiction profiles. It does not monitor a live inbox, update a CRM, submit permits, or make approval decisions. Commitments below concerning live automation are requirements for future work, not claims about features available today.
+The project provides a public-data catalog, read-only review workflows, synthetic examples, and documented jurisdiction profiles. It does not monitor a live inbox, update a CRM, submit permits, or make approval decisions. Commitments below concerning live automation are requirements for future work, not claims about features available today.
 
 ## Commitments
 
@@ -32,13 +32,13 @@ We progress from read-only proposals to supervised changes and only then conside
 
 Systems must be able to say “unknown.” A synthetic test passing does not establish production readiness. Missing notifications do not prove that a process has stopped or finished.
 
-Governmental permitting decisions remain the responsibility of the relevant authority; utility decisions remain with the relevant utility. Future AI-assisted review is not permission for Solar Bridge to grant approvals or obscure who is accountable.
+Governmental permitting decisions remain the responsibility of the relevant authority; utility decisions remain with the relevant utility. Future AI-assisted review is not permission for Sun Bridge to grant approvals or obscure who is accountable.
 
 ### 4. Skills and knowledge remain portable
 
 Prefer understandable data formats, documented interfaces, and reusable examples over dependence on a single employer, CRM, model provider, or proprietary service. Teach why a decision is justified, not only which button to press.
 
-Jurisdiction and, eventually, utility knowledge should be reusable while preserving the differences between their workflows and legal authority.
+Jurisdiction and utility knowledge should be reusable while preserving the differences between their workflows and legal authority.
 
 ### 5. Transparency respects people and context
 

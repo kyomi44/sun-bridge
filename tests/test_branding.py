@@ -1,4 +1,4 @@
-"""Offline command compatibility checks for Sun Bridge and its older aliases."""
+"""Offline checks for the canonical Sun Bridge package and command interface."""
 
 import json
 import subprocess
@@ -17,36 +17,36 @@ class BrandingTests(unittest.TestCase):
             cwd=ROOT, capture_output=True, text=True, timeout=20, check=False,
         )
 
-    def test_solarbridge_delegates_to_existing_main(self):
-        from permitkit.__main__ import main as legacy_main
-        from solarbridge.__main__ import main as canonical_main
-        from sunbridge.__main__ import main as sun_main
+    def test_project_has_one_canonical_implementation_package(self):
+        from sunbridge import __version__
+        from sunbridge.__main__ import main
 
-        self.assertIs(canonical_main, legacy_main)
-        self.assertIs(sun_main, legacy_main)
+        packages = {path.parent.name for path in ROOT.glob("*/__init__.py")}
+        self.assertEqual(packages, {"sunbridge"})
+        self.assertEqual(main.__module__, "sunbridge.__main__")
+        metadata = (ROOT / "pyproject.toml").read_text(encoding="utf-8")
+        self.assertIn('packages = ["sunbridge"]', metadata)
+        self.assertIn('name = "sun-bridge"', metadata)
+        self.assertIn(f'version = "{__version__}"', metadata)
+        self.assertEqual(__version__, "0.3.0")
 
-    def test_both_module_commands_show_help(self):
-        for module in ("sunbridge", "solarbridge", "permitkit"):
-            with self.subTest(module=module):
-                result = self.command(module, "--help")
-                self.assertEqual(result.returncode, 0, result.stderr)
-                self.assertIn("demo", result.stdout)
-                self.assertIn("validate", result.stdout)
-                self.assertIn("pipedrive-import", result.stdout)
-                self.assertEqual(result.stderr, "")
+    def test_canonical_module_command_shows_help(self):
+        result = self.command("sunbridge", "--help")
+        self.assertEqual(result.returncode, 0, result.stderr)
+        for command in ("demo", "validate", "pipedrive-import", "analyze", "setup", "doctor", "run"):
+            self.assertIn(command, result.stdout)
+        self.assertEqual(result.stderr, "")
 
-    def test_both_module_commands_validate_the_same_profiles(self):
-        results = [self.command(module, "validate") for module in ("sunbridge", "solarbridge", "permitkit")]
-        for result in results:
-            self.assertEqual(result.returncode, 0, result.stderr)
-            self.assertIn("Validated", result.stdout)
-            self.assertIn("training outcomes", result.stdout)
-        self.assertEqual(results[0].stdout, results[1].stdout)
-        self.assertEqual(results[0].stdout, results[2].stdout)
+    def test_canonical_module_validates_profiles(self):
+        result = self.command("sunbridge", "validate")
+        self.assertEqual(result.returncode, 0, result.stderr)
+        self.assertIn("Validated", result.stdout)
+        self.assertIn("profiles", result.stdout)
+        self.assertEqual(result.stderr, "")
 
-    def test_schema_identifier_remains_backwards_compatible(self):
+    def test_schema_identifier_uses_canonical_namespace(self):
         schema = json.loads((ROOT / "schemas/ahj-profile.schema.json").read_text(encoding="utf-8"))
-        self.assertEqual(schema["$id"], "urn:open-permit-kit:ahj-profile:v1")
+        self.assertEqual(schema["$id"], "urn:sun-bridge:ahj-profile:v1")
 
 
 if __name__ == "__main__":
