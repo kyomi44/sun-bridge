@@ -1,0 +1,22 @@
+# Operator data and credentials are never part of the shared repository.
+/private/
+/outputs/
+/data/
+*.mbox
+*.eml
+*.msg
+*.zip
+.env
+.env.*
+!.env.example
+*token*.txt
+*secret*.json
+*.pem
+*.key
+__pycache__/
+*.py[cod]
+.venv/
+*.egg-info/
+build/
+dist/
+.DS_Store

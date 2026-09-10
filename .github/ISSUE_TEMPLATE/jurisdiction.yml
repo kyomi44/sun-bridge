@@ -1,0 +1,47 @@
+name: Jurisdiction knowledge
+description: Share an official process, portal change, or missing jurisdiction detail. No coding required.
+title: "[Jurisdiction] "
+body:
+  - type: markdown
+    attributes:
+      value: "Use public sources and your own description. Do not attach real messages, inbox exports, CRM records, customer details, credentials, or live permit links."
+  - type: input
+    id: jurisdiction
+    attributes:
+      label: Jurisdiction and state
+      description: Include whether this is a city, county, or another authority.
+    validations:
+      required: true
+  - type: input
+    id: permit_scope
+    attributes:
+      label: Permit type and geographic scope
+      description: State what is known; do not infer jurisdiction from a postal city.
+    validations:
+      required: true
+  - type: textarea
+    id: observation
+    attributes:
+      label: What should the profile say or change?
+      description: Distinguish submission, arriving notifications, status verification, and automated review. Mark private experience as an observation requiring verification.
+    validations:
+      required: true
+  - type: textarea
+    id: sources
+    attributes:
+      label: Official sources and date checked
+      description: Add public URLs and when you checked them. Say unknown if no official source is available.
+    validations:
+      required: true
+  - type: textarea
+    id: uncertainty
+    attributes:
+      label: Limits and unanswered questions
+      description: Which permit types, events, locations, or dates have not been verified?
+  - type: checkboxes
+    id: privacy
+    attributes:
+      label: Public-data check
+      options:
+        - label: I included no private customer or CRM data, real email content, credentials, or private record links.
+          required: true

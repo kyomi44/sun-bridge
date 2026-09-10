@@ -1,0 +1,30 @@
+{
+  "schema_version": 1,
+  "id": "example-training-county",
+  "name": "Example County — fictional training authority",
+  "jurisdiction": {"country": "US", "state": null, "county": "Example County", "city": null, "level": "county", "parent_id": null, "coverage_note": "Fictional training authority. Do not use this profile to identify a real property jurisdiction."},
+  "permit_types": ["solar", "electrical"],
+  "capabilities": {
+    "submission_method": "unknown", "notification_channels": ["email"], "verification_channels": ["unknown"], "portal_url": null, "platform": "fictional training system",
+    "automated_review": {"status": "unknown", "platform": null, "eligibility_note": "Training only."}, "email_event_coverage": "unknown"
+  },
+  "verification": {"status": "synthetic", "last_checked": null, "note": "Every email, address, person and identifier in the training dataset is fictional. These tests do not measure performance on a real AHJ."},
+  "sources": [],
+  "parser": {
+    "status": "experimental", "sender_allowlist": ["notifications@example.invalid"],
+    "note": "Exact full-subject matches for the training fixture. An allowlisted sender is not authenticated sender verification. Every result requires review.",
+    "subject_rules": [
+      {"id": "submission", "event_type": "submission_received", "scope": "permit", "pattern": "Application (?P<permit_id>DEMO-[A-Z]+-[0-9]{3}(?:-R[0-9]+)?) received"},
+      {"id": "accepted", "event_type": "application_accepted", "scope": "permit", "pattern": "Application (?P<permit_id>DEMO-[A-Z]+-[0-9]{3}(?:-R[0-9]+)?) accepted"},
+      {"id": "corrections", "event_type": "action_required", "scope": "review", "pattern": "Corrections required for (?P<permit_id>DEMO-[A-Z]+-[0-9]{3}(?:-R[0-9]+)?)"},
+      {"id": "review-complete", "event_type": "review_completed", "scope": "review", "pattern": "Plan review completed for (?P<permit_id>DEMO-[A-Z]+-[0-9]{3}(?:-R[0-9]+)?)"},
+      {"id": "plans-approved", "event_type": "plans_approved", "scope": "review", "pattern": "Plans approved for (?P<permit_id>DEMO-[A-Z]+-[0-9]{3}(?:-R[0-9]+)?)"},
+      {"id": "ready", "event_type": "permit_ready_to_issue", "scope": "permit", "pattern": "Permit (?P<permit_id>DEMO-[A-Z]+-[0-9]{3}(?:-R[0-9]+)?) ready to issue"},
+      {"id": "issued", "event_type": "permit_issued", "scope": "permit", "pattern": "Permit (?P<permit_id>DEMO-[A-Z]+-[0-9]{3}(?:-R[0-9]+)?) issued"},
+      {"id": "denied", "event_type": "permit_denied", "scope": "permit", "pattern": "Permit (?P<permit_id>DEMO-[A-Z]+-[0-9]{3}(?:-R[0-9]+)?) denied"},
+      {"id": "inspection-passed", "event_type": "inspection_passed", "scope": "inspection", "pattern": "Inspection passed for (?P<permit_id>DEMO-[A-Z]+-[0-9]{3}(?:-R[0-9]+)?)"},
+      {"id": "inspection-failed", "event_type": "inspection_failed", "scope": "inspection", "pattern": "Inspection failed for (?P<permit_id>DEMO-[A-Z]+-[0-9]{3}(?:-R[0-9]+)?)"},
+      {"id": "address-inspection", "event_type": "inspection_passed", "scope": "inspection", "pattern": "Inspection passed at (?P<address>[^\\r\\n]+)"}
+    ]
+  }
+}

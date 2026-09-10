@@ -1,0 +1,16 @@
+{
+  "1": {"event_type": "submission_received", "match": "matched", "decision": "needs_operator_review"},
+  "2": {"event_type": "application_accepted", "match": "matched", "decision": "needs_operator_review"},
+  "3": {"event_type": "action_required", "match": "matched", "decision": "needs_operator_review"},
+  "4": {"event_type": "review_completed", "match": "matched", "decision": "needs_operator_review"},
+  "5": {"event_type": "permit_ready_to_issue", "match": "matched", "decision": "needs_operator_review"},
+  "6": {"event_type": "permit_issued", "match": "matched", "decision": "needs_operator_review"},
+  "7": {"event_type": "permit_issued", "match": "matched", "decision": "skip_duplicate"},
+  "8": {"event_type": "inspection_failed", "match": "matched", "decision": "needs_operator_review"},
+  "9": {"event_type": "inspection_passed", "match": "matched", "decision": "needs_operator_review"},
+  "10": {"event_type": "unknown", "match": "unmatched", "decision": "needs_operator_review"},
+  "11": {"event_type": "permit_issued", "match": "ambiguous", "decision": "needs_operator_review"},
+  "12": {"event_type": "inspection_passed", "match": "matched", "decision": "needs_operator_review"},
+  "13": {"event_type": "unknown", "match": "unmatched", "decision": "needs_operator_review"},
+  "14": {"event_type": "permit_issued", "match": "unmatched", "decision": "needs_operator_review"}
+}

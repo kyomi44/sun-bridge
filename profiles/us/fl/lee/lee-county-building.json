@@ -1,0 +1,19 @@
+{
+  "schema_version": 1,
+  "id": "us-fl-lee-county-building",
+  "name": "Lee County — Building and Permitting Services",
+  "jurisdiction": {"country": "US", "state": "FL", "county": "Lee", "city": null, "level": "county", "parent_id": null, "coverage_note": "County Community Development serves unincorporated Lee County. Do not assign incorporated Cape Coral projects to this authority solely because they are in Lee County."},
+  "permit_types": ["building"],
+  "capabilities": {
+    "submission_method": "portal", "notification_channels": ["unknown"], "verification_channels": ["portal"],
+    "portal_url": "https://aca-prod.accela.com/leeco/default.aspx", "platform": "eConnect / Accela",
+    "automated_review": {"status": "unknown", "platform": null, "eligibility_note": "Verify separately for the project and permit type."}, "email_event_coverage": "unknown"
+  },
+  "verification": {"status": "documented", "last_checked": "2026-09-09", "note": "Official pages document unincorporated county scope, online applications and portal status access. A published contact email alone does not establish automated email coverage."},
+  "sources": [
+    {"url": "https://www.leegov.com/dcd", "title": "Lee County Community Development", "supports": ["unincorporated county scope"], "checked_on": "2026-09-09"},
+    {"url": "https://www.leegov.com/dcd/appinfocenter", "title": "Lee County Application and Information Center", "supports": ["portal applications", "portal permit and inspection status"], "checked_on": "2026-09-09"},
+    {"url": "https://aca-prod.accela.com/leeco/default.aspx", "title": "Lee County eConnect Citizen Access", "supports": ["official Accela portal"], "checked_on": "2026-09-09"}
+  ],
+  "parser": {"status": "not_implemented", "sender_allowlist": [], "subject_rules": [], "note": "Add independently reviewed rules and synthetic fixtures before enabling a real notification parser."}
+}

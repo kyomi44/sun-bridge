@@ -1,0 +1,14 @@
+{
+  "schema_version": 1,
+  "id": "us-xx-example-county-example-city-building",
+  "name": "Example City Building Department",
+  "jurisdiction": {"country": "US", "state": null, "county": null, "city": null, "level": "unknown", "parent_id": null, "coverage_note": "Fill from official jurisdiction information; an office address or shared county name is not a boundary."},
+  "permit_types": [],
+  "capabilities": {
+    "submission_method": "unknown", "notification_channels": ["unknown"], "verification_channels": ["unknown"], "portal_url": null, "platform": null,
+    "automated_review": {"status": "unknown", "platform": null, "eligibility_note": "Not researched."}, "email_event_coverage": "unknown"
+  },
+  "verification": {"status": "unknown", "last_checked": null, "note": "Contributor draft. Add dated official sources for each known capability."},
+  "sources": [],
+  "parser": {"status": "not_implemented", "sender_allowlist": [], "subject_rules": [], "note": "Add reviewed synthetic examples before enabling experimental rules."}
+}

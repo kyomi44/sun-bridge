@@ -1,0 +1,74 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "urn:open-permit-kit:ahj-profile:v1",
+  "title": "Open Permit Kit AHJ profile v1",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["schema_version", "id", "name", "jurisdiction", "permit_types", "capabilities", "verification", "sources", "parser"],
+  "properties": {
+    "schema_version": {"const": 1},
+    "id": {"type": "string", "pattern": "^[a-z0-9]+(?:-[a-z0-9]+)*$"},
+    "name": {"type": "string", "minLength": 1},
+    "jurisdiction": {
+      "type": "object", "additionalProperties": false,
+      "required": ["country", "state", "county", "city", "level", "parent_id", "coverage_note"],
+      "properties": {
+        "country": {"type": "string"}, "state": {"type": ["string", "null"]},
+        "county": {"type": ["string", "null"]}, "city": {"type": ["string", "null"]},
+        "level": {"enum": ["city", "county", "town", "township", "village", "borough", "district", "state", "unknown"]},
+        "parent_id": {"type": ["string", "null"]},
+        "coverage_note": {"type": "string"}
+      }
+    },
+    "permit_types": {"type": "array", "items": {"type": "string"}, "uniqueItems": true},
+    "capabilities": {
+      "type": "object", "additionalProperties": false,
+      "required": ["submission_method", "notification_channels", "verification_channels", "portal_url", "platform", "automated_review", "email_event_coverage"],
+      "properties": {
+        "submission_method": {"enum": ["portal", "email", "in_person", "mail", "multiple", "unknown"]},
+        "notification_channels": {"type": "array", "items": {"enum": ["email", "portal", "api", "phone", "mail", "unknown"]}, "uniqueItems": true},
+        "verification_channels": {"type": "array", "items": {"enum": ["email", "portal", "api", "phone", "in_person", "unknown"]}, "uniqueItems": true},
+        "portal_url": {"type": ["string", "null"]}, "platform": {"type": ["string", "null"]},
+        "automated_review": {
+          "type": "object", "additionalProperties": false,
+          "required": ["status", "platform", "eligibility_note"],
+          "properties": {"status": {"enum": ["available", "unavailable", "unknown"]}, "platform": {"type": ["string", "null"]}, "eligibility_note": {"type": "string"}}
+        },
+        "email_event_coverage": {"enum": ["unknown", "partial", "validated_for_listed_events"]}
+      }
+    },
+    "verification": {
+      "type": "object", "additionalProperties": false,
+      "required": ["status", "last_checked", "note"],
+      "properties": {"status": {"enum": ["unknown", "documented", "synthetic"]}, "last_checked": {"type": ["string", "null"]}, "note": {"type": "string"}}
+    },
+    "sources": {
+      "type": "array", "items": {
+        "type": "object", "additionalProperties": false,
+        "required": ["url", "title", "supports", "checked_on"],
+        "properties": {"url": {"type": "string"}, "title": {"type": "string"}, "supports": {"type": "array", "items": {"type": "string"}}, "checked_on": {"type": "string"}}
+      }
+    },
+    "parser": {
+      "type": "object", "additionalProperties": false,
+      "required": ["status", "sender_allowlist", "subject_rules", "note"],
+      "properties": {
+        "status": {"enum": ["not_implemented", "experimental"]},
+        "sender_allowlist": {"type": "array", "items": {"type": "string", "minLength": 1, "pattern": "\\S", "description": "One mailbox per entry, optionally with a display name; the CLI applies the same mailbox validation as the parser."}, "uniqueItems": true},
+        "note": {"type": "string"},
+        "subject_rules": {
+          "type": "array", "items": {
+            "type": "object", "additionalProperties": false,
+            "required": ["id", "event_type", "scope", "pattern"],
+            "properties": {
+              "id": {"type": "string", "minLength": 1, "pattern": "\\S"},
+              "event_type": {"enum": ["submission_received", "application_accepted", "action_required", "review_started", "review_completed", "plans_approved", "permit_ready_to_issue", "permit_issued", "permit_denied", "permit_expired", "permit_closed", "inspection_scheduled", "inspection_passed", "inspection_failed", "payment_due", "payment_received"]},
+              "scope": {"enum": ["permit", "review", "inspection", "payment"]},
+              "pattern": {"type": "string", "minLength": 1}
+            }
+          }
+        }
+      }
+    }
+  }
+}

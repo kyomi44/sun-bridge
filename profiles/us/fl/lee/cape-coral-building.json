@@ -1,0 +1,22 @@
+{
+  "schema_version": 1,
+  "id": "us-fl-lee-cape-coral-building",
+  "name": "City of Cape Coral — Building Permitting",
+  "jurisdiction": {
+    "country": "US", "state": "FL", "county": "Lee", "city": "Cape Coral", "level": "city", "parent_id": null,
+    "coverage_note": "City permitting authority. Location in Lee County does not establish that Lee County is its permitting parent. Verify jurisdiction for the project address."
+  },
+  "permit_types": ["building"],
+  "capabilities": {
+    "submission_method": "portal", "notification_channels": ["email", "portal"], "verification_channels": ["portal"],
+    "portal_url": "https://energovweb.capecoral.gov/EnerGovProd/selfservice#/home", "platform": "EnerGov / Tyler",
+    "automated_review": {"status": "unknown", "platform": null, "eligibility_note": "Online submission does not establish automated code review or SolarAPP+ eligibility."},
+    "email_event_coverage": "unknown"
+  },
+  "verification": {"status": "documented", "last_checked": "2026-09-09", "note": "Official documentation supports the listed channels. No production email parser or completeness claim is supplied."},
+  "sources": [
+    {"url": "https://www.capecoral.gov/departments/development_services/permitting_services_division/index.php", "title": "Cape Coral Permitting Services Division", "supports": ["city authority", "portal submission"], "checked_on": "2026-09-09"},
+    {"url": "https://www.capecoral.gov/departments/development_services/permitting_services_division/energov_citizen_self_service_css.php", "title": "Cape Coral EnerGov Citizen Self-Service", "supports": ["email notifications", "portal status verification", "EnerGov platform"], "checked_on": "2026-09-09"}
+  ],
+  "parser": {"status": "not_implemented", "sender_allowlist": [], "subject_rules": [], "note": "Contribute synthetic fixtures and reviewed rules for each observed format. Notification availability is not proof that every status is emailed."}
+}

@@ -1,0 +1,7 @@
+[
+  {"deal_id": "demo-deal-001", "ahj_id": "example-training-county", "permit_id": "DEMO-SOLAR-001", "service_address": "100 Example Way, Unit A, Example City, ZZ 00000", "customer_name": "Alex Example"},
+  {"deal_id": "demo-deal-001", "ahj_id": "example-training-county", "permit_id": "DEMO-ELECTRICAL-001", "service_address": "100 Example Way, Unit A, Example City, ZZ 00000", "customer_name": "Alex Example"},
+  {"deal_id": "demo-deal-002", "ahj_id": "example-training-county", "permit_id": "DEMO-SOLAR-002", "service_address": "200 Example Way, Unit B, Example City, ZZ 00000", "customer_name": "Jordan Example"},
+  {"deal_id": "demo-deal-003", "ahj_id": "example-training-county", "permit_id": "DEMO-SOLAR-003", "service_address": "300 Example Way, Unit C, Example City, ZZ 00000", "customer_name": "Sam Example"},
+  {"deal_id": "demo-deal-004", "ahj_id": "example-training-county", "permit_id": "DEMO-SOLAR-003", "service_address": "400 Example Way, Unit D, Example City, ZZ 00000", "customer_name": "Casey Example"}
+]

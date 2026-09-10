@@ -1,0 +1,19 @@
+{
+  "description": "CRM-neutral contract. Every value below is a placeholder; discover your own CRM field keys. Multiple permit rows can point to one deal.",
+  "organization_fields": {
+    "type_field": "YOUR_ORGANIZATION_TYPE_FIELD_CODE",
+    "building_department_option": "Building Department",
+    "jurisdiction_level_field": "YOUR_JURISDICTION_LEVEL_FIELD_CODE",
+    "state_field": "YOUR_STATE_FIELD_CODE",
+    "county_field": "YOUR_COUNTY_FIELD_CODE",
+    "city_field": "YOUR_CITY_FIELD_CODE"
+  },
+  "permit_record_fields": {
+    "deal_id": "YOUR_CRM_DEAL_ID",
+    "ahj_id": "YOUR_VERIFIED_AHJ_PROFILE_ID",
+    "permit_id": "YOUR_PERMIT_OR_APPLICATION_NUMBER",
+    "service_address": "FULL_PROJECT_ADDRESS_INCLUDING_UNIT_CITY_STATE_POSTAL_CODE",
+    "customer_name": "OPTIONAL_SUPPORTING_NAME"
+  },
+  "rules": ["Keep application and permit identifiers as text.", "A mailing city is not a verified AHJ.", "Names alone never authorize a match.", "Keep original evidence and operator review before changes."]
+}
