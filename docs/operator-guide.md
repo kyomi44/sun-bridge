@@ -9,7 +9,7 @@ An operator reviews evidence, resolves exceptions, and decides the next action. 
 Open a terminal in the repository folder. Check that `python3 --version` reports Python 3.10 or newer, then run:
 
 ```sh
-python3 -m permitkit demo
+python3 -m solarbridge demo
 ```
 
 Open `private/demo/review.md` in your editor's Markdown preview. It is a generated preview based on made-up records. The underlying Markdown encodes punctuation to prevent message text from turning into active links or images; the preview displays it normally. You can inspect the input messages in `examples/messages.json` and permit records in `examples/permits.json`.
@@ -50,6 +50,8 @@ For one clear example, write a short note explaining the permit match, event, ev
 The fictional training profile has an unknown verification channel. For this exercise, “verification channel needs research” is a valid answer; explain which official source or department contact you would seek before accepting the event.
 
 The demo ends with a review decision. It does not send messages or apply CRM changes. If you can explain both examples to another operator, you are ready to help assess a private sample with a technical helper.
+
+Use the [learning path](learning-path.md) with a mentor to record what you can demonstrate and what still needs practice. Publishing personal assessment results or contributing code is not required to learn.
 
 ## Reviewing your own workflow
 

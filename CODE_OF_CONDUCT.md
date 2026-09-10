@@ -1,6 +1,6 @@
 # Code of Conduct
 
-Open Permit Kit welcomes people with different levels of technical and permitting experience. Ask clear questions, explain unfamiliar terms, credit others' work, and discuss evidence with respect.
+Solar Bridge welcomes people with different levels of technical and permitting experience. Ask clear questions, explain unfamiliar terms, credit others' work, and discuss evidence with respect. Teaching, process knowledge, and careful questions are valuable contributions alongside code. Do not make assumptions about a person's ability to learn based on age, background, or job title.
 
 Harassment, discriminatory remarks, threats, sexual attention, personal attacks, and publication of another person's private information are not acceptable. Do not pressure contributors to disclose customer records or workplace information to establish credibility.
 

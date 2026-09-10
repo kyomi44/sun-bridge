@@ -5,7 +5,7 @@ This is a read-only setup step for an operator's own Pipedrive account. It reads
 From the repository folder, run:
 
 ```sh
-python3 -m permitkit pipedrive-import --token-file /absolute/path/to/your-token-file --output private/pipedrive
+python3 -m solarbridge pipedrive-import --token-file /absolute/path/to/your-token-file --output private/pipedrive
 ```
 
 The token file is a plain text file containing only your own API token. Keep it outside the repository. Alternatively, a technical helper can supply `PIPEDRIVE_API_TOKEN` through their environment or secret manager. Do not put the token in a command, contribution, screenshot, or issue.

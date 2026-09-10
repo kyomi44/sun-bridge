@@ -1,4 +1,4 @@
-"""Run from a clone: python3 -m permitkit demo. No install is required."""
+"""Shared Solar Bridge CLI; the legacy permitkit module remains supported."""
 from __future__ import annotations
 
 import argparse
@@ -25,7 +25,7 @@ def read_json(path: Path):
 
 
 def main(argv=None) -> int:
-    parser = argparse.ArgumentParser(description="Understand permit messages and prepare an operator review. No CRM writes.")
+    parser = argparse.ArgumentParser(description="Solar Bridge: understand permit messages and prepare an operator review. No CRM writes.")
     sub = parser.add_subparsers(dest="command", required=True)
     demo = sub.add_parser("demo", help="Run the fictional training exercise without accounts or API keys")
     demo.add_argument("--output", default=str(ROOT / "private/demo"))

@@ -57,7 +57,7 @@ class PipedriveClient:
         request = urllib.request.Request(
             url, method="GET",
             headers={"x-api-token": self._token, "Accept": "application/json",
-                     "User-Agent": "open-permit-kit-readonly/0.1"},
+                     "User-Agent": "solar-bridge-readonly/0.1"},
         )
         for attempt in range(4):
             try:

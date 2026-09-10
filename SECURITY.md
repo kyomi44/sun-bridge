@@ -1,6 +1,6 @@
 # Security and private data
 
-Open Permit Kit is an experimental local review tool. Real email, CRM inventories, generated reviews, and credentials belong in private operator-controlled storage. The repository's synthetic examples are the only message and permit data intended for publication.
+Solar Bridge currently provides an experimental local review tool. Real email, CRM inventories, generated reviews, and credentials belong in private operator-controlled storage. The repository's synthetic examples are the only message and permit data intended for publication.
 
 ## Report a vulnerability
 

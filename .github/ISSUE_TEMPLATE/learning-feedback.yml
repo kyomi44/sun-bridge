@@ -1,0 +1,33 @@
+name: Learning feedback
+description: Improve an exercise, explain a barrier, or suggest a useful operator skill. No coding required.
+title: "[Learning] "
+body:
+  - type: markdown
+    attributes:
+      value: "Help make Solar Bridge easier to learn. Do not share personal assessment results, employment records, customer data, CRM screenshots, real emails, credentials, or private links. Use fictional examples. This form is not a job application."
+  - type: input
+    id: step
+    attributes:
+      label: Exercise or documentation page
+      description: What were you trying to learn or do?
+    validations:
+      required: true
+  - type: textarea
+    id: experience
+    attributes:
+      label: What helped, or what was unclear?
+      description: Describe the step in your own words. You do not need to explain your personal background.
+    validations:
+      required: true
+  - type: textarea
+    id: outcome
+    attributes:
+      label: What should a learner be able to demonstrate?
+      description: Suggest an example, explanation, accessibility improvement, or missing skill.
+  - type: checkboxes
+    id: privacy
+    attributes:
+      label: Public-data check
+      options:
+        - label: I included no private personal, customer, employment, or CRM information, credentials, or private links.
+          required: true

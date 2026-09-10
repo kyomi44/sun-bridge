@@ -1,6 +1,6 @@
 # Contributing
 
-Permit operators, installers, reviewers, and developers can all improve Open Permit Kit. A clear correction with an official source can be as useful as a code change.
+Permit operators, installers, reviewers, mentors, and developers can all improve Solar Bridge. A clear correction with an official source can be as useful as a code change. Start with the [charter](CHARTER.md) and [governance guide](GOVERNANCE.md): the project's primary goal is people gaining the skills and authority to shape automated work.
 
 ## Contribute without code
 
@@ -10,6 +10,8 @@ If your observation comes only from private work, describe the pattern in your o
 
 To report a parser problem, use **Synthetic parser example**. Include a minimal made-up message, its expected event, and why the current interpretation is wrong. No coding experience is required.
 
+Use **Learning feedback** to improve an exercise, explain an accessibility barrier, or propose a missing skill. The [learning path](docs/learning-path.md) offers practical ways to demonstrate progress; there is no requirement to become a programmer before contributing. Share no private employment, customer, or CRM details.
+
 ## Make a change
 
 Keep each contribution focused: one jurisdiction change, one parser case, or one documentation improvement. Read the [profile guide](docs/jurisdiction-profiles.md), [event model](docs/event-model.md), and [data handling rules](docs/data-handling.md) before adding examples.
@@ -17,12 +19,16 @@ Keep each contribution focused: one jurisdiction change, one parser case, or one
 From the repository folder, check your changes with:
 
 ```sh
-python3 -m permitkit validate
+python3 -m solarbridge validate
 python3 -m unittest discover -s tests -v
-python3 -m permitkit demo
+python3 -m solarbridge demo
 ```
 
 Inspect the demo report as well as the command results. A technically valid output can still misrepresent what a permit message means. In the pull request, identify the source, describe the behavior before and after, and explain how you checked it.
+
+Explain the human outcome too: what can an operator learn, inspect, challenge, or decide because of the change? For workflow or automation changes, document affected authority, evidence, failure handling, and the relevant [roadmap gate](docs/roadmap.md). Seek an experienced operator's review; if that perspective is unavailable, say so and do not claim the workflow is operationally validated.
+
+Before committing, stage only the intended public files and run `python3 scripts/check_public_files.py --tracked`. Inspect the staged diff manually as well; the checker is a guardrail, not anonymization.
 
 ## How contributions become trusted
 
