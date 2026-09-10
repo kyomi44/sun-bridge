@@ -8,9 +8,9 @@ import unittest
 from pathlib import Path
 from unittest.mock import patch
 
-from permitkit import __main__ as cli
-from permitkit import workspace
-from permitkit.crm import validate_mapping
+from sunbridge import __main__ as cli
+from sunbridge import workspace
+from sunbridge.crm import validate_mapping
 
 
 PROFILE = "example-training-county"
@@ -61,7 +61,7 @@ class CRMReadinessTests(unittest.TestCase):
             if Path(path).name == "synthetic-messages.json":
                 return [{"ahj_id": PROFILE}]
             return config()
-        with patch.object(workspace, "read_json_file", side_effect=read), patch.object(workspace, "load_profiles", return_value={PROFILE: {}}), patch.dict(os.environ, {"PIPEDRIVE_API_TOKEN": "synthetic-token"}), patch("permitkit.crm.DealClient.get") as get:
+        with patch.object(workspace, "read_json_file", side_effect=read), patch.object(workspace, "load_profiles", return_value={PROFILE: {}}), patch.dict(os.environ, {"PIPEDRIVE_API_TOKEN": "synthetic-token"}), patch("sunbridge.crm.DealClient.get") as get:
             result = workspace.doctor(Path("synthetic-config.json"))
         get.assert_not_called()
         return result
@@ -87,7 +87,7 @@ class CRMReadinessTests(unittest.TestCase):
 
     def test_standalone_rejects_unfinished_map_before_import_or_write(self):
         for value in [mapping(ahj_map={}), mapping(permit_fields=["REPLACE_WITH_EXACT_PERMIT_FIELD_CODE"]), mapping(ahj_map={"991": "unloaded-profile"})]:
-            with patch.object(cli, "read_json", return_value=value), patch.object(cli, "load_profiles", return_value={PROFILE: {}}), patch.object(cli, "write_private_json") as write, patch("permitkit.crm.import_deal_permits") as importer, contextlib.redirect_stdout(io.StringIO()), contextlib.redirect_stderr(io.StringIO()):
+            with patch.object(cli, "read_json", return_value=value), patch.object(cli, "load_profiles", return_value={PROFILE: {}}), patch.object(cli, "write_private_json") as write, patch("sunbridge.crm.import_deal_permits") as importer, contextlib.redirect_stdout(io.StringIO()), contextlib.redirect_stderr(io.StringIO()):
                 status = cli.main(["pipedrive-deals", "--mapping", "synthetic-mapping.json", "--deal-ids", "101", "--output", "private/synthetic-crm-test-unused"])
             self.assertEqual(status, 1)
             importer.assert_not_called()
@@ -96,7 +96,7 @@ class CRMReadinessTests(unittest.TestCase):
     def test_run_revalidates_mapping_before_detail_import(self):
         def read(path, **kwargs):
             return mapping(permit_fields=["placeholder"]) if Path(path).name == "synthetic-mapping.json" else config()
-        with patch.object(workspace, "read_json_file", side_effect=read), patch.object(workspace, "doctor", return_value={"ready": True}), patch.object(workspace, "_messages", return_value=[{"ahj_id": PROFILE}]), patch.object(workspace, "load_profiles", return_value={PROFILE: {}}), patch("permitkit.crm.import_deal_permits") as importer, self.assertRaises(ValueError):
+        with patch.object(workspace, "read_json_file", side_effect=read), patch.object(workspace, "doctor", return_value={"ready": True}), patch.object(workspace, "_messages", return_value=[{"ahj_id": PROFILE}]), patch.object(workspace, "load_profiles", return_value={PROFILE: {}}), patch("sunbridge.crm.import_deal_permits") as importer, self.assertRaises(ValueError):
             workspace.run_workspace(Path("synthetic-config.json"))
         importer.assert_not_called()
 

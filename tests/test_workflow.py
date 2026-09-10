@@ -5,10 +5,10 @@ import tempfile
 import unittest
 from pathlib import Path
 
-from permitkit.__main__ import private_output
-from permitkit.events import parse_message
-from permitkit.validation import ROOT, load_profiles, validate_profile, validate_schema
-from permitkit.workflow import _md, review_messages, render_markdown, write_report
+from sunbridge.__main__ import private_output
+from sunbridge.events import parse_message
+from sunbridge.validation import ROOT, load_profiles, validate_profile, validate_schema
+from sunbridge.workflow import _md, review_messages, render_markdown, write_report
 
 
 class WorkflowTests(unittest.TestCase):

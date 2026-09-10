@@ -9,11 +9,11 @@ from contextlib import redirect_stderr, redirect_stdout
 from pathlib import Path
 from unittest.mock import patch
 
-from permitkit.__main__ import main
-from permitkit.events import parse_message
-from permitkit.registry import integration_registry, render_integrations
-from permitkit.validation import ROOT
-from permitkit.workspace import create_workspace, doctor, run_workspace, validate_workspace
+from sunbridge.__main__ import main
+from sunbridge.events import parse_message
+from sunbridge.registry import integration_registry, render_integrations
+from sunbridge.validation import ROOT
+from sunbridge.workspace import create_workspace, doctor, run_workspace, validate_workspace
 
 
 class WorkspaceTests(unittest.TestCase):
@@ -190,7 +190,7 @@ class WorkspaceTests(unittest.TestCase):
                 if mode == "pipedrive":
                     self.prepare_test_pipedrive(path, config)
                 self.enable_test_llm(path, config)
-                with patch.dict(os.environ, {"PIPEDRIVE_API_TOKEN": "synthetic-token"}), patch("permitkit.llm.LLMClient") as provider, patch("permitkit.crm.import_deal_permits") as crm:
+                with patch.dict(os.environ, {"PIPEDRIVE_API_TOKEN": "synthetic-token"}), patch("sunbridge.llm.LLMClient") as provider, patch("sunbridge.crm.import_deal_permits") as crm:
                     readiness = doctor(path)
                     self.assertTrue(readiness["ready"], readiness)
                     self.assertEqual(readiness["llm_target"], "https://provider.example.invalid/v1")
@@ -204,7 +204,7 @@ class WorkspaceTests(unittest.TestCase):
     def test_explicit_llm_consent_uses_mocked_extraction_only(self):
         path, config = self.setup()
         self.enable_test_llm(path, config)
-        with patch("permitkit.llm.LLMClient") as provider:
+        with patch("sunbridge.llm.LLMClient") as provider:
             provider.return_value.extract.side_effect = parse_message
             result = run_workspace(path, allow_data_transfer=True)
             self.assertTrue(provider.call_args.kwargs["allow_data_transfer"])
@@ -216,7 +216,7 @@ class WorkspaceTests(unittest.TestCase):
     def test_cli_analyze_and_connection_check_require_llm_consent(self):
         path, config = self.setup()
         self.enable_test_llm(path, config)
-        with patch("permitkit.llm.LLMClient") as provider:
+        with patch("sunbridge.llm.LLMClient") as provider:
             status, _, error = self.cli("analyze", "--messages", str(ROOT / "examples/messages.json"),
                                         "--permits", str(ROOT / "examples/permits.json"),
                                         "--llm-config", config["llm_config_path"], "--output", str(self.root / "analysis"))

@@ -3,6 +3,7 @@
 from __future__ import annotations
 
 import contextlib
+import hashlib
 import io
 import subprocess
 import tempfile
@@ -45,6 +46,32 @@ class PublicIndexTests(unittest.TestCase):
         path = self.stage("sample.txt", "clean staged copy")
         path.write_text(self.synthetic_token())
         self.assertEqual(checker.check_index(self.root), (1, []))
+
+    def test_only_exact_reviewed_public_asset_is_allowed_in_index_and_worktree(self):
+        name = "catalog/solartrace/rows.json.gz"
+        raw = b"\x00\xff" * 260_000
+        pins = {name: (len(raw), hashlib.sha256(raw).hexdigest())}
+        with patch.object(checker, "PUBLIC_ASSETS", pins):
+            path = self.stage(name, raw)
+            self.assertEqual(checker.check_index(self.root), (1, []))
+            self.assertEqual(checker.check_worktree(self.root), (1, []))
+            path.write_bytes(raw[:-1] + b"x")
+            self.assertTrue(checker.check_worktree(self.root)[1])
+            self.assertEqual(checker.check_index(self.root), (1, []))
+            self.git("add", "--", name)
+            path.write_bytes(raw)
+            self.assertTrue(checker.check_index(self.root)[1])
+            self.assertEqual(checker.check_worktree(self.root), (1, []))
+
+    def test_reviewed_asset_bytes_are_not_allowed_at_another_path(self):
+        raw = b"\x00\xff"
+        self.stage("unreviewed.json.gz", raw)
+        self.assertTrue(checker.check_index(self.root)[1])
+        self.assertTrue(checker.check_worktree(self.root)[1])
+
+    def test_bundled_asset_matches_independently_reviewed_public_pin(self):
+        for name in checker.PUBLIC_ASSETS:
+            self.assertEqual(checker._content_problems((checker.ROOT / name).read_bytes(), name), [])
 
     def test_git_replace_cannot_hide_the_actual_staged_blob(self):
         self.stage("sample.txt", self.synthetic_token())

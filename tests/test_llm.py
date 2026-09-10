@@ -11,7 +11,7 @@ import urllib.error
 import urllib.request
 from unittest.mock import Mock, patch
 
-from permitkit.llm import LLMClient, LLMError, MAX_RESPONSE_BYTES, PROMPT_VERSION, validate_config
+from sunbridge.llm import LLMClient, LLMError, MAX_RESPONSE_BYTES, PROMPT_VERSION, validate_config
 
 
 def config(**changes):
@@ -121,7 +121,7 @@ class ExtractionTests(unittest.TestCase):
         self.addCleanup(self.environment.stop)
         self.opener = Mock()
         self.opener.open.return_value = Response(envelope())
-        self.builder = patch("permitkit.llm.urllib.request.build_opener", return_value=self.opener)
+        self.builder = patch("sunbridge.llm.urllib.request.build_opener", return_value=self.opener)
         self.build = self.builder.start()
         self.addCleanup(self.builder.stop)
         self.client = LLMClient(config(), allow_data_transfer=True)

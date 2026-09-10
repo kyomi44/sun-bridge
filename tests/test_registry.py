@@ -4,7 +4,7 @@ import json
 import unittest
 from unittest.mock import patch
 
-from permitkit.registry import integration_registry
+from sunbridge.registry import integration_registry
 
 
 class RegistryTests(unittest.TestCase):
@@ -37,7 +37,7 @@ class RegistryTests(unittest.TestCase):
     def test_rejects_duplicate_missing_and_malformed_references(self):
         mutations = [
             ("id", self.registry["crms"][1]["id"]), ("id", ""), ("scope", ""),
-            ("permit_reads", "true"), ("implementation", "permitkit/crm.py"),
+            ("permit_reads", "true"), ("implementation", "sunbridge/crm.py"),
             ("implementation", ["../private/hidden.py"]), ("tests", ["tests/does-not-exist.py"]),
         ]
         for key, replacement in mutations:

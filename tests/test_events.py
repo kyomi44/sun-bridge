@@ -1,7 +1,7 @@
 import copy
 import unittest
 
-from permitkit.events import parse_message
+from sunbridge.events import parse_message
 
 
 def profile():

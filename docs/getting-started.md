@@ -1,10 +1,53 @@
-# From a fresh fork to a reviewed permit update
+# Set up a local solar operations workspace
 
-Start with fictional data. Then pair an experienced permit operator with a technical helper for a small private pilot. This release produces a review report; it does not save approvals, change a CRM, or watch an inbox.
-
-## 1. Get a working example
+Start with a public catalog of AHJs, utilities, and historical solar timelines. Connect it to your organization records, then use private email and permit records to review operational updates. No command in this workflow writes to your CRM or makes a permitting decision.
 
 Install Python 3.10 or newer if needed. Fork and clone the repository, or download its ZIP and unzip it. Open a terminal in that folder. No extra packages are required. On Windows, use `py -3` if `python3` is unavailable.
+
+## 1. Initialize and inspect the public catalog
+
+```sh
+python3 -m sunbridge catalog init
+python3 -m sunbridge catalog search --state FL --kind building_department --query "Cape Coral"
+python3 -m sunbridge catalog show --id ENTITY_ID
+```
+
+Replace `ENTITY_ID` with an ID from search. Initialization reads the bundled public SolarTRACE data and creates `private/catalog/sunbridge.sqlite`; it requires no account, API key, or network request. The catalog is independent of a CRM connection.
+
+Use a record's source, entity type, geography, and reporting period together. Historical medians are measured in business days for 2017–2024 installation cohorts; they are not current permit statuses, deadlines, service commitments, or a forecast for your project. Recheck requirements with the responsible authority before treating them as current instructions. A submission method is not evidence that email status notifications are available. Read the [source and methodology notes](solartrace-sources.md).
+
+## 2. Export and reconcile organization knowledge
+
+```sh
+python3 -m sunbridge catalog export --state FL --output private/catalog-export
+```
+
+Export writes `organizations.json`, `benchmarks.json`, `requirements.json`, `source.json`, and `NOTICE.txt`. Use these records for your own analysis or a deliberately mapped CRM import. Preserve source attribution and the notice when redistributing source-derived data; the data are not relicensed under the software's MIT license.
+
+Prepare `private/organizations.json` as an array using this format. This example is fictional; replace it with your own organization records, not customer or deal records:
+
+```json
+[
+  {
+    "organization_id": "crm-example-1",
+    "name": "Fictional County Building Department",
+    "kind": "building_department",
+    "state": "FL"
+  }
+]
+```
+
+Use `utility_company` for utility records. You may add a verified source `geo_id` for a building department or `eia_id` for a utility; preserve either identifier as an exact string, including leading zeros. Do not invent source IDs from names or copy a CRM organization's ID into those fields. The fictional row above is only a format example and is not expected to match a real entity.
+
+```sh
+python3 -m sunbridge catalog reconcile --organizations private/organizations.json --output private/catalog-reconciliation
+```
+
+Reconciliation suggests catalog links for operator review. Even an exact source-ID candidate requires inspection; a name candidate is never an automatic merge. Neither export nor reconciliation updates a CRM or establishes which authority serves a particular property. See the [catalog guide](catalog.md) for the complete workflow.
+
+Keep the source's stable identifiers alongside your own organization's ID. Preserve AHJs and utilities as different entity types. Duplicate names, missing geography, and unclear service areas need verification, not a forced match. Catalog organization links and the permit-to-deal matching below answer different questions and must not be substituted for each other.
+
+## 3. Try the email review flow
 
 ```sh
 python3 -m sunbridge start --open
@@ -12,9 +55,9 @@ python3 -m sunbridge start --open
 
 Expected result: a browser opens `private/demo/review.html` with fictional messages, proposed events, matching outcomes, and evidence. JSON and Markdown versions are beside it. There are no account connections or network requests. Repeating the command replaces only its generated reports. If browser opening is unavailable, open the HTML file manually.
 
-Have the operator explain the difference between application receipt, approval, and permit issuance. Find an ambiguous match and an unsupported message together. The [operator guide](operator-guide.md) supplies an exercise and expected results.
+Inspect the difference between application receipt, approval, and permit issuance. Find an ambiguous match and an unsupported message. The [operator guide](operator-guide.md) provides an optional exercise with expected results before evaluating private data.
 
-## 2. Create a reusable private workspace
+## 4. Create a reusable private review workspace
 
 ```sh
 python3 -m sunbridge setup --interactive
@@ -37,7 +80,7 @@ python3 -m sunbridge doctor --config private/pipedrive-pilot/sunbridge.json
 
 Paths inside configuration are relative to the repository folder, not to the configuration file. Absolute input paths are accepted; outputs must stay below this clone's `private/`. Do not put literal credentials in JSON. Keep token files outside the repository and configure their paths, or use the documented environment variables.
 
-## 3. Bring a small email sample from one verified authority
+## 5. Bring a small email sample from one verified authority
 
 Keep an authorized EML/MBOX export under `private/`. Start with a few messages whose correct meanings you know. Choose the AHJ profile only after verifying the authority. This command assigns one profile to the whole import; do not use it on a mixed-jurisdiction inbox.
 
@@ -49,7 +92,7 @@ Replace `PROFILE_ID` with the exact ID of a loaded profile. See `profiles/` and 
 
 Set `messages_path` to the generated `private/mail/messages.json`. Imports refuse to overwrite existing files; use a new output directory for a new batch and update the path. The guided run accepts at most 100 messages. Attachments are ignored. A sender's Date header is retained as an unverified claimed send time, never manufactured into receipt or event time. See [email import](email-import.md).
 
-## 4. Prepare the CRM side
+## 6. Prepare the CRM side
 
 For **Pipedrive**, configure `PIPEDRIVE_API_TOKEN` in the running process or use a private token file. Read field metadata:
 
@@ -65,7 +108,7 @@ For **another CRM**, use `json_file` and create a private array in the format sh
 
 Required matching context: an explicit deal ID, verified AHJ, permit/application identifier where available, and full project service address including unit. Customer names are supporting display information, not a matching key. Preserve separate permits; do not merge their decisions into one status without review.
 
-## 5. Choose rules or an optional model
+## 7. Choose rules or an optional model
 
 With `llm_config_path: null`, no LLM is called. Only the fictional profile currently has an enabled rule parser; real profiles will hold unsupported messages as unknown.
 
@@ -80,11 +123,19 @@ python3 -m sunbridge run --config private/pipedrive-pilot/sunbridge.json --allow
 
 Without a model, omit `--allow-llm-data-transfer`. A successful doctor check means configuration readiness, not a tested credential, complete channel coverage, or reliable extraction. No model/provider has been live-certified by the project. A failed model request is held for review, not silently replaced with a different provider or interpretation.
 
-## 6. Review with the person who knows the work
+## 8. Inspect evidence and resolve exceptions
 
 Open the generated HTML. Review CRM import issues first, then inspect the original subject/body, cited evidence, proposed event and scope, identifier/address, matching candidates, duplicates, and warnings. Distinguish event extraction errors from record-matching errors. Do not treat a match or a passed synthetic test as approval to change a deal.
 
 Record pilot decisions in your existing private process; this release has no saved approve/reject workflow. Verify any real operational change independently through your authorized process. The report is not an official status source or a complete audit log.
+
+To keep proposed event evidence alongside catalog entities, prepare `private/catalog-links.json` as an object mapping each reviewed AHJ profile ID to its verified catalog entity ID. Then attach the review report:
+
+```sh
+python3 -m sunbridge catalog attach-review --report private/workspace/review/review.json --links private/catalog-links.json
+```
+
+Use your actual report path if you chose a different workspace. Attachment stores proposed evidence privately; it does not accept an event, rewrite a source benchmark, establish a current status, or update a CRM. The [catalog guide](catalog.md) explains link preparation and the evidence boundary.
 
 Before expanding the pilot, use unseen cases, measure errors and abstentions separately, and identify a responsible reviewer. Share only synthetic regressions, public process knowledge, and code. Do not share the workspace, reports, tokens, or customer records with a public fork or issue.
 

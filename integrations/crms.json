@@ -11,7 +11,7 @@
       "crm_writes": false,
       "authentication": "none",
       "verification": "Offline synthetic fixtures and regression tests; operators prepare and verify their own mapping.",
-      "implementation": ["permitkit/workspace.py", "permitkit/reconcile.py"],
+      "implementation": ["sunbridge/workspace.py", "sunbridge/reconcile.py"],
       "tests": ["tests/test_workspace.py", "tests/test_reconcile.py"]
     },
     {
@@ -24,7 +24,7 @@
       "crm_writes": false,
       "authentication": "API token supplied locally",
       "verification": "Organization discovery has a limited live read check. Selected-deal adapter is tested with mocked API responses; no live deal or end-to-end production certification.",
-      "implementation": ["permitkit/pipedrive.py", "permitkit/crm.py"],
+      "implementation": ["sunbridge/pipedrive.py", "sunbridge/crm.py"],
       "tests": ["tests/test_pipedrive.py", "tests/test_crm.py"]
     },
     {

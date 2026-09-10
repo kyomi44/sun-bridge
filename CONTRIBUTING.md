@@ -1,6 +1,16 @@
 # Contributing
 
-Permit operators, installers, reviewers, mentors, and developers can all improve Sun Bridge. A clear correction with an official source can be as useful as a code change. Start with the [charter](CHARTER.md) and [governance guide](GOVERNANCE.md): the project's primary goal is people gaining the skills and authority to shape automated work.
+Improve the shared jurisdiction and utility data, add a reliable read adapter, or make permit review more accurate. A clear correction with an official source can be as useful as a code change. Operators, installers, public-agency staff, reviewers, and developers are welcome.
+
+The [charter](CHARTER.md) and [governance guide](GOVERNANCE.md) keep operator authority, privacy, and accessible participation central to the work.
+
+## Improve catalog data
+
+Keep public catalog knowledge separate from private CRM mappings and live project records. Use a focused issue or pull request to identify a source record, describe the discrepancy, link the supporting public evidence, and state when it was checked. Verify the source's reuse terms before contributing data; the repository's code license does not automatically license a third-party dataset.
+
+Preserve source identifiers, entity type, geography, reporting period, units, and missing values. An AHJ and a utility with similar names are not the same organization. A postal city is not a jurisdiction boundary. Historical median timelines are not current service commitments, and submission methods do not prove notification coverage. See the [source notes](docs/solartrace-sources.md).
+
+For a source update or normalization change, add tests that cover both intended matches and similar records that must stay separate. Describe how the change affects existing local mappings. Never replace historical observations or unresolved identity questions with an unsupported guess.
 
 ## Contribute without code
 
@@ -14,9 +24,9 @@ Use **Learning feedback** to improve an exercise, explain an accessibility barri
 
 ## Make a change
 
-For a CRM connection, start with **CRM integration** and the [adapter contract](docs/crm-integrations.md). For a model connection, read the [provider protocol and privacy boundaries](docs/llm-providers.md). A manifest or API key alone is not an integration: contribute a narrow implementation, private mapping/setup, offline tests, documented limits, and an operator learning outcome. Keep planned integrations distinct from tested capabilities.
+For a CRM connection, start with **CRM integration** and the [adapter contract](docs/crm-integrations.md). For a model connection, read the [provider protocol and privacy boundaries](docs/llm-providers.md). A manifest or API key alone is not an integration: contribute a narrow implementation, private mapping/setup, offline tests, documented limits, and a clear operator benefit. Keep planned integrations distinct from tested capabilities.
 
-Keep each contribution focused: one jurisdiction change, one parser case, or one documentation improvement. Read the [profile guide](docs/jurisdiction-profiles.md), [event model](docs/event-model.md), and [data handling rules](docs/data-handling.md) before adding examples.
+Keep each contribution focused: one data correction, one parser case, one adapter capability, or one documentation improvement. Read the [profile guide](docs/jurisdiction-profiles.md), [event model](docs/event-model.md), and [data handling rules](docs/data-handling.md) before adding examples.
 
 From the repository folder, check your changes with:
 
@@ -42,6 +52,6 @@ Profiles can become stale when an AHJ changes its portal, template, or process. 
 
 ## Public contribution boundaries
 
-Use only original text, authorized contributions, public source links, and synthetic fixtures. Do not contribute real mailboxes, email bodies, attachments, customer names or addresses, real permit identifiers, deal IDs, organization exports, portal tokens, or credentials. Removing a name alone does not make a message anonymous. Follow [SECURITY.md](SECURITY.md) if private information was exposed.
+Use only original text, authorized contributions, appropriately licensed public source data, and synthetic message fixtures. Do not contribute real mailboxes, email bodies, attachments, customer names or addresses, real permit identifiers, deal IDs, private CRM organization exports, portal tokens, or credentials. Removing a name alone does not make a message anonymous. Follow [SECURITY.md](SECURITY.md) if private information was exposed.
 
 By contributing, you agree that your original contribution may be distributed under the project's [MIT License](LICENSE). Be respectful and follow the [Code of Conduct](CODE_OF_CONDUCT.md).

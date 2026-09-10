@@ -10,7 +10,7 @@ import unittest
 from pathlib import Path
 from unittest.mock import patch
 
-from permitkit.workflow import _md, render_markdown, review_messages, write_report
+from sunbridge.workflow import _md, render_markdown, review_messages, write_report
 
 
 NAMES = ("review.json", "review.md", "review.html")
@@ -161,7 +161,7 @@ class ReportSafetyTests(unittest.TestCase):
             self.assertEqual(stat.S_IMODE(os.fstat(fd).st_mode), 0o600)
             return fd, name
 
-        with patch("permitkit.workflow.tempfile.mkstemp", side_effect=fail_second):
+        with patch("sunbridge.workflow.tempfile.mkstemp", side_effect=fail_second):
             with self.assertRaises(OSError):
                 write_report(self.report, self.base)
         for name in NAMES:
@@ -171,7 +171,7 @@ class ReportSafetyTests(unittest.TestCase):
     def test_replace_failure_cleans_staged_files(self):
         for name in NAMES:
             (self.base / name).write_text("unchanged")
-        with patch("permitkit.workflow.os.replace", side_effect=OSError("simulated replace failure")):
+        with patch("sunbridge.workflow.os.replace", side_effect=OSError("simulated replace failure")):
             with self.assertRaises(OSError):
                 write_report(self.report, self.base)
         for name in NAMES:

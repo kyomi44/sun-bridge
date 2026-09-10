@@ -1,4 +1,3 @@
-"""Sun Bridge public entry point; earlier module names remain compatible."""
-from permitkit import __version__
+"""Sun Bridge: permit notification review and CRM-neutral reconciliation."""
 
-__all__ = ["__version__"]
+__version__ = "0.3.0"

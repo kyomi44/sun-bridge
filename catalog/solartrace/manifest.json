@@ -1,0 +1,34 @@
+{
+  "schema_version": 1,
+  "dataset_id": "solartrace",
+  "version": "v9-9-2025",
+  "completed_on": "2025-09-09",
+  "catalog_updated_on": "2026-03-12",
+  "source_url": "https://data.nlr.gov/system/files/160/1763653965-SolarTRACE%20Dataset%20v9-9-2025.xlsx",
+  "source_sha256": "3a4d51ba622d1132e2451387c9b359dbd6674e1d8e94e7f59733019ccb4a6d26",
+  "bundle_sha256": "e08bb523511a27509c2940f6786e5ecdfb7aa9c502f9d01e719da177d10f946c",
+  "bundle_bytes": 677916,
+  "uncompressed_bytes": 11598449,
+  "license_notice": "NOTICE.txt",
+  "stats": {
+    "timeline_source_rows": 13557,
+    "source_installs": 1299302,
+    "unassigned_numeric_timeline_source_cells": 20,
+    "numeric_timeline_source_cells": 162314,
+    "entities": 12858,
+    "benchmarks": 28455,
+    "requirement_rows": 8706,
+    "nonzero_installation_cohorts": 72704,
+    "conflicting_benchmarks": 0,
+    "building_department_identified": 11662,
+    "building_department_unresolved_rows": 88,
+    "utility_company_identified": 1004,
+    "utility_company_unresolved_rows": 104
+  },
+  "tables": {
+    "Information": 56,
+    "AHJ-Utility Timelines": 13557,
+    "AHJ permits reqs": 8606,
+    "Utility IX reqs": 100
+  }
+}

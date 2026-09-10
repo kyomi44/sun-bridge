@@ -1,10 +1,8 @@
-# Solar Bridge governance
+# Sun Bridge governance
 
-## An early-stage project
+## Project stewardship
 
-Solar Bridge is maintainer-led. Maintainers with repository write access are responsible for reviewing contributions, protecting private information, explaining consequential decisions, and keeping the project aligned with its [charter](CHARTER.md).
-
-This document and the charter are the project's initial governance adoption. Subsequent amendments follow the review process below.
+Sun Bridge is maintainer-led. Maintainers with repository write access are responsible for reviewing contributions, protecting private information, explaining consequential decisions, and keeping the project aligned with its [charter](CHARTER.md).
 
 The project does not currently claim an elected board, an operator council, institutional partnerships, or a funded training program. We invite operators, learners, jurisdiction staff, utility staff, developers, and employers to participate. Contribution volume or sponsorship does not automatically confer decision-making authority.
 

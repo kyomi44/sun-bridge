@@ -2,7 +2,7 @@ import copy
 import unittest
 from html.parser import HTMLParser
 
-from permitkit.html_report import render_html
+from sunbridge.html_report import render_html
 
 
 class Tags(HTMLParser):

@@ -5,11 +5,19 @@ Run real message and CRM analysis in storage controlled by the operator. The too
 ## Keep these private
 
 - Mailbox archives, original messages, quoted threads, attachments, and exports such as MBOX or CSV.
-- Customer names, service addresses, email addresses, real permit/application numbers, CRM deal IDs, and organization exports.
+- Customer names, service addresses, email addresses, real permit/application numbers, CRM deal IDs, and private CRM organization exports.
 - Generated reviews containing real evidence or match candidates.
 - API tokens, credentials, local configuration, portal session links, and URLs containing private identifiers or access tokens.
 
 Place real inputs and generated outputs under `private/`. Keep token files outside the repository. Limit access according to your organization's practices. Before posting an issue or sharing a report, inspect exactly what it contains.
+
+The catalog database also becomes private operational data when review reports are attached. Do not publish it or `catalog show` results containing proposals. `catalog export` deliberately exports only the active source-derived organizations, benchmarks, requirements, provenance, and source notice; it excludes private event evidence and mappings.
+
+## Public source datasets
+
+Public source data are different from private CRM exports. The bundled SolarTRACE derivative has a verified source checksum, its own attribution and reuse terms, and preserved source definitions. Keep its [complete notice](../catalog/solartrace/NOTICE.txt) and provenance with redistributed derivatives. Do not treat the software license as a license for other people's data.
+
+The public-file checker permits one exact, checksum-pinned compressed source asset. That exception does not permit arbitrary workbooks, archives, mailboxes, private exports, or other binary files. Source updates require fresh provenance/privacy review and tests before the pin changes. See the [catalog update process](catalog.md#source-updates-and-local-storage).
 
 ## Use synthetic examples
 

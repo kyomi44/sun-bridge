@@ -25,7 +25,7 @@ python3 -m sunbridge integrations --json
 
 Open a **CRM integration** issue before a substantial connector. Identify a specific read capability, one maintainable permit-mapping approach, official API documentation, and the operator who can evaluate the workflow. Do not share your actual account configuration or token. A wishlist entry remains `planned` until working code, documentation, and tests exist.
 
-Use [templates/crm-adapter.json](../templates/crm-adapter.json) as a manifest starting point. Implement an adapter alongside `permitkit/crm.py`, then explicitly wire it into workspace validation/setup, offline doctor checks, and the CLI. Adding a manifest alone does not register executable behavior. Update the support matrix and tests together; `validate` checks that listed implemented files and tests exist, not that every claimed behavior is proven.
+Use [templates/crm-adapter.json](../templates/crm-adapter.json) as a manifest starting point. Implement an adapter alongside `sunbridge/crm.py`, then explicitly wire it into workspace validation/setup, offline doctor checks, and the CLI. Adding a manifest alone does not register executable behavior. Update the support matrix and tests together; `validate` checks that listed implemented files and tests exist, not that every claimed behavior is proven.
 
 A submission should contain:
 
