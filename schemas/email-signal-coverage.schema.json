@@ -1,0 +1,39 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "urn:sun-bridge:email-signal-coverage:v1",
+  "title": "Public email signal coverage",
+  "description": "Presence-only historical observations, not email volumes, official support, enabled parsers, or validated CRM actions.",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["schema_version", "evidence_reviewed_on", "evidence_basis", "identity_status", "public_runtime", "entries"],
+  "properties": {
+    "schema_version": {"const": "v1"},
+    "evidence_reviewed_on": {"type": "string", "format": "date", "pattern": "^\\d{4}-\\d{2}-\\d{2}$"},
+    "evidence_basis": {"const": "historical_private_review"},
+    "identity_status": {"const": "provisional"},
+    "public_runtime": {"const": "not_enabled"},
+    "entries": {
+      "type": "array",
+      "minItems": 1,
+      "maxItems": 2000,
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": ["id", "name", "candidate_signals", "pilot_events", "identity_note"],
+        "properties": {
+          "id": {"type": "string", "minLength": 1, "maxLength": 80, "pattern": "^[a-z][a-z0-9]*(?:-[a-z0-9]+)*$"},
+          "name": {"type": "string", "minLength": 1, "maxLength": 100},
+          "candidate_signals": {
+            "type": "array", "maxItems": 6, "uniqueItems": true,
+            "items": {"enum": ["submission", "review_or_correction", "approval", "issuance", "inspection", "payment"]}
+          },
+          "pilot_events": {
+            "type": "array", "maxItems": 7, "uniqueItems": true,
+            "items": {"enum": ["submission_received", "action_required", "plans_approved", "permit_issued", "inspection_passed", "inspection_failed", "permit_expired"]}
+          },
+          "identity_note": {"enum": ["none", "historical_domain_aliases", "sender_spelling_variant", "provisional_office_grouping", "unusual_domain_alias", "cross_platform_identity"]}
+        }
+      }
+    }
+  }
+}

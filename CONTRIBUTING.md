@@ -18,6 +18,8 @@ Open **Issues → New issue → Jurisdiction knowledge** in this repository. Sup
 
 If your observation comes only from private work, describe the pattern in your own words and mark it as an observation requiring verification. Do not paste the message or include customer details. You can invent a short example with a fictional customer, fictional address, synthetic permit number, and a non-routable example link.
 
+To improve the [email milestone coverage charts](docs/email-coverage.md), follow the [coverage contribution guide](docs/email-coverage-methodology.md). Contribute presence-only observations, keep candidate wording separate from exact pilot milestones, and regenerate the checked-in charts. Do not publish traffic volumes or promote an observed proposal into a validated integration.
+
 To report a parser problem, use **Synthetic parser example**. Include a minimal made-up message, its expected event, and why the current interpretation is wrong. No coding experience is required.
 
 Use **Learning feedback** to improve an exercise, explain an accessibility barrier, or propose a missing skill. The [learning path](docs/learning-path.md) offers practical ways to demonstrate progress; there is no requirement to become a programmer before contributing. Share no private employment, customer, or CRM details.

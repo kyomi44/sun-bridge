@@ -1,0 +1,780 @@
+{
+  "schema_version": "v1",
+  "evidence_reviewed_on": "2026-09-10",
+  "evidence_basis": "historical_private_review",
+  "identity_status": "provisional",
+  "public_runtime": "not_enabled",
+  "entries": [
+    {
+      "id": "apopka-fl",
+      "name": "Apopka, FL",
+      "candidate_signals": [
+        "submission",
+        "issuance",
+        "inspection",
+        "payment"
+      ],
+      "pilot_events": [],
+      "identity_note": "none"
+    },
+    {
+      "id": "bonita-springs",
+      "name": "Bonita Springs",
+      "candidate_signals": [
+        "review_or_correction",
+        "approval",
+        "issuance",
+        "inspection",
+        "payment"
+      ],
+      "pilot_events": [],
+      "identity_note": "none"
+    },
+    {
+      "id": "brevard-county",
+      "name": "Brevard County",
+      "candidate_signals": [
+        "review_or_correction",
+        "approval",
+        "issuance",
+        "inspection",
+        "payment"
+      ],
+      "pilot_events": [],
+      "identity_note": "none"
+    },
+    {
+      "id": "broward-county",
+      "name": "Broward County",
+      "candidate_signals": [
+        "payment"
+      ],
+      "pilot_events": [],
+      "identity_note": "none"
+    },
+    {
+      "id": "cape-coral",
+      "name": "Cape Coral",
+      "candidate_signals": [
+        "review_or_correction",
+        "approval",
+        "issuance",
+        "payment"
+      ],
+      "pilot_events": [
+        "action_required",
+        "permit_issued",
+        "permit_expired"
+      ],
+      "identity_note": "none"
+    },
+    {
+      "id": "charlotte-county",
+      "name": "Charlotte County",
+      "candidate_signals": [
+        "approval"
+      ],
+      "pilot_events": [
+        "submission_received",
+        "action_required",
+        "plans_approved"
+      ],
+      "identity_note": "none"
+    },
+    {
+      "id": "cheyenne-wy",
+      "name": "Cheyenne, WY",
+      "candidate_signals": [
+        "submission",
+        "issuance",
+        "inspection",
+        "payment"
+      ],
+      "pilot_events": [],
+      "identity_note": "none"
+    },
+    {
+      "id": "citrus-county",
+      "name": "Citrus County",
+      "candidate_signals": [
+        "review_or_correction"
+      ],
+      "pilot_events": [],
+      "identity_note": "none"
+    },
+    {
+      "id": "collier-county",
+      "name": "Collier County",
+      "candidate_signals": [
+        "submission",
+        "review_or_correction",
+        "issuance",
+        "inspection",
+        "payment"
+      ],
+      "pilot_events": [],
+      "identity_note": "historical_domain_aliases"
+    },
+    {
+      "id": "crystal-river",
+      "name": "Crystal River",
+      "candidate_signals": [
+        "inspection"
+      ],
+      "pilot_events": [],
+      "identity_note": "none"
+    },
+    {
+      "id": "daytona-beach",
+      "name": "Daytona Beach",
+      "candidate_signals": [
+        "submission",
+        "review_or_correction",
+        "inspection",
+        "payment"
+      ],
+      "pilot_events": [],
+      "identity_note": "none"
+    },
+    {
+      "id": "deltona",
+      "name": "Deltona",
+      "candidate_signals": [
+        "review_or_correction",
+        "issuance",
+        "inspection",
+        "payment"
+      ],
+      "pilot_events": [],
+      "identity_note": "none"
+    },
+    {
+      "id": "dunnellon",
+      "name": "Dunnellon",
+      "candidate_signals": [
+        "submission",
+        "issuance",
+        "inspection",
+        "payment"
+      ],
+      "pilot_events": [],
+      "identity_note": "sender_spelling_variant"
+    },
+    {
+      "id": "edgewater",
+      "name": "Edgewater",
+      "candidate_signals": [
+        "submission",
+        "review_or_correction",
+        "approval",
+        "inspection",
+        "payment"
+      ],
+      "pilot_events": [],
+      "identity_note": "none"
+    },
+    {
+      "id": "flagler-county",
+      "name": "Flagler County",
+      "candidate_signals": [
+        "review_or_correction",
+        "issuance",
+        "inspection"
+      ],
+      "pilot_events": [],
+      "identity_note": "none"
+    },
+    {
+      "id": "fort-lauderdale",
+      "name": "Fort Lauderdale",
+      "candidate_signals": [
+        "submission",
+        "review_or_correction",
+        "approval",
+        "issuance",
+        "inspection",
+        "payment"
+      ],
+      "pilot_events": [],
+      "identity_note": "none"
+    },
+    {
+      "id": "fort-myers",
+      "name": "Fort Myers",
+      "candidate_signals": [
+        "review_or_correction",
+        "approval",
+        "inspection"
+      ],
+      "pilot_events": [],
+      "identity_note": "none"
+    },
+    {
+      "id": "gulfport",
+      "name": "Gulfport",
+      "candidate_signals": [
+        "submission",
+        "issuance",
+        "payment"
+      ],
+      "pilot_events": [],
+      "identity_note": "none"
+    },
+    {
+      "id": "hendry-county",
+      "name": "Hendry County",
+      "candidate_signals": [
+        "submission",
+        "review_or_correction",
+        "inspection",
+        "payment"
+      ],
+      "pilot_events": [],
+      "identity_note": "provisional_office_grouping"
+    },
+    {
+      "id": "hillsborough-county",
+      "name": "Hillsborough County",
+      "candidate_signals": [
+        "submission",
+        "issuance",
+        "inspection",
+        "payment"
+      ],
+      "pilot_events": [],
+      "identity_note": "none"
+    },
+    {
+      "id": "hollywood",
+      "name": "Hollywood",
+      "candidate_signals": [
+        "review_or_correction",
+        "approval",
+        "issuance",
+        "inspection",
+        "payment"
+      ],
+      "pilot_events": [],
+      "identity_note": "none"
+    },
+    {
+      "id": "lake-alfred",
+      "name": "Lake Alfred",
+      "candidate_signals": [
+        "payment"
+      ],
+      "pilot_events": [],
+      "identity_note": "none"
+    },
+    {
+      "id": "lake-county",
+      "name": "Lake County",
+      "candidate_signals": [
+        "review_or_correction",
+        "issuance",
+        "inspection",
+        "payment"
+      ],
+      "pilot_events": [],
+      "identity_note": "none"
+    },
+    {
+      "id": "laramie",
+      "name": "Laramie",
+      "candidate_signals": [
+        "submission",
+        "review_or_correction",
+        "approval",
+        "issuance",
+        "inspection",
+        "payment"
+      ],
+      "pilot_events": [],
+      "identity_note": "none"
+    },
+    {
+      "id": "lauderdale-lakes",
+      "name": "Lauderdale Lakes",
+      "candidate_signals": [
+        "submission",
+        "review_or_correction",
+        "approval",
+        "issuance",
+        "inspection",
+        "payment"
+      ],
+      "pilot_events": [],
+      "identity_note": "cross_platform_identity"
+    },
+    {
+      "id": "lee-county",
+      "name": "Lee County",
+      "candidate_signals": [
+        "submission",
+        "review_or_correction",
+        "issuance",
+        "inspection",
+        "payment"
+      ],
+      "pilot_events": [
+        "inspection_passed",
+        "inspection_failed"
+      ],
+      "identity_note": "none"
+    },
+    {
+      "id": "margate",
+      "name": "Margate",
+      "candidate_signals": [
+        "inspection"
+      ],
+      "pilot_events": [],
+      "identity_note": "none"
+    },
+    {
+      "id": "marion-county",
+      "name": "Marion County",
+      "candidate_signals": [
+        "review_or_correction",
+        "approval",
+        "issuance",
+        "inspection",
+        "payment"
+      ],
+      "pilot_events": [],
+      "identity_note": "historical_domain_aliases"
+    },
+    {
+      "id": "martin-county",
+      "name": "Martin County",
+      "candidate_signals": [
+        "review_or_correction",
+        "approval",
+        "inspection",
+        "payment"
+      ],
+      "pilot_events": [],
+      "identity_note": "none"
+    },
+    {
+      "id": "melbourne",
+      "name": "Melbourne",
+      "candidate_signals": [
+        "review_or_correction",
+        "inspection",
+        "payment"
+      ],
+      "pilot_events": [],
+      "identity_note": "none"
+    },
+    {
+      "id": "miami-dade",
+      "name": "Miami-Dade",
+      "candidate_signals": [
+        "submission",
+        "review_or_correction",
+        "approval",
+        "payment"
+      ],
+      "pilot_events": [],
+      "identity_note": "none"
+    },
+    {
+      "id": "mount-dora",
+      "name": "Mount Dora",
+      "candidate_signals": [
+        "inspection"
+      ],
+      "pilot_events": [],
+      "identity_note": "none"
+    },
+    {
+      "id": "natrona-county-wy",
+      "name": "Natrona County, WY",
+      "candidate_signals": [
+        "submission",
+        "issuance",
+        "payment"
+      ],
+      "pilot_events": [],
+      "identity_note": "none"
+    },
+    {
+      "id": "north-lauderdale",
+      "name": "North Lauderdale",
+      "candidate_signals": [
+        "review_or_correction",
+        "approval",
+        "payment"
+      ],
+      "pilot_events": [],
+      "identity_note": "unusual_domain_alias"
+    },
+    {
+      "id": "north-port",
+      "name": "North Port",
+      "candidate_signals": [
+        "review_or_correction",
+        "approval",
+        "issuance",
+        "payment"
+      ],
+      "pilot_events": [],
+      "identity_note": "none"
+    },
+    {
+      "id": "orange-county",
+      "name": "Orange County",
+      "candidate_signals": [
+        "review_or_correction",
+        "approval",
+        "issuance",
+        "inspection",
+        "payment"
+      ],
+      "pilot_events": [],
+      "identity_note": "none"
+    },
+    {
+      "id": "ormond-beach",
+      "name": "Ormond Beach",
+      "candidate_signals": [
+        "inspection",
+        "payment"
+      ],
+      "pilot_events": [],
+      "identity_note": "none"
+    },
+    {
+      "id": "osceola-county",
+      "name": "Osceola County",
+      "candidate_signals": [
+        "submission",
+        "approval",
+        "issuance",
+        "inspection"
+      ],
+      "pilot_events": [],
+      "identity_note": "none"
+    },
+    {
+      "id": "palm-bay",
+      "name": "Palm Bay",
+      "candidate_signals": [
+        "submission",
+        "review_or_correction",
+        "approval",
+        "issuance",
+        "inspection",
+        "payment"
+      ],
+      "pilot_events": [],
+      "identity_note": "historical_domain_aliases"
+    },
+    {
+      "id": "palm-beach-county",
+      "name": "Palm Beach County",
+      "candidate_signals": [
+        "submission",
+        "review_or_correction",
+        "approval",
+        "issuance",
+        "payment"
+      ],
+      "pilot_events": [],
+      "identity_note": "none"
+    },
+    {
+      "id": "palm-coast",
+      "name": "Palm Coast",
+      "candidate_signals": [
+        "submission",
+        "review_or_correction",
+        "issuance",
+        "inspection",
+        "payment"
+      ],
+      "pilot_events": [],
+      "identity_note": "none"
+    },
+    {
+      "id": "pasco-county",
+      "name": "Pasco County",
+      "candidate_signals": [
+        "review_or_correction",
+        "approval",
+        "issuance",
+        "inspection"
+      ],
+      "pilot_events": [],
+      "identity_note": "none"
+    },
+    {
+      "id": "pinellas-county",
+      "name": "Pinellas County",
+      "candidate_signals": [
+        "review_or_correction",
+        "approval",
+        "inspection",
+        "payment"
+      ],
+      "pilot_events": [],
+      "identity_note": "none"
+    },
+    {
+      "id": "pittsburgh",
+      "name": "Pittsburgh",
+      "candidate_signals": [
+        "issuance"
+      ],
+      "pilot_events": [],
+      "identity_note": "none"
+    },
+    {
+      "id": "plant-city",
+      "name": "Plant City",
+      "candidate_signals": [
+        "submission",
+        "review_or_correction",
+        "issuance",
+        "inspection",
+        "payment"
+      ],
+      "pilot_events": [],
+      "identity_note": "none"
+    },
+    {
+      "id": "plantation",
+      "name": "Plantation",
+      "candidate_signals": [
+        "review_or_correction",
+        "approval",
+        "payment"
+      ],
+      "pilot_events": [],
+      "identity_note": "none"
+    },
+    {
+      "id": "pompano-beach",
+      "name": "Pompano Beach",
+      "candidate_signals": [
+        "submission",
+        "review_or_correction",
+        "inspection",
+        "payment"
+      ],
+      "pilot_events": [],
+      "identity_note": "none"
+    },
+    {
+      "id": "port-st-lucie",
+      "name": "Port St. Lucie",
+      "candidate_signals": [
+        "submission",
+        "review_or_correction",
+        "approval",
+        "inspection",
+        "payment"
+      ],
+      "pilot_events": [],
+      "identity_note": "none"
+    },
+    {
+      "id": "rockledge",
+      "name": "Rockledge",
+      "candidate_signals": [
+        "submission",
+        "review_or_correction",
+        "approval",
+        "issuance",
+        "inspection",
+        "payment"
+      ],
+      "pilot_events": [],
+      "identity_note": "none"
+    },
+    {
+      "id": "sarasota-county",
+      "name": "Sarasota County",
+      "candidate_signals": [
+        "review_or_correction",
+        "approval",
+        "inspection",
+        "payment"
+      ],
+      "pilot_events": [],
+      "identity_note": "none"
+    },
+    {
+      "id": "satellite-beach",
+      "name": "Satellite Beach",
+      "candidate_signals": [
+        "submission",
+        "review_or_correction",
+        "approval",
+        "issuance",
+        "inspection"
+      ],
+      "pilot_events": [],
+      "identity_note": "none"
+    },
+    {
+      "id": "scranton-pa",
+      "name": "Scranton, PA",
+      "candidate_signals": [
+        "submission",
+        "issuance",
+        "inspection",
+        "payment"
+      ],
+      "pilot_events": [],
+      "identity_note": "none"
+    },
+    {
+      "id": "seminole-county",
+      "name": "Seminole County",
+      "candidate_signals": [
+        "submission",
+        "review_or_correction",
+        "payment"
+      ],
+      "pilot_events": [],
+      "identity_note": "none"
+    },
+    {
+      "id": "st-lucie-county",
+      "name": "St. Lucie County",
+      "candidate_signals": [
+        "submission",
+        "approval",
+        "issuance",
+        "inspection",
+        "payment"
+      ],
+      "pilot_events": [],
+      "identity_note": "none"
+    },
+    {
+      "id": "st-petersburg",
+      "name": "St. Petersburg",
+      "candidate_signals": [
+        "inspection",
+        "payment"
+      ],
+      "pilot_events": [],
+      "identity_note": "none"
+    },
+    {
+      "id": "stuart",
+      "name": "Stuart",
+      "candidate_signals": [
+        "submission",
+        "issuance",
+        "inspection",
+        "payment"
+      ],
+      "pilot_events": [],
+      "identity_note": "none"
+    },
+    {
+      "id": "sunrise",
+      "name": "Sunrise",
+      "candidate_signals": [
+        "submission",
+        "review_or_correction",
+        "approval",
+        "issuance",
+        "inspection",
+        "payment"
+      ],
+      "pilot_events": [],
+      "identity_note": "none"
+    },
+    {
+      "id": "tamarac",
+      "name": "Tamarac",
+      "candidate_signals": [
+        "submission",
+        "review_or_correction",
+        "approval",
+        "inspection",
+        "payment"
+      ],
+      "pilot_events": [],
+      "identity_note": "none"
+    },
+    {
+      "id": "titusville",
+      "name": "Titusville",
+      "candidate_signals": [
+        "submission",
+        "review_or_correction",
+        "approval",
+        "issuance",
+        "inspection",
+        "payment"
+      ],
+      "pilot_events": [],
+      "identity_note": "none"
+    },
+    {
+      "id": "venice",
+      "name": "Venice",
+      "candidate_signals": [
+        "inspection",
+        "payment"
+      ],
+      "pilot_events": [],
+      "identity_note": "none"
+    },
+    {
+      "id": "village-of-palm-springs",
+      "name": "Village of Palm Springs",
+      "candidate_signals": [
+        "submission",
+        "review_or_correction",
+        "issuance",
+        "payment"
+      ],
+      "pilot_events": [],
+      "identity_note": "none"
+    },
+    {
+      "id": "volusia-county",
+      "name": "Volusia County",
+      "candidate_signals": [
+        "submission",
+        "inspection",
+        "payment"
+      ],
+      "pilot_events": [],
+      "identity_note": "none"
+    },
+    {
+      "id": "winter-garden",
+      "name": "Winter Garden",
+      "candidate_signals": [
+        "submission",
+        "review_or_correction",
+        "approval",
+        "issuance",
+        "inspection",
+        "payment"
+      ],
+      "pilot_events": [],
+      "identity_note": "none"
+    },
+    {
+      "id": "winter-springs",
+      "name": "Winter Springs",
+      "candidate_signals": [
+        "approval",
+        "issuance",
+        "inspection",
+        "payment"
+      ],
+      "pilot_events": [],
+      "identity_note": "none"
+    }
+  ]
+}

@@ -1,0 +1,99 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" width="960" height="512" viewBox="0 0 960 512" role="img" aria-labelledby="coverage-title coverage-description">
+<title id="coverage-title">Email milestones observed in the private pilot</title>
+<desc id="coverage-description">Alphabetical AHJ milestone matrix. P means an exact milestone was proposed in a historical private review-only pilot, not validated production support. A dash means not demonstrated. No real-AHJ parser or automatic CRM update is enabled. An accessible table is in the coverage documentation.</desc>
+<style>
+text { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif; }
+.background { fill: #f6f8fa; } .panel { fill: #ffffff; stroke: #d0d7de; }
+.title { fill: #172a3a; font-size: 25px; font-weight: 700; }
+.subtitle { fill: #536473; font-size: 15px; }
+.eyebrow { fill: #516170; font-size: 11px; font-weight: 700; letter-spacing: 1.4px; }
+.column { fill: #425667; font-size: 16px; font-weight: 650; }
+.name { fill: #1c3345; font-size: 16px; font-weight: 600; }
+.row-alt { fill: #f6f8fa; } .rule { stroke: #e6ebef; stroke-width: 1; }
+.pilot-bg { fill: #d9f0e8; } .pilot-mark { fill: #125642; font-size: 15px; font-weight: 750; }
+.candidate-bg { fill: #fff0c8; } .candidate-mark { fill: #765000; font-size: 15px; font-weight: 750; }
+.empty { fill: #788894; font-size: 17px; }
+.note { fill: #536473; font-size: 14px; }
+@media (prefers-color-scheme: dark) {
+.background { fill: #0d1117; } .panel { fill: #161b22; stroke: #30363d; }
+.title, .name { fill: #e6edf3; } .subtitle, .note, .column, .eyebrow { fill: #a8b8c7; }
+.row-alt { fill: #1c232d; } .rule { stroke: #30363d; }
+.pilot-bg { fill: #153f34; } .pilot-mark { fill: #86dbb7; }
+.candidate-bg { fill: #43391f; } .candidate-mark { fill: #efcc78; }
+.empty { fill: #82909d; }
+}
+</style>
+<rect width="960" height="512" rx="16" class="background"/>
+<text x="28" y="32" class="eyebrow" text-anchor="start">SUN BRIDGE  /  EMAIL EVIDENCE</text>
+<text x="28" y="70" class="title" text-anchor="start">Email milestones observed in the private pilot</text>
+<text x="28" y="98" class="subtitle" text-anchor="start">Exact event proposals · Operator validation required</text>
+<text x="28" y="120" class="subtitle" text-anchor="start">Real-AHJ parsers not enabled · Historical evidence, not live monitoring</text>
+<rect x="28" y="148" width="904" height="200" rx="10" class="panel"/>
+<text x="46" y="175" class="column" text-anchor="start">AHJ</text>
+<text x="46" y="195" class="note" text-anchor="start">Provisional identity</text>
+<text x="274.57142857142856" y="173" class="column" text-anchor="middle">Submission</text>
+<text x="274.57142857142856" y="193" class="column" text-anchor="middle">received</text>
+<text x="375.7142857142857" y="173" class="column" text-anchor="middle">Action</text>
+<text x="375.7142857142857" y="193" class="column" text-anchor="middle">required</text>
+<text x="476.85714285714283" y="173" class="column" text-anchor="middle">Plans</text>
+<text x="476.85714285714283" y="193" class="column" text-anchor="middle">approved</text>
+<text x="578.0" y="173" class="column" text-anchor="middle">Permit</text>
+<text x="578.0" y="193" class="column" text-anchor="middle">issued</text>
+<text x="679.1428571428571" y="173" class="column" text-anchor="middle">Inspection</text>
+<text x="679.1428571428571" y="193" class="column" text-anchor="middle">passed</text>
+<text x="780.2857142857142" y="173" class="column" text-anchor="middle">Inspection</text>
+<text x="780.2857142857142" y="193" class="column" text-anchor="middle">failed</text>
+<text x="881.4285714285714" y="173" class="column" text-anchor="middle">Permit</text>
+<text x="881.4285714285714" y="193" class="column" text-anchor="middle">expired</text>
+<line x1="28" y1="210" x2="932" y2="210" class="rule"/>
+<rect x="29" y="211" width="902" height="45" class="row-alt"/>
+<g><title>Cape Coral: Provisional identity</title>
+<text x="46" y="238.0" class="name" text-anchor="start">Cape Coral</text>
+<text x="274.57142857142856" y="238.0" class="empty" text-anchor="middle">—</text>
+<circle cx="375.7142857142857" cy="233.0" r="12" class="pilot-bg"/>
+<text x="375.7142857142857" y="237.5" class="pilot-mark" text-anchor="middle">P</text>
+<text x="476.85714285714283" y="238.0" class="empty" text-anchor="middle">—</text>
+<circle cx="578.0" cy="233.0" r="12" class="pilot-bg"/>
+<text x="578.0" y="237.5" class="pilot-mark" text-anchor="middle">P</text>
+<text x="679.1428571428571" y="238.0" class="empty" text-anchor="middle">—</text>
+<text x="780.2857142857142" y="238.0" class="empty" text-anchor="middle">—</text>
+<circle cx="881.4285714285714" cy="233.0" r="12" class="pilot-bg"/>
+<text x="881.4285714285714" y="237.5" class="pilot-mark" text-anchor="middle">P</text>
+</g>
+<line x1="29" y1="256" x2="931" y2="256" class="rule"/>
+<g><title>Charlotte County: Provisional identity</title>
+<text x="46" y="284.0" class="name" text-anchor="start">Charlotte County</text>
+<circle cx="274.57142857142856" cy="279.0" r="12" class="pilot-bg"/>
+<text x="274.57142857142856" y="283.5" class="pilot-mark" text-anchor="middle">P</text>
+<circle cx="375.7142857142857" cy="279.0" r="12" class="pilot-bg"/>
+<text x="375.7142857142857" y="283.5" class="pilot-mark" text-anchor="middle">P</text>
+<circle cx="476.85714285714283" cy="279.0" r="12" class="pilot-bg"/>
+<text x="476.85714285714283" y="283.5" class="pilot-mark" text-anchor="middle">P</text>
+<text x="578.0" y="284.0" class="empty" text-anchor="middle">—</text>
+<text x="679.1428571428571" y="284.0" class="empty" text-anchor="middle">—</text>
+<text x="780.2857142857142" y="284.0" class="empty" text-anchor="middle">—</text>
+<text x="881.4285714285714" y="284.0" class="empty" text-anchor="middle">—</text>
+</g>
+<line x1="29" y1="302" x2="931" y2="302" class="rule"/>
+<rect x="29" y="303" width="902" height="45" class="row-alt"/>
+<g><title>Lee County: Provisional identity</title>
+<text x="46" y="330.0" class="name" text-anchor="start">Lee County</text>
+<text x="274.57142857142856" y="330.0" class="empty" text-anchor="middle">—</text>
+<text x="375.7142857142857" y="330.0" class="empty" text-anchor="middle">—</text>
+<text x="476.85714285714283" y="330.0" class="empty" text-anchor="middle">—</text>
+<text x="578.0" y="330.0" class="empty" text-anchor="middle">—</text>
+<circle cx="679.1428571428571" cy="325.0" r="12" class="pilot-bg"/>
+<text x="679.1428571428571" y="329.5" class="pilot-mark" text-anchor="middle">P</text>
+<circle cx="780.2857142857142" cy="325.0" r="12" class="pilot-bg"/>
+<text x="780.2857142857142" y="329.5" class="pilot-mark" text-anchor="middle">P</text>
+<text x="881.4285714285714" y="330.0" class="empty" text-anchor="middle">—</text>
+</g>
+<circle cx="42" cy="376" r="12" class="pilot-bg"/>
+<text x="42" y="380.5" class="pilot-mark" text-anchor="middle">P</text>
+<text x="64" y="380" class="note" text-anchor="start">Private pilot proposal · not yet operator-validated</text>
+<text x="28" y="404" class="note" text-anchor="start">—  Not demonstrated · not proof of absence</text>
+<text x="28" y="434" class="note" text-anchor="start">Receipt ≠ acceptance. Plans approved ≠ permit issued. Inspection result ≠ final approval.</text>
+<text x="28" y="456" class="note" text-anchor="start">Real-AHJ parsers not enabled. No automatic CRM writes. Review the methodology before use.</text>
+<text x="28" y="488" class="note" text-anchor="start">Evidence reviewed 2026-09-10 · Volumes and private evidence omitted</text>
+</svg>

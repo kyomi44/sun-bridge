@@ -49,6 +49,14 @@ Reconciliation proposes links for review; it does not establish jurisdiction bou
 | Optional model extraction | Evaluate subject/body interpretation through an explicitly authorized OpenAI-compatible endpoint. |
 | Private reports | Inspect source text, event scope, match candidates, duplicates, and import issues in HTML, Markdown, or JSON. |
 
+## Which AHJs send useful milestone updates?
+
+Browse the [email coverage charts](docs/email-coverage.md) to find candidate AHJs and see which specific milestones have private pilot evidence. The public view uses presence-only marks, with no email volumes or customer data.
+
+![Email milestone evidence: specific private-pilot observations, not enabled public parsers](docs/assets/email-pilot-milestones.svg)
+
+Pilot-observed milestones are experimental proposals requiring human review, not validated CRM updates. The broader candidate chart shows subject-level signals only; a blank means not demonstrated, not unsupported. Read the [evidence and contribution guide](docs/email-coverage-methodology.md) before relying on or extending a mark.
+
 ## Review a permitting inbox sample
 
 Try the complete review flow with fictional messages and permit records:
