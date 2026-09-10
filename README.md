@@ -14,7 +14,7 @@ You need Python 3.10 or newer. No extra Python packages, account, API key, or ne
 git clone https://github.com/kyomi44/sun-bridge.git
 cd sun-bridge
 python3 -m sunbridge catalog init
-python3 -m sunbridge catalog search --state FL --kind building_department --query "Cape Coral"
+python3 -m sunbridge catalog search --state FL --kind building_department --query "Cape Coral" --format table
 ```
 
 Cloning downloads the repository; catalog commands then work locally. You can also download the repository ZIP and open a terminal in the extracted folder. On Windows, use `py -3` if `python3` is unavailable. Run from the checkout; a standalone installed-package distribution is not supported yet.
@@ -56,6 +56,14 @@ Browse the [email coverage charts](docs/email-coverage.md) to find candidate AHJ
 ![Email milestone evidence: specific private-pilot observations, not enabled public parsers](docs/assets/email-pilot-milestones.svg)
 
 Pilot-observed milestones are experimental proposals requiring human review, not validated CRM updates. The broader candidate chart shows subject-level signals only; a blank means not demonstrated, not unsupported. Read the [evidence and contribution guide](docs/email-coverage-methodology.md) before relying on or extending a mark.
+
+To connect a chart row to the public catalog, propose candidate entities for review:
+
+```sh
+python3 -m sunbridge catalog reconcile-coverage --state FL
+```
+
+The private `review.json` lists candidate catalog entity IDs for each registry entry, marks ambiguous and unmatched names, and changes nothing. A single candidate is a shortcut for the reviewer, not a verified jurisdiction identity. See [proposing catalog links](docs/email-coverage-methodology.md#propose-catalog-links-for-review).
 
 ## Review a permitting inbox sample
 

@@ -11,7 +11,7 @@ python3 -m sunbridge catalog search --state FL --kind utility_company
 python3 -m sunbridge catalog show --id ENTITY_ID
 ```
 
-Replace `ENTITY_ID` with a result's exact `entity_id`. `--query` searches names, recorded aliases, and source IDs; it is not a property-to-jurisdiction lookup. Results default to 50; set `--limit` from 1 to 1,000. Omit a state or kind filter to search more broadly. Every catalog command accepts `--db private/your-catalog.sqlite` if you need a separate local database.
+Replace `ENTITY_ID` with a result's exact `entity_id`. `--query` searches names, recorded aliases, and source IDs; it is not a property-to-jurisdiction lookup. Search prints full JSON records by default; add `--format table` for aligned columns showing the entity ID, kind, states, identity status, and source name. Results default to 50; set `--limit` from 1 to 1,000. Omit a state or kind filter to search more broadly. Every catalog command accepts `--db private/your-catalog.sqlite` if you need a separate local database.
 
 The bundled v9-9-2025 snapshot contains:
 
@@ -84,6 +84,16 @@ The `review.json` contains your `organization_id`, candidate entity IDs, issues,
 Only case and whitespace are normalized in names. The tool does not guess that a city office, county office, postal city, county parent, and unincorporated area are the same jurisdiction. A utility's EIA ID also needs a source state match; it is not a service-territory map. A `geo_id`/`eia_id` is never a CRM organization ID.
 
 This input contract is CRM-neutral. An existing `pipedrive-import` inventory is a different shape and must be deliberately transformed first: its `crm.organization_id` identifies your record, `organization_name` supplies the name, and verified organization type/state supply `kind`/`state`. Retain conflicting metadata for review; do not derive state from a mailing address or treat a county organization reference as a geography ID. No live account access is needed for catalog reconciliation.
+
+### Propose links for public email coverage entries
+
+The [email coverage registry](email-coverage.md) names AHJs as provisional display groups without catalog IDs. To propose candidate entities for a reviewer:
+
+```sh
+python3 -m sunbridge catalog reconcile-coverage --state FL --output private/coverage-reconciliation
+```
+
+The command reads the public registry and the active catalog source, and writes `review.json` privately. Each item lists in-state candidates, out-of-state candidates, the match method, and review issues. Only building departments are candidates. A registry name's own `, XX` state suffix always overrides `--state`; without either, every state is searched and the item says so. The command writes nothing to the registry, the catalog, a profile, or a CRM. The [coverage methodology](email-coverage-methodology.md#propose-catalog-links-for-review) explains how to read and act on the proposals.
 
 ## Attach new proposed evidence without changing source facts
 
