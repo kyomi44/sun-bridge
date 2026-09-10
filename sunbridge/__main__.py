@@ -38,6 +38,24 @@ def _deal_ids(value: str) -> list[int]:
     return values
 
 
+def _search_table(rows: list[dict], limit: int) -> str:
+    """Render search hits as aligned text for people; JSON remains the default."""
+    if not rows:
+        return "No catalog entities matched. Broaden the query or remove a filter."
+    headers = ("entity_id", "kind", "states", "identity", "name")
+    table = [(row["entity_id"], row["kind"], ",".join(row["states"]), row["identity_status"], row["name"]) for row in rows]
+    widths = [max(len(header), *(len(cells[i]) for cells in table)) for i, header in enumerate(headers)]
+    lines = [" ".join(header.ljust(width) for header, width in zip(headers, widths)).rstrip(),
+             " ".join("-" * width for width in widths)]
+    lines += [" ".join(cell.ljust(width) for cell, width in zip(cells, widths)).rstrip() for cells in table]
+    lines.append("")
+    lines.append(f"{len(rows)} results. Inspect one with: python3 -m sunbridge catalog show --id ENTITY_ID")
+    if len(rows) >= limit:
+        lines.append(f"Results are capped at --limit {limit}; narrow the query or raise the limit (up to 1000).")
+    lines.append("Historical source data, not current status. Identity 'unresolved' means the source row had no ID.")
+    return "\n".join(lines)
+
+
 def _catalog_command(args) -> int:
     from .catalog import attach_review, export_catalog, init_catalog, reconcile_organizations, search_catalog, show_entity
     from .solartrace import load_bundle, normalize_snapshot, read_workbook
@@ -54,6 +72,9 @@ def _catalog_command(args) -> int:
         result["note"] = "Local catalog ready. Historical data, not current status. CRM writes: 0."
     elif action == "search":
         result = search_catalog(db, query=args.query, state=args.state, kind=args.kind, limit=args.limit)
+        if args.format == "table":
+            print(_search_table(result, args.limit))
+            return 0
     elif action == "show":
         result = show_entity(db, args.id)
     elif action == "export":
@@ -74,6 +95,14 @@ def _catalog_command(args) -> int:
         write_private_json(output / "review.json", report)
         result = {"summary": report["summary"], "report_path": str(output / "review.json"), "crm_writes": 0,
                   "note": "Candidate links only. Review jurisdiction and identifiers before any CRM import."}
+    elif action == "reconcile-coverage":
+        from .coverage import load_registry
+        from .crosswalk import reconcile_coverage
+        output = preflight_private_targets(private_output(args.output), ["review.json"], sources=[db, args.registry])
+        report = reconcile_coverage(db, load_registry(args.registry), state=args.state)
+        write_private_json(output / "review.json", report)
+        result = {"summary": report["summary"], "report_path": str(output / "review.json"), "crm_writes": 0, "registry_writes": 0,
+                  "note": "Candidate links only. The public registry and the catalog were not changed; confirm jurisdiction identity before recording a link."}
     else:
         preflight_private_targets(db.parent, [db.name], sources=[args.report, args.links], overwrite=True)
         result = attach_review(db, read_json(args.report), read_json(args.links))
@@ -94,6 +123,7 @@ def main(argv=None) -> int:
         ("show", "Inspect one entity, source benchmarks, requirements, and proposed evidence"),
         ("export", "Export source-derived data and required attribution; never private event evidence"),
         ("reconcile", "Propose organization links for human review; no CRM writes"),
+        ("reconcile-coverage", "Propose catalog entities for public email coverage entries; review only, no writes"),
         ("attach-review", "Retain review proposals through an explicit profile-to-catalog crosswalk"),
     ):
         command = catalog_sub.add_parser(name, help=help_text)
@@ -104,6 +134,11 @@ def main(argv=None) -> int:
             command.add_argument("--kind", choices=["building_department", "utility_company"])
             command.add_argument("--query", default="")
             command.add_argument("--limit", type=int, default=50)
+            command.add_argument("--format", choices=["json", "table"], default="json", help="table prints aligned columns for people; json is the default")
+        elif name == "reconcile-coverage":
+            command.add_argument("--registry", type=Path, default=ROOT / "coverage/ahj-email-signals.json")
+            command.add_argument("--state", help="Default state for entries whose registry name carries no ', XX' suffix")
+            command.add_argument("--output", default=str(ROOT / "private/coverage-reconciliation"))
         elif name == "show":
             command.add_argument("--id", required=True)
         elif name == "import-workbook":
