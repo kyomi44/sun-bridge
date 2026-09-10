@@ -1,0 +1,13 @@
+{
+  "id": "example_crm",
+  "name": "Example CRM (replace with the actual CRM)",
+  "status": "planned",
+  "scope": "Describe exactly which records and fields this adapter can read.",
+  "organization_discovery": false,
+  "permit_reads": false,
+  "crm_writes": false,
+  "authentication": "Document the supported authentication method; never include credentials.",
+  "verification": "State offline tests, live checks, limitations, and who maintains the adapter.",
+  "implementation": [],
+  "tests": []
+}

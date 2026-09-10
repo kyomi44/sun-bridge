@@ -7,9 +7,11 @@ CRM values are unverified observations, not verified jurisdiction boundaries.
 
 from __future__ import annotations
 
+import http.client
 import json
 import os
 import re
+import stat
 import time
 import urllib.error
 import urllib.parse
@@ -22,6 +24,7 @@ from typing import Any, Iterator
 
 API_BASE = "https://api.pipedrive.com"
 ALLOWED_PATHS = {"/api/v2/organizationFields", "/api/v2/organizations"}
+MAX_TOKEN_FILE_BYTES = 8192
 
 
 class PipedriveError(RuntimeError):
@@ -37,9 +40,21 @@ def read_token(token_file: Path | None = None) -> str:
     token = os.environ.get("PIPEDRIVE_API_TOKEN", "").strip()
     if token_file is not None:
         try:
-            token = Path(token_file).read_text(encoding="utf-8").strip()
-        except (OSError, UnicodeError):
-            raise PipedriveError("Could not read the Pipedrive token file.") from None
+            path = Path(token_file)
+            if path.is_symlink():
+                raise ValueError()
+            flags = os.O_RDONLY | getattr(os, "O_NOFOLLOW", 0) | getattr(os, "O_NONBLOCK", 0)
+            fd = os.open(path, flags)
+            with os.fdopen(fd, "rb") as source:
+                metadata = os.fstat(source.fileno())
+                if not stat.S_ISREG(metadata.st_mode) or metadata.st_size > MAX_TOKEN_FILE_BYTES:
+                    raise ValueError()
+                raw = source.read(MAX_TOKEN_FILE_BYTES + 1)
+            if len(raw) > MAX_TOKEN_FILE_BYTES:
+                raise ValueError()
+            token = raw.decode("utf-8").strip()
+        except (OSError, UnicodeError, ValueError):
+            raise PipedriveError("Use a readable, regular UTF-8 Pipedrive token file, not a symbolic link, no larger than 8192 bytes.") from None
     if not token or not re.fullmatch(r"[A-Za-z0-9._-]+", token) or len(token) > 4096:
         raise PipedriveError("Provide a valid token file or PIPEDRIVE_API_TOKEN.")
     return token
@@ -57,7 +72,7 @@ class PipedriveClient:
         request = urllib.request.Request(
             url, method="GET",
             headers={"x-api-token": self._token, "Accept": "application/json",
-                     "User-Agent": "solar-bridge-readonly/0.1"},
+                     "User-Agent": "sun-bridge-readonly/0.1"},
         )
         for attempt in range(4):
             try:
@@ -81,7 +96,7 @@ class PipedriveClient:
                     time.sleep(delay)
                     continue
                 raise PipedriveError(f"Pipedrive inventory GET failed (HTTP {status}).") from None
-            except (urllib.error.URLError, OSError, TimeoutError):
+            except (urllib.error.URLError, http.client.HTTPException, OSError, TimeoutError):
                 raise PipedriveError("Could not connect to Pipedrive for the inventory GET.") from None
         raise PipedriveError("Pipedrive inventory retries exhausted.")
 

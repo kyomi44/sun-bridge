@@ -4,7 +4,7 @@ title: "[Learning] "
 body:
   - type: markdown
     attributes:
-      value: "Help make Solar Bridge easier to learn. Do not share personal assessment results, employment records, customer data, CRM screenshots, real emails, credentials, or private links. Use fictional examples. This form is not a job application."
+      value: "Help make Sun Bridge easier to learn. Do not share personal assessment results, employment records, customer data, CRM screenshots, real emails, credentials, or private links. Use fictional examples. This form is not a job application."
   - type: input
     id: step
     attributes:

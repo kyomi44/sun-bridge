@@ -1,0 +1,50 @@
+name: CRM integration
+description: Propose or improve a scoped CRM connector using public documentation and fictional examples.
+title: "[CRM] "
+labels: []
+body:
+  - type: markdown
+    attributes:
+      value: "Help another team connect safely. Never include account exports, customer information, tokens, screenshots of live records, or your private field mapping. Read docs/crm-integrations.md first. A requested connector is not supported until working code, tests, and setup guidance are reviewed."
+  - type: input
+    id: crm
+    attributes:
+      label: CRM and specific capability
+      description: For example, read explicitly selected projects and their permit fields. No live IDs.
+    validations:
+      required: true
+  - type: textarea
+    id: api
+    attributes:
+      label: Official API and access scope
+      description: Public documentation links, authentication method, endpoints, supported fields, and limits.
+    validations:
+      required: true
+  - type: textarea
+    id: mapping
+    attributes:
+      label: Fictional mapping example
+      description: Explain AHJ references, separate permits, full address and unit, and ambiguous/missing data. Invent all values.
+    validations:
+      required: true
+  - type: textarea
+    id: learning
+    attributes:
+      label: Operator review and learning
+      description: How will a person inspect the result, catch a mismatch, and learn to improve it? What review perspective is still missing?
+    validations:
+      required: true
+  - type: textarea
+    id: verification
+    attributes:
+      label: Testing and maintenance
+      description: Proposed offline cases, safe errors, rate limits, privacy boundaries, and who can help maintain the adapter. Distinguish mocked and live verification.
+    validations:
+      required: true
+  - type: checkboxes
+    id: safety
+    attributes:
+      label: Public-data check
+      options:
+        - label: This issue contains only public sources and newly invented examples, with no private records or credentials.
+          required: true

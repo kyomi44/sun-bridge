@@ -32,3 +32,9 @@ Also record geographic scope, official sources, when they were checked, and whet
 The optional importer reads field metadata and organizations to help identify Building Department records and available geographic fields. It does not create a new field or populate permit status. Review its output privately before proposing mappings. See [Pipedrive field discovery](pipedrive-field-discovery.md).
 
 Field IDs and option IDs are account-specific. Resolve them from the account's metadata; do not copy IDs from another operator's setup. A missing or ambiguous Building Department classification needs a mapping decision, not a guessed filter.
+
+## Selected deal reads and other CRMs
+
+The [Pipedrive deal adapter](pipedrive-deals.md) can read an explicit list of deals with a private field mapping and project separate permit fields into these records. It does not infer which organization is the AHJ or fetch the whole account. New deal reads are offline-tested, not live-certified.
+
+Use [examples/permits.json](../examples/permits.json) as the exact normalized array shape for other CRM exports. This file-based path requires your deliberate transformation; it is not a native connection to every CRM. The [support matrix and adapter contract](crm-integrations.md) distinguish implemented capabilities from contribution targets.

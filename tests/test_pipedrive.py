@@ -1,18 +1,20 @@
 """Synthetic tests; never call Pipedrive or use a real token."""
 
+import http.client
 import io
 import json
 import os
 import tempfile
+import traceback
 import unittest
 import urllib.error
 from pathlib import Path
-from unittest.mock import patch
+from unittest.mock import Mock, patch
 
 from permitkit.pipedrive import (
     PipedriveClient, PipedriveError, _NoRedirects, build_summary, decode_value,
     discover_metadata_fields, discover_type_field, import_building_departments,
-    project_organization, resolve_inventory_relationships,
+    project_organization, read_token, resolve_inventory_relationships,
 )
 
 
@@ -21,6 +23,61 @@ TYPE = {"field_code": "type_code", "field_name": "Type", "field_type": "enum",
 JURISDICTION = {"field_code": "jurisdiction_code", "field_name": "Jurisdiction Type", "field_type": "enum",
                 "options": [{"id": 11, "label": "City"}, {"id": 12, "label": "County"}]}
 COUNTY = {"field_code": "county_code", "field_name": "County", "field_type": "org"}
+
+
+class TokenTests(unittest.TestCase):
+    def setUp(self):
+        temporary = tempfile.TemporaryDirectory()
+        self.addCleanup(temporary.cleanup)
+        self.root = Path(temporary.name).resolve()
+        self.environment = patch.dict(os.environ, {"PIPEDRIVE_API_TOKEN": "fictional-environment-token"})
+        self.environment.start()
+        self.addCleanup(self.environment.stop)
+
+    def test_environment_and_regular_utf8_file_are_supported(self):
+        self.assertEqual(read_token(), "fictional-environment-token")
+        path = self.root / "token"
+        path.write_bytes(b"  fictional-file-token\n")
+        self.assertEqual(read_token(path), "fictional-file-token")
+        self.assertEqual(path.read_bytes(), b"  fictional-file-token\n")
+
+    def test_missing_directory_symlink_and_fifo_are_rejected_safely(self):
+        regular = self.root / "token"
+        regular.write_text("fictional-file-token", encoding="utf-8")
+        link = self.root / "linked-token"
+        link.symlink_to(regular)
+        paths = [self.root / "missing", self.root, link]
+        if hasattr(os, "mkfifo"):
+            fifo = self.root / "fifo"
+            os.mkfifo(fifo)
+            paths.append(fifo)
+        for path in paths:
+            with self.subTest(kind=path.name), self.assertRaises(PipedriveError) as caught:
+                read_token(path)
+            self.assertNotIn(str(path), str(caught.exception))
+            self.assertNotIn("fictional-file-token", str(caught.exception))
+            self.assertTrue(caught.exception.__suppress_context__)
+
+    def test_file_size_utf8_and_token_format_are_bounded(self):
+        path = self.root / "token"
+        for raw in (b" " * 8193, b"x" * 4097, b"\xff", b"", b"fictional-token\nextra"):
+            with self.subTest(size=len(raw)):
+                path.write_bytes(raw)
+                with self.assertRaises(PipedriveError) as caught:
+                    read_token(path)
+                self.assertNotIn("fictional-token", str(caught.exception))
+                self.assertEqual(path.read_bytes(), raw)
+        path.write_bytes(b" " * 8191 + b"x")
+        self.assertEqual(read_token(path), "x")
+
+    def test_read_remains_bounded_when_reported_file_size_is_stale(self):
+        path = self.root / "token"
+        path.write_bytes(b"x" * 9000)
+        actual = path.stat()
+        metadata = Mock(st_mode=actual.st_mode, st_size=1)
+        with patch("permitkit.pipedrive.os.fstat", return_value=metadata):
+            with self.assertRaises(PipedriveError):
+                read_token(path)
 
 
 class EnumTests(unittest.TestCase):
@@ -155,6 +212,27 @@ class ClientTests(unittest.TestCase):
             with self.assertRaises(PipedriveError) as caught:
                 client.get("/api/v2/organizations")
         self.assertNotIn("secret-value", str(caught.exception))
+
+    def test_malformed_http_status_and_truncated_body_are_sanitized(self):
+        client = PipedriveClient("fictional-test-token")
+        for stage in ("open", "read"):
+            for failure in (http.client.BadStatusLine("fictional-private-response"),
+                            http.client.IncompleteRead(b"fictional-private-response", 42)):
+                with self.subTest(stage=stage, failure=type(failure).__name__):
+                    response = Mock()
+                    response.__enter__ = Mock(return_value=response)
+                    response.__exit__ = Mock(return_value=False)
+                    response.read.side_effect = failure
+                    with patch.object(client._opener, "open", return_value=response) as opened:
+                        if stage == "open":
+                            opened.side_effect = failure
+                        with self.assertRaises(PipedriveError) as caught:
+                            client.get("/api/v2/organizations")
+                    error = caught.exception
+                    self.assertTrue(error.__suppress_context__)
+                    diagnostic = "".join(traceback.format_exception(type(error), error, error.__traceback__))
+                    self.assertNotIn("fictional-private-response", diagnostic)
+                    opened.assert_called_once()
 
     def test_retries_are_bounded_and_retry_after_capped(self):
         client = PipedriveClient("synthetic-token")

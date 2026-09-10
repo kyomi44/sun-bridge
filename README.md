@@ -1,110 +1,97 @@
-# Solar Bridge
+# Sun Bridge
 
 Helping people learn to understand, supervise, and improve increasingly automated work—starting with residential solar.
 
-Solar Bridge is an open-source learning and operations project. Shared permitting knowledge and practical tools give operators and technical helpers a way to build transferable skills together. Operators can contribute without writing code, inspect the evidence behind a proposed event, and help determine how automation should behave.
+Sun Bridge is an open-source learning and operations project. Operators contribute permitting knowledge and evaluate the evidence; technical teams build reusable connections and tests. **Empowering people is the primary goal.** Software is a way to build capability and agency, not a promise of job security or a substitute for the people doing the work.
 
-**Empowering people is the primary goal.** We aim to increase capability, agency, and economic opportunity alongside reliable solar processes. The [charter](CHARTER.md) makes this mission explicit; the [governance guide](GOVERNANCE.md) explains how it informs project decisions. Learning and employment outcomes must be measured, not promised in advance.
+## Start in five minutes
 
-Solar Bridge is the working name of this independent community project, formerly Open Permit Kit. Similar commercial names exist; this is not a claim of affiliation or naming clearance. See the [name and compatibility notes](docs/project-name.md).
+You need **Python 3.10 or newer**. No extra Python packages, account, API key, or customer data are needed for the demo.
+
+Fork this repository on GitHub if you want to contribute, then clone your fork. To try the original:
+
+```sh
+git clone https://github.com/kyomi44/sun-bridge.git
+cd sun-bridge
+python3 -m sunbridge start --open
+```
+
+Or use **Code → Download ZIP**, unzip it, and open a terminal in the extracted folder. On Windows, use `py -3` in place of `python3` if needed. Run commands from that folder; a standalone installed-package distribution is not supported yet.
+
+The command opens a private, browser-readable review of fictional emails and permit records. It also saves Markdown and JSON under `private/demo/`. No CRM is changed, no AI service is called, and nothing is hosted or uploaded. Omit `--open` on a machine without a browser and open `private/demo/review.html` yourself.
+
+Not ready for a terminal? Start with the [no-install training cases](docs/training-preview.md), then pair with a technical helper on the [operator exercise](docs/operator-guide.md).
+
+## Bring your own workflow
+
+```sh
+python3 -m sunbridge setup --interactive
+python3 -m sunbridge doctor
+python3 -m sunbridge run --open
+```
+
+Setup creates a private configuration and a `START-HERE.md`; it does **not** connect accounts. The demo choice runs immediately. A real-data choice needs your email sample, field mapping, and selected records first. `doctor` checks readiness offline and tells you what still needs attention.
+
+Follow the [getting-started guide](docs/getting-started.md) for the complete path: import local email → prepare CRM records → optionally configure a model → inspect a proposed event and match. Every event still requires a person's review.
 
 ## What works today
 
-This first version is experimental. The included examples are synthetic; no profile or parser is certified for production. The tool generates a review preview and does not update a CRM, submit permits, or monitor a live inbox.
+This is a **developer pilot**, not a production-certified permitting agent.
 
-The working parser uses explicit rules, not an AI service, to recognize supported subject formats in the fictional training profile. It does not extract events from email bodies or attachments. Cape Coral and Lee County have sourced capability profiles, but no enabled email parsers yet. All proposed events require operator review; a sender allowlist does not authenticate a message.
-
-## Try it in 20 minutes
-
-**No installation:** start with the [browser-only training page](docs/training-preview.md). Read five made-up cases, explain your decisions, and compare them with the answers. A technical helper can set up the working demo when you are ready.
-
-For the working demo, you need Python 3.10 or newer. There are no external Python dependencies. Download and unzip this repository using **Code → Download ZIP**, or clone it:
-
-```sh
-git clone https://github.com/kyomi44/solar-bridge.git
-cd solar-bridge
-```
-
-Open a terminal in the repository folder, then run:
-
-```sh
-python3 -m solarbridge demo
-```
-
-Open `private/demo/review.md` in a Markdown preview to read the result. `private/demo/review.json` contains the structured preview. Work through the [20-minute operator exercise](docs/operator-guide.md), then use the [learning path](docs/learning-path.md) to demonstrate interpretation, matching, and error-investigation skills with a mentor.
-
-To validate the shipped data and run the tests:
-
-```sh
-python3 -m solarbridge validate
-python3 -m unittest discover -s tests -v
-```
-
-To run the same review process explicitly:
-
-```sh
-python3 -m solarbridge analyze --messages examples/messages.json --permits examples/permits.json --output private/my-review
-```
-
-Keep real messages and CRM exports under `private/` on your own computer. They are private working data, never public examples. See [data handling](docs/data-handling.md) before using your own inputs.
-
-Existing users can continue using `python3 -m permitkit`. The rename does not change the version 1 profile format or move private files. Run from the repository checkout; an installed-package distribution is not supported yet.
-
-## What is in the project?
-
-| Component | Purpose |
+| Capability | Current scope |
 | --- | --- |
-| Jurisdiction profiles | Record official sources, geographic scope, submission methods, notification channels, and ways to verify a status. |
-| Synthetic messages and permits | Practice matching and interpretation without sharing a customer's records. |
-| Review preview | Show candidate events and matches for an operator to inspect. |
-| Operator and contributor guides | Explain decisions, common failure cases, and how to improve coverage. |
-| Charter, governance, and learning path | Tie technical progress to operator capability, authority, and supported learning. |
-| Optional Pipedrive discovery | Read field metadata and a Building Department organization roster into private local files. |
+| Local review | Synthetic demo, guided setup, offline readiness checks, and private HTML/Markdown/JSON reports. |
+| Email import | Local EML files or MBOX samples; no live inbox connection or attachment extraction. |
+| CRM-neutral input | Documented JSON permit records; other CRM exports must be deliberately transformed into this format. |
+| Pipedrive | Read-only organization discovery, deal-field discovery, and imports of explicitly selected deals using account-specific mappings. New deal reads are mock-tested, not live-certified. |
+| Optional model | Experimental, opt-in OpenAI-compatible Chat Completions extraction, including compatible loopback servers. No provider/model is live-certified. |
+| Jurisdiction knowledge | Cape Coral and Lee County have sourced profiles; their rule parsers remain disabled. A fictional training profile has a working subject parser. |
 
-The project distinguishes application receipt, plan review, corrections, approval, permit issuance, inspections, and closeout. Those events have different meanings. A passed inspection, for example, does not by itself prove that a permit is closed or that a utility has granted permission to operate.
+Rules recognize supported **subjects**, not arbitrary email bodies. Optional model extraction can examine subject/body text even when a profile's rule parser is disabled, but that does not validate the profile, authenticate a sender, or establish accuracy. Ambiguous and unsupported messages remain unknown.
 
-## Bring a CRM
+Submission confirmation, corrections, approval, issuance, inspections, and closeout are distinct events. A customer name alone never establishes a CRM match. AHJ plus a unique permit identifier or an exact, complete service address provides a candidate for review; multiple permits and conflicts remain visible.
 
-The [CRM data guide](docs/crm-data.md) describes the common information needed to match a message to a permit. One deal can have several permits. Names support matching; they do not establish a match on their own.
+There are **no CRM writes, saved approve/reject controls, scheduled monitors, live inbox subscriptions, utility connectors, or autonomous government approvals** in this release.
 
-For an optional, read-only Pipedrive inventory, put your API token in a private file outside the repository and run:
+## Supported CRMs and model connections
+
+Run `python3 -m sunbridge integrations` or read the [CRM support matrix](docs/crm-integrations.md). Support is capability-specific: a read adapter is not a complete two-way integration.
+
+Pipedrive is the first native read adapter. HubSpot, Salesforce, and Zoho are contribution targets, **not working native connectors**. The [adapter template](templates/crm-adapter.json), normalized input contract, synthetic tests, and CRM contribution issue form give other teams a concrete starting point.
+
+A provider's API key alone does not make its API compatible. Choose a supported protocol, endpoint, exact model, and credential reference. See [model connections and data transfer](docs/llm-providers.md). The model receives selected email content only after explicit authorization; it never receives the CRM roster or chooses which deal to update.
+
+## People are the point
+
+The [charter](CHARTER.md), [governance](GOVERNANCE.md), and [learning path](docs/learning-path.md) keep operator judgment, accessible learning, and accountability central. The adopted charter and governance retain the previous name until their documented amendment process completes; their commitments apply unchanged to Sun Bridge.
+
+Contributing can mean explaining a department's process, improving an exercise, identifying a failure, teaching someone, or writing an adapter. Do not assume someone's ability to learn from their age, background, or job title.
+
+Employers can propose funded learning time, mentorship, and defined paid opportunities. No hiring guarantee, apprenticeship, or partnership program is established in this release. Public contributions should not become unpaid production work performed for a speculative job.
+
+## Invite another team to contribute
+
+Ask a team to run the fictional demo, pair an operator with a technical helper, and contribute **one scoped improvement**:
+
+- A sourced jurisdiction correction or newly invented parser example.
+- A read-only CRM adapter with explicit mapping, private outputs, and offline tests.
+- A model-protocol adapter with consent, grounded output validation, and no tools or write authority.
+- An easier exercise or evidence-review explanation.
+
+Use the issue templates and [contribution guide](CONTRIBUTING.md). Never upload real inbox archives, CRM exports, customer information, live permit links, tokens, or private configuration. Review [data handling](docs/data-handling.md) before using real data.
+
+Check a contribution from the repository folder:
 
 ```sh
-python3 -m solarbridge pipedrive-import --token-file /absolute/path/to/token --output private/pipedrive
+python3 -m sunbridge validate
+python3 -m unittest discover -s tests -v
+python3 scripts/check_public_files.py --tracked
 ```
 
-An already-configured `PIPEDRIVE_API_TOKEN` environment variable is an alternative to `--token-file`. The command reads field definitions and organizations, resolves Building Department classification through metadata, and preserves available city/county information. It does not create fields, edit organizations, or reconcile deals. Read [Pipedrive field discovery](docs/pipedrive-field-discovery.md) for the mapping and its limits.
+## Where this can go
 
-## Help improve coverage
+First, privately validate one narrow AHJ workflow with experienced operators. Later gates cover saved review decisions, authorized CRM updates, reliable monitoring, fair aggregate timelines, separate utility workflows, and collaboration with willing public institutions. Each step must advance the skills and controls needed to supervise it. See the [roadmap](docs/roadmap.md) and [pilot decision record](docs/decisions/0001-forkable-pilot.md).
 
-You do not need to know Git or Python to contribute. Use the repository's **Issues → New issue → Jurisdiction knowledge** form to describe an official process, a missing step, or a changed portal. Include public source links and the date you checked them. Never attach a real inbox export, customer email, CRM screenshot, credential, or live permit link.
+Sun Bridge is a working name, formerly Solar Bridge and Open Permit Kit—not a naming-clearance or affiliation claim. Old `solarbridge` and `permitkit` commands still work. See [name and compatibility notes](docs/project-name.md).
 
-Technical contributors can add a profile, improve a parser, or turn a report into a synthetic test. Maintainers review evidence, check examples, and version accepted changes. See [CONTRIBUTING.md](CONTRIBUTING.md) and the [profile guide](docs/jurisdiction-profiles.md).
-
-Use **Issues → New issue → Learning feedback** when an exercise is unclear or a useful operator skill is missing. Documentation, teaching, and well-explained failure cases count as contributions.
-
-## Next milestones
-
-Our [roadmap](docs/roadmap.md) connects each technical milestone to a learning outcome and a release gate. First, validate a small AHJ workflow privately with experienced operators. Later stages cover supervised integrations, fair aggregate timeline reporting, separate utility workflows, and modernization partnerships with willing institutions.
-
-Live inbox connections, AI-assisted extraction, scheduled monitoring, CRM writes, utility integrations, and government approval automation are not implemented. Government permitting and utility interconnection retain separate identifiers and decisions; neither process can stand in for the other.
-
-## Learning and employer participation
-
-We invite operators, technical mentors, employers, utilities, and local departments to help shape the project. Employers can propose funded training time, mentorship, or defined paid opportunities. There is no established apprenticeship, hiring guarantee, or partnership program in this release. Any future opportunity must state its funding, compensation, criteria, and limits. Public contributions are optional evidence of skill, not a requirement to perform unpaid production work for a speculative job.
-
-## Start here
-
-- [People-first charter](CHARTER.md)
-- [Project governance](GOVERNANCE.md)
-- [Competency-based learning path](docs/learning-path.md)
-- [Roadmap and readiness gates](docs/roadmap.md)
-- [No-install training examples](docs/training-preview.md)
-- [Operator exercise and daily review](docs/operator-guide.md)
-- [Event meanings and review boundaries](docs/event-model.md)
-- [CRM fields and matching](docs/crm-data.md)
-- [Jurisdiction profiles and official sources](docs/jurisdiction-profiles.md)
-- [Private data and public examples](docs/data-handling.md)
-- [Security reporting](SECURITY.md)
-
-Code and original project documentation are available under the [MIT License](LICENSE). Third-party sources remain subject to their own terms.
+Original code and documentation are [MIT-licensed](LICENSE). Third-party sources retain their own terms.

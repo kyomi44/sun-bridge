@@ -9,7 +9,7 @@ An operator reviews evidence, resolves exceptions, and decides the next action. 
 Open a terminal in the repository folder. Check that `python3 --version` reports Python 3.10 or newer, then run:
 
 ```sh
-python3 -m solarbridge demo
+python3 -m sunbridge demo
 ```
 
 Open `private/demo/review.md` in your editor's Markdown preview. It is a generated preview based on made-up records. The underlying Markdown encodes punctuation to prevent message text from turning into active links or images; the preview displays it normally. You can inspect the input messages in `examples/messages.json` and permit records in `examples/permits.json`.

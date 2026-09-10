@@ -1,0 +1,70 @@
+{
+  "schema_version": 1,
+  "crms": [
+    {
+      "id": "json_file",
+      "name": "CRM-neutral JSON file",
+      "status": "available",
+      "scope": "Read normalized permit records exported from any CRM; this is not a native connection to that CRM.",
+      "organization_discovery": false,
+      "permit_reads": true,
+      "crm_writes": false,
+      "authentication": "none",
+      "verification": "Offline synthetic fixtures and regression tests; operators prepare and verify their own mapping.",
+      "implementation": ["permitkit/workspace.py", "permitkit/reconcile.py"],
+      "tests": ["tests/test_workspace.py", "tests/test_reconcile.py"]
+    },
+    {
+      "id": "pipedrive",
+      "name": "Pipedrive",
+      "status": "experimental",
+      "scope": "Building Department organization discovery and explicitly selected deal reads using account-specific field and AHJ mappings.",
+      "organization_discovery": true,
+      "permit_reads": true,
+      "crm_writes": false,
+      "authentication": "API token supplied locally",
+      "verification": "Organization discovery has a limited live read check. Selected-deal adapter is tested with mocked API responses; no live deal or end-to-end production certification.",
+      "implementation": ["permitkit/pipedrive.py", "permitkit/crm.py"],
+      "tests": ["tests/test_pipedrive.py", "tests/test_crm.py"]
+    },
+    {
+      "id": "hubspot",
+      "name": "HubSpot",
+      "status": "planned",
+      "scope": "Native adapter not implemented. Contribute a scoped read adapter and its account-specific permit mapping.",
+      "organization_discovery": false,
+      "permit_reads": false,
+      "crm_writes": false,
+      "authentication": "not implemented",
+      "verification": "No connector or connectivity testing.",
+      "implementation": [],
+      "tests": []
+    },
+    {
+      "id": "salesforce",
+      "name": "Salesforce",
+      "status": "planned",
+      "scope": "Native adapter not implemented. Contribute a scoped read adapter and its account-specific permit mapping.",
+      "organization_discovery": false,
+      "permit_reads": false,
+      "crm_writes": false,
+      "authentication": "not implemented",
+      "verification": "No connector or connectivity testing.",
+      "implementation": [],
+      "tests": []
+    },
+    {
+      "id": "zoho",
+      "name": "Zoho CRM",
+      "status": "planned",
+      "scope": "Native adapter not implemented. Contribute a scoped read adapter and its account-specific permit mapping.",
+      "organization_discovery": false,
+      "permit_reads": false,
+      "crm_writes": false,
+      "authentication": "not implemented",
+      "verification": "No connector or connectivity testing.",
+      "implementation": [],
+      "tests": []
+    }
+  ]
+}

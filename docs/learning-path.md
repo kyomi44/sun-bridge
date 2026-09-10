@@ -1,13 +1,13 @@
-# Learn to operate Solar Bridge
+# Learn to operate Sun Bridge
 
-Solar Bridge helps people build judgment they can explain, practice, and teach. You can begin with the [no-install examples](training-preview.md), then work with a mentor or technical helper on the [20-minute exercise](operator-guide.md). Progress depends on demonstrated skills, not a job title or coding background.
+Sun Bridge helps people build judgment they can explain, practice, and teach. You can begin with the [no-install examples](training-preview.md), then work with a mentor or technical helper on the [20-minute exercise](operator-guide.md). Progress depends on demonstrated skills, not a job title or coding background.
 
 ## Start with the working exercise
 
 From the repository folder, run:
 
 ```sh
-python3 -m solarbridge demo
+python3 -m sunbridge demo
 ```
 
 Read `private/demo/review.md` in your editor's Markdown preview. The exercise uses fictional messages and permits. It proposes events and matches for review; it does not monitor an inbox, change a CRM, or include controls to pause or roll back a monitor. The legacy `python3 -m permitkit` command remains available for compatibility.

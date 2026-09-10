@@ -1,7 +1,7 @@
 {
   "$schema": "https://json-schema.org/draft/2020-12/schema",
   "$id": "urn:open-permit-kit:ahj-profile:v1",
-  "title": "Solar Bridge AHJ profile v1",
+  "title": "Sun Bridge AHJ profile v1",
   "type": "object",
   "additionalProperties": false,
   "required": ["schema_version", "id", "name", "jurisdiction", "permit_types", "capabilities", "verification", "sources", "parser"],
