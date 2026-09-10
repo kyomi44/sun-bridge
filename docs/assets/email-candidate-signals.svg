@@ -1,0 +1,969 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" width="960" height="3318" viewBox="0 0 960 3318" role="img" aria-labelledby="coverage-title coverage-description">
+<title id="coverage-title">Candidate AHJ email signals</title>
+<desc id="coverage-description">Alphabetical AHJ signal-family matrix. C means a subject-level candidate signal that needs validation, not a confirmed event or implemented parser. A dash means not demonstrated. Identities remain provisional. An accessible table is in the coverage documentation.</desc>
+<style>
+text { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif; }
+.background { fill: #f6f8fa; } .panel { fill: #ffffff; stroke: #d0d7de; }
+.title { fill: #172a3a; font-size: 25px; font-weight: 700; }
+.subtitle { fill: #536473; font-size: 15px; }
+.eyebrow { fill: #516170; font-size: 11px; font-weight: 700; letter-spacing: 1.4px; }
+.column { fill: #425667; font-size: 16px; font-weight: 650; }
+.name { fill: #1c3345; font-size: 16px; font-weight: 600; }
+.row-alt { fill: #f6f8fa; } .rule { stroke: #e6ebef; stroke-width: 1; }
+.pilot-bg { fill: #d9f0e8; } .pilot-mark { fill: #125642; font-size: 15px; font-weight: 750; }
+.candidate-bg { fill: #fff0c8; } .candidate-mark { fill: #765000; font-size: 15px; font-weight: 750; }
+.empty { fill: #788894; font-size: 17px; }
+.note { fill: #536473; font-size: 14px; }
+@media (prefers-color-scheme: dark) {
+.background { fill: #0d1117; } .panel { fill: #161b22; stroke: #30363d; }
+.title, .name { fill: #e6edf3; } .subtitle, .note, .column, .eyebrow { fill: #a8b8c7; }
+.row-alt { fill: #1c232d; } .rule { stroke: #30363d; }
+.pilot-bg { fill: #153f34; } .pilot-mark { fill: #86dbb7; }
+.candidate-bg { fill: #43391f; } .candidate-mark { fill: #efcc78; }
+.empty { fill: #82909d; }
+}
+</style>
+<rect width="960" height="3318" rx="16" class="background"/>
+<text x="28" y="32" class="eyebrow" text-anchor="start">SUN BRIDGE  /  EMAIL EVIDENCE</text>
+<text x="28" y="70" class="title" text-anchor="start">Candidate AHJ email signals</text>
+<text x="28" y="98" class="subtitle" text-anchor="start">Broad signal families · Subject evidence only</text>
+<text x="28" y="120" class="subtitle" text-anchor="start">Real-AHJ parsers not enabled · Historical evidence, not live monitoring</text>
+<rect x="28" y="148" width="904" height="3006" rx="10" class="panel"/>
+<text x="46" y="175" class="column" text-anchor="start">AHJ</text>
+<text x="46" y="195" class="note" text-anchor="start">Provisional identity</text>
+<text x="371.0" y="184" class="column" text-anchor="middle">Submission</text>
+<text x="473.0" y="173" class="column" text-anchor="middle">Review /</text>
+<text x="473.0" y="193" class="column" text-anchor="middle">correction</text>
+<text x="575.0" y="184" class="column" text-anchor="middle">Approval</text>
+<text x="677.0" y="184" class="column" text-anchor="middle">Issuance</text>
+<text x="779.0" y="184" class="column" text-anchor="middle">Inspection</text>
+<text x="881.0" y="184" class="column" text-anchor="middle">Payment</text>
+<line x1="28" y1="210" x2="932" y2="210" class="rule"/>
+<rect x="29" y="211" width="902" height="45" class="row-alt"/>
+<g><title>Apopka, FL: Provisional identity</title>
+<text x="46" y="238.0" class="name" text-anchor="start">Apopka, FL</text>
+<circle cx="371.0" cy="233.0" r="12" class="candidate-bg"/>
+<text x="371.0" y="237.5" class="candidate-mark" text-anchor="middle">C</text>
+<text x="473.0" y="238.0" class="empty" text-anchor="middle">—</text>
+<text x="575.0" y="238.0" class="empty" text-anchor="middle">—</text>
+<circle cx="677.0" cy="233.0" r="12" class="candidate-bg"/>
+<text x="677.0" y="237.5" class="candidate-mark" text-anchor="middle">C</text>
+<circle cx="779.0" cy="233.0" r="12" class="candidate-bg"/>
+<text x="779.0" y="237.5" class="candidate-mark" text-anchor="middle">C</text>
+<circle cx="881.0" cy="233.0" r="12" class="candidate-bg"/>
+<text x="881.0" y="237.5" class="candidate-mark" text-anchor="middle">C</text>
+</g>
+<line x1="29" y1="256" x2="931" y2="256" class="rule"/>
+<g><title>Bonita Springs: Provisional identity</title>
+<text x="46" y="284.0" class="name" text-anchor="start">Bonita Springs</text>
+<text x="371.0" y="284.0" class="empty" text-anchor="middle">—</text>
+<circle cx="473.0" cy="279.0" r="12" class="candidate-bg"/>
+<text x="473.0" y="283.5" class="candidate-mark" text-anchor="middle">C</text>
+<circle cx="575.0" cy="279.0" r="12" class="candidate-bg"/>
+<text x="575.0" y="283.5" class="candidate-mark" text-anchor="middle">C</text>
+<circle cx="677.0" cy="279.0" r="12" class="candidate-bg"/>
+<text x="677.0" y="283.5" class="candidate-mark" text-anchor="middle">C</text>
+<circle cx="779.0" cy="279.0" r="12" class="candidate-bg"/>
+<text x="779.0" y="283.5" class="candidate-mark" text-anchor="middle">C</text>
+<circle cx="881.0" cy="279.0" r="12" class="candidate-bg"/>
+<text x="881.0" y="283.5" class="candidate-mark" text-anchor="middle">C</text>
+</g>
+<line x1="29" y1="302" x2="931" y2="302" class="rule"/>
+<rect x="29" y="303" width="902" height="45" class="row-alt"/>
+<g><title>Brevard County: Provisional identity</title>
+<text x="46" y="330.0" class="name" text-anchor="start">Brevard County</text>
+<text x="371.0" y="330.0" class="empty" text-anchor="middle">—</text>
+<circle cx="473.0" cy="325.0" r="12" class="candidate-bg"/>
+<text x="473.0" y="329.5" class="candidate-mark" text-anchor="middle">C</text>
+<circle cx="575.0" cy="325.0" r="12" class="candidate-bg"/>
+<text x="575.0" y="329.5" class="candidate-mark" text-anchor="middle">C</text>
+<circle cx="677.0" cy="325.0" r="12" class="candidate-bg"/>
+<text x="677.0" y="329.5" class="candidate-mark" text-anchor="middle">C</text>
+<circle cx="779.0" cy="325.0" r="12" class="candidate-bg"/>
+<text x="779.0" y="329.5" class="candidate-mark" text-anchor="middle">C</text>
+<circle cx="881.0" cy="325.0" r="12" class="candidate-bg"/>
+<text x="881.0" y="329.5" class="candidate-mark" text-anchor="middle">C</text>
+</g>
+<line x1="29" y1="348" x2="931" y2="348" class="rule"/>
+<g><title>Broward County: Provisional identity</title>
+<text x="46" y="376.0" class="name" text-anchor="start">Broward County</text>
+<text x="371.0" y="376.0" class="empty" text-anchor="middle">—</text>
+<text x="473.0" y="376.0" class="empty" text-anchor="middle">—</text>
+<text x="575.0" y="376.0" class="empty" text-anchor="middle">—</text>
+<text x="677.0" y="376.0" class="empty" text-anchor="middle">—</text>
+<text x="779.0" y="376.0" class="empty" text-anchor="middle">—</text>
+<circle cx="881.0" cy="371.0" r="12" class="candidate-bg"/>
+<text x="881.0" y="375.5" class="candidate-mark" text-anchor="middle">C</text>
+</g>
+<line x1="29" y1="394" x2="931" y2="394" class="rule"/>
+<rect x="29" y="395" width="902" height="45" class="row-alt"/>
+<g><title>Cape Coral: Provisional identity</title>
+<text x="46" y="422.0" class="name" text-anchor="start">Cape Coral</text>
+<text x="371.0" y="422.0" class="empty" text-anchor="middle">—</text>
+<circle cx="473.0" cy="417.0" r="12" class="candidate-bg"/>
+<text x="473.0" y="421.5" class="candidate-mark" text-anchor="middle">C</text>
+<circle cx="575.0" cy="417.0" r="12" class="candidate-bg"/>
+<text x="575.0" y="421.5" class="candidate-mark" text-anchor="middle">C</text>
+<circle cx="677.0" cy="417.0" r="12" class="candidate-bg"/>
+<text x="677.0" y="421.5" class="candidate-mark" text-anchor="middle">C</text>
+<text x="779.0" y="422.0" class="empty" text-anchor="middle">—</text>
+<circle cx="881.0" cy="417.0" r="12" class="candidate-bg"/>
+<text x="881.0" y="421.5" class="candidate-mark" text-anchor="middle">C</text>
+</g>
+<line x1="29" y1="440" x2="931" y2="440" class="rule"/>
+<g><title>Charlotte County: Provisional identity</title>
+<text x="46" y="468.0" class="name" text-anchor="start">Charlotte County</text>
+<text x="371.0" y="468.0" class="empty" text-anchor="middle">—</text>
+<text x="473.0" y="468.0" class="empty" text-anchor="middle">—</text>
+<circle cx="575.0" cy="463.0" r="12" class="candidate-bg"/>
+<text x="575.0" y="467.5" class="candidate-mark" text-anchor="middle">C</text>
+<text x="677.0" y="468.0" class="empty" text-anchor="middle">—</text>
+<text x="779.0" y="468.0" class="empty" text-anchor="middle">—</text>
+<text x="881.0" y="468.0" class="empty" text-anchor="middle">—</text>
+</g>
+<line x1="29" y1="486" x2="931" y2="486" class="rule"/>
+<rect x="29" y="487" width="902" height="45" class="row-alt"/>
+<g><title>Cheyenne, WY: Provisional identity</title>
+<text x="46" y="514.0" class="name" text-anchor="start">Cheyenne, WY</text>
+<circle cx="371.0" cy="509.0" r="12" class="candidate-bg"/>
+<text x="371.0" y="513.5" class="candidate-mark" text-anchor="middle">C</text>
+<text x="473.0" y="514.0" class="empty" text-anchor="middle">—</text>
+<text x="575.0" y="514.0" class="empty" text-anchor="middle">—</text>
+<circle cx="677.0" cy="509.0" r="12" class="candidate-bg"/>
+<text x="677.0" y="513.5" class="candidate-mark" text-anchor="middle">C</text>
+<circle cx="779.0" cy="509.0" r="12" class="candidate-bg"/>
+<text x="779.0" y="513.5" class="candidate-mark" text-anchor="middle">C</text>
+<circle cx="881.0" cy="509.0" r="12" class="candidate-bg"/>
+<text x="881.0" y="513.5" class="candidate-mark" text-anchor="middle">C</text>
+</g>
+<line x1="29" y1="532" x2="931" y2="532" class="rule"/>
+<g><title>Citrus County: Provisional identity</title>
+<text x="46" y="560.0" class="name" text-anchor="start">Citrus County</text>
+<text x="371.0" y="560.0" class="empty" text-anchor="middle">—</text>
+<circle cx="473.0" cy="555.0" r="12" class="candidate-bg"/>
+<text x="473.0" y="559.5" class="candidate-mark" text-anchor="middle">C</text>
+<text x="575.0" y="560.0" class="empty" text-anchor="middle">—</text>
+<text x="677.0" y="560.0" class="empty" text-anchor="middle">—</text>
+<text x="779.0" y="560.0" class="empty" text-anchor="middle">—</text>
+<text x="881.0" y="560.0" class="empty" text-anchor="middle">—</text>
+</g>
+<line x1="29" y1="578" x2="931" y2="578" class="rule"/>
+<rect x="29" y="579" width="902" height="45" class="row-alt"/>
+<g><title>Collier County: Historical domain aliases grouped; identity needs confirmation</title>
+<text x="46" y="606.0" class="name" text-anchor="start">Collier County</text>
+<circle cx="371.0" cy="601.0" r="12" class="candidate-bg"/>
+<text x="371.0" y="605.5" class="candidate-mark" text-anchor="middle">C</text>
+<circle cx="473.0" cy="601.0" r="12" class="candidate-bg"/>
+<text x="473.0" y="605.5" class="candidate-mark" text-anchor="middle">C</text>
+<text x="575.0" y="606.0" class="empty" text-anchor="middle">—</text>
+<circle cx="677.0" cy="601.0" r="12" class="candidate-bg"/>
+<text x="677.0" y="605.5" class="candidate-mark" text-anchor="middle">C</text>
+<circle cx="779.0" cy="601.0" r="12" class="candidate-bg"/>
+<text x="779.0" y="605.5" class="candidate-mark" text-anchor="middle">C</text>
+<circle cx="881.0" cy="601.0" r="12" class="candidate-bg"/>
+<text x="881.0" y="605.5" class="candidate-mark" text-anchor="middle">C</text>
+</g>
+<line x1="29" y1="624" x2="931" y2="624" class="rule"/>
+<g><title>Crystal River: Provisional identity</title>
+<text x="46" y="652.0" class="name" text-anchor="start">Crystal River</text>
+<text x="371.0" y="652.0" class="empty" text-anchor="middle">—</text>
+<text x="473.0" y="652.0" class="empty" text-anchor="middle">—</text>
+<text x="575.0" y="652.0" class="empty" text-anchor="middle">—</text>
+<text x="677.0" y="652.0" class="empty" text-anchor="middle">—</text>
+<circle cx="779.0" cy="647.0" r="12" class="candidate-bg"/>
+<text x="779.0" y="651.5" class="candidate-mark" text-anchor="middle">C</text>
+<text x="881.0" y="652.0" class="empty" text-anchor="middle">—</text>
+</g>
+<line x1="29" y1="670" x2="931" y2="670" class="rule"/>
+<rect x="29" y="671" width="902" height="45" class="row-alt"/>
+<g><title>Daytona Beach: Provisional identity</title>
+<text x="46" y="698.0" class="name" text-anchor="start">Daytona Beach</text>
+<circle cx="371.0" cy="693.0" r="12" class="candidate-bg"/>
+<text x="371.0" y="697.5" class="candidate-mark" text-anchor="middle">C</text>
+<circle cx="473.0" cy="693.0" r="12" class="candidate-bg"/>
+<text x="473.0" y="697.5" class="candidate-mark" text-anchor="middle">C</text>
+<text x="575.0" y="698.0" class="empty" text-anchor="middle">—</text>
+<text x="677.0" y="698.0" class="empty" text-anchor="middle">—</text>
+<circle cx="779.0" cy="693.0" r="12" class="candidate-bg"/>
+<text x="779.0" y="697.5" class="candidate-mark" text-anchor="middle">C</text>
+<circle cx="881.0" cy="693.0" r="12" class="candidate-bg"/>
+<text x="881.0" y="697.5" class="candidate-mark" text-anchor="middle">C</text>
+</g>
+<line x1="29" y1="716" x2="931" y2="716" class="rule"/>
+<g><title>Deltona: Provisional identity</title>
+<text x="46" y="744.0" class="name" text-anchor="start">Deltona</text>
+<text x="371.0" y="744.0" class="empty" text-anchor="middle">—</text>
+<circle cx="473.0" cy="739.0" r="12" class="candidate-bg"/>
+<text x="473.0" y="743.5" class="candidate-mark" text-anchor="middle">C</text>
+<text x="575.0" y="744.0" class="empty" text-anchor="middle">—</text>
+<circle cx="677.0" cy="739.0" r="12" class="candidate-bg"/>
+<text x="677.0" y="743.5" class="candidate-mark" text-anchor="middle">C</text>
+<circle cx="779.0" cy="739.0" r="12" class="candidate-bg"/>
+<text x="779.0" y="743.5" class="candidate-mark" text-anchor="middle">C</text>
+<circle cx="881.0" cy="739.0" r="12" class="candidate-bg"/>
+<text x="881.0" y="743.5" class="candidate-mark" text-anchor="middle">C</text>
+</g>
+<line x1="29" y1="762" x2="931" y2="762" class="rule"/>
+<rect x="29" y="763" width="902" height="45" class="row-alt"/>
+<g><title>Dunnellon: Sender spelling variant grouped; identity needs confirmation</title>
+<text x="46" y="790.0" class="name" text-anchor="start">Dunnellon</text>
+<circle cx="371.0" cy="785.0" r="12" class="candidate-bg"/>
+<text x="371.0" y="789.5" class="candidate-mark" text-anchor="middle">C</text>
+<text x="473.0" y="790.0" class="empty" text-anchor="middle">—</text>
+<text x="575.0" y="790.0" class="empty" text-anchor="middle">—</text>
+<circle cx="677.0" cy="785.0" r="12" class="candidate-bg"/>
+<text x="677.0" y="789.5" class="candidate-mark" text-anchor="middle">C</text>
+<circle cx="779.0" cy="785.0" r="12" class="candidate-bg"/>
+<text x="779.0" y="789.5" class="candidate-mark" text-anchor="middle">C</text>
+<circle cx="881.0" cy="785.0" r="12" class="candidate-bg"/>
+<text x="881.0" y="789.5" class="candidate-mark" text-anchor="middle">C</text>
+</g>
+<line x1="29" y1="808" x2="931" y2="808" class="rule"/>
+<g><title>Edgewater: Provisional identity</title>
+<text x="46" y="836.0" class="name" text-anchor="start">Edgewater</text>
+<circle cx="371.0" cy="831.0" r="12" class="candidate-bg"/>
+<text x="371.0" y="835.5" class="candidate-mark" text-anchor="middle">C</text>
+<circle cx="473.0" cy="831.0" r="12" class="candidate-bg"/>
+<text x="473.0" y="835.5" class="candidate-mark" text-anchor="middle">C</text>
+<circle cx="575.0" cy="831.0" r="12" class="candidate-bg"/>
+<text x="575.0" y="835.5" class="candidate-mark" text-anchor="middle">C</text>
+<text x="677.0" y="836.0" class="empty" text-anchor="middle">—</text>
+<circle cx="779.0" cy="831.0" r="12" class="candidate-bg"/>
+<text x="779.0" y="835.5" class="candidate-mark" text-anchor="middle">C</text>
+<circle cx="881.0" cy="831.0" r="12" class="candidate-bg"/>
+<text x="881.0" y="835.5" class="candidate-mark" text-anchor="middle">C</text>
+</g>
+<line x1="29" y1="854" x2="931" y2="854" class="rule"/>
+<rect x="29" y="855" width="902" height="45" class="row-alt"/>
+<g><title>Flagler County: Provisional identity</title>
+<text x="46" y="882.0" class="name" text-anchor="start">Flagler County</text>
+<text x="371.0" y="882.0" class="empty" text-anchor="middle">—</text>
+<circle cx="473.0" cy="877.0" r="12" class="candidate-bg"/>
+<text x="473.0" y="881.5" class="candidate-mark" text-anchor="middle">C</text>
+<text x="575.0" y="882.0" class="empty" text-anchor="middle">—</text>
+<circle cx="677.0" cy="877.0" r="12" class="candidate-bg"/>
+<text x="677.0" y="881.5" class="candidate-mark" text-anchor="middle">C</text>
+<circle cx="779.0" cy="877.0" r="12" class="candidate-bg"/>
+<text x="779.0" y="881.5" class="candidate-mark" text-anchor="middle">C</text>
+<text x="881.0" y="882.0" class="empty" text-anchor="middle">—</text>
+</g>
+<line x1="29" y1="900" x2="931" y2="900" class="rule"/>
+<g><title>Fort Lauderdale: Provisional identity</title>
+<text x="46" y="928.0" class="name" text-anchor="start">Fort Lauderdale</text>
+<circle cx="371.0" cy="923.0" r="12" class="candidate-bg"/>
+<text x="371.0" y="927.5" class="candidate-mark" text-anchor="middle">C</text>
+<circle cx="473.0" cy="923.0" r="12" class="candidate-bg"/>
+<text x="473.0" y="927.5" class="candidate-mark" text-anchor="middle">C</text>
+<circle cx="575.0" cy="923.0" r="12" class="candidate-bg"/>
+<text x="575.0" y="927.5" class="candidate-mark" text-anchor="middle">C</text>
+<circle cx="677.0" cy="923.0" r="12" class="candidate-bg"/>
+<text x="677.0" y="927.5" class="candidate-mark" text-anchor="middle">C</text>
+<circle cx="779.0" cy="923.0" r="12" class="candidate-bg"/>
+<text x="779.0" y="927.5" class="candidate-mark" text-anchor="middle">C</text>
+<circle cx="881.0" cy="923.0" r="12" class="candidate-bg"/>
+<text x="881.0" y="927.5" class="candidate-mark" text-anchor="middle">C</text>
+</g>
+<line x1="29" y1="946" x2="931" y2="946" class="rule"/>
+<rect x="29" y="947" width="902" height="45" class="row-alt"/>
+<g><title>Fort Myers: Provisional identity</title>
+<text x="46" y="974.0" class="name" text-anchor="start">Fort Myers</text>
+<text x="371.0" y="974.0" class="empty" text-anchor="middle">—</text>
+<circle cx="473.0" cy="969.0" r="12" class="candidate-bg"/>
+<text x="473.0" y="973.5" class="candidate-mark" text-anchor="middle">C</text>
+<circle cx="575.0" cy="969.0" r="12" class="candidate-bg"/>
+<text x="575.0" y="973.5" class="candidate-mark" text-anchor="middle">C</text>
+<text x="677.0" y="974.0" class="empty" text-anchor="middle">—</text>
+<circle cx="779.0" cy="969.0" r="12" class="candidate-bg"/>
+<text x="779.0" y="973.5" class="candidate-mark" text-anchor="middle">C</text>
+<text x="881.0" y="974.0" class="empty" text-anchor="middle">—</text>
+</g>
+<line x1="29" y1="992" x2="931" y2="992" class="rule"/>
+<g><title>Gulfport: Provisional identity</title>
+<text x="46" y="1020.0" class="name" text-anchor="start">Gulfport</text>
+<circle cx="371.0" cy="1015.0" r="12" class="candidate-bg"/>
+<text x="371.0" y="1019.5" class="candidate-mark" text-anchor="middle">C</text>
+<text x="473.0" y="1020.0" class="empty" text-anchor="middle">—</text>
+<text x="575.0" y="1020.0" class="empty" text-anchor="middle">—</text>
+<circle cx="677.0" cy="1015.0" r="12" class="candidate-bg"/>
+<text x="677.0" y="1019.5" class="candidate-mark" text-anchor="middle">C</text>
+<text x="779.0" y="1020.0" class="empty" text-anchor="middle">—</text>
+<circle cx="881.0" cy="1015.0" r="12" class="candidate-bg"/>
+<text x="881.0" y="1019.5" class="candidate-mark" text-anchor="middle">C</text>
+</g>
+<line x1="29" y1="1038" x2="931" y2="1038" class="rule"/>
+<rect x="29" y="1039" width="902" height="45" class="row-alt"/>
+<g><title>Hendry County: Provisional office grouping; jurisdiction needs confirmation</title>
+<text x="46" y="1066.0" class="name" text-anchor="start">Hendry County</text>
+<circle cx="371.0" cy="1061.0" r="12" class="candidate-bg"/>
+<text x="371.0" y="1065.5" class="candidate-mark" text-anchor="middle">C</text>
+<circle cx="473.0" cy="1061.0" r="12" class="candidate-bg"/>
+<text x="473.0" y="1065.5" class="candidate-mark" text-anchor="middle">C</text>
+<text x="575.0" y="1066.0" class="empty" text-anchor="middle">—</text>
+<text x="677.0" y="1066.0" class="empty" text-anchor="middle">—</text>
+<circle cx="779.0" cy="1061.0" r="12" class="candidate-bg"/>
+<text x="779.0" y="1065.5" class="candidate-mark" text-anchor="middle">C</text>
+<circle cx="881.0" cy="1061.0" r="12" class="candidate-bg"/>
+<text x="881.0" y="1065.5" class="candidate-mark" text-anchor="middle">C</text>
+</g>
+<line x1="29" y1="1084" x2="931" y2="1084" class="rule"/>
+<g><title>Hillsborough County: Provisional identity</title>
+<text x="46" y="1112.0" class="name" text-anchor="start">Hillsborough County</text>
+<circle cx="371.0" cy="1107.0" r="12" class="candidate-bg"/>
+<text x="371.0" y="1111.5" class="candidate-mark" text-anchor="middle">C</text>
+<text x="473.0" y="1112.0" class="empty" text-anchor="middle">—</text>
+<text x="575.0" y="1112.0" class="empty" text-anchor="middle">—</text>
+<circle cx="677.0" cy="1107.0" r="12" class="candidate-bg"/>
+<text x="677.0" y="1111.5" class="candidate-mark" text-anchor="middle">C</text>
+<circle cx="779.0" cy="1107.0" r="12" class="candidate-bg"/>
+<text x="779.0" y="1111.5" class="candidate-mark" text-anchor="middle">C</text>
+<circle cx="881.0" cy="1107.0" r="12" class="candidate-bg"/>
+<text x="881.0" y="1111.5" class="candidate-mark" text-anchor="middle">C</text>
+</g>
+<line x1="29" y1="1130" x2="931" y2="1130" class="rule"/>
+<rect x="29" y="1131" width="902" height="45" class="row-alt"/>
+<g><title>Hollywood: Provisional identity</title>
+<text x="46" y="1158.0" class="name" text-anchor="start">Hollywood</text>
+<text x="371.0" y="1158.0" class="empty" text-anchor="middle">—</text>
+<circle cx="473.0" cy="1153.0" r="12" class="candidate-bg"/>
+<text x="473.0" y="1157.5" class="candidate-mark" text-anchor="middle">C</text>
+<circle cx="575.0" cy="1153.0" r="12" class="candidate-bg"/>
+<text x="575.0" y="1157.5" class="candidate-mark" text-anchor="middle">C</text>
+<circle cx="677.0" cy="1153.0" r="12" class="candidate-bg"/>
+<text x="677.0" y="1157.5" class="candidate-mark" text-anchor="middle">C</text>
+<circle cx="779.0" cy="1153.0" r="12" class="candidate-bg"/>
+<text x="779.0" y="1157.5" class="candidate-mark" text-anchor="middle">C</text>
+<circle cx="881.0" cy="1153.0" r="12" class="candidate-bg"/>
+<text x="881.0" y="1157.5" class="candidate-mark" text-anchor="middle">C</text>
+</g>
+<line x1="29" y1="1176" x2="931" y2="1176" class="rule"/>
+<g><title>Lake Alfred: Provisional identity</title>
+<text x="46" y="1204.0" class="name" text-anchor="start">Lake Alfred</text>
+<text x="371.0" y="1204.0" class="empty" text-anchor="middle">—</text>
+<text x="473.0" y="1204.0" class="empty" text-anchor="middle">—</text>
+<text x="575.0" y="1204.0" class="empty" text-anchor="middle">—</text>
+<text x="677.0" y="1204.0" class="empty" text-anchor="middle">—</text>
+<text x="779.0" y="1204.0" class="empty" text-anchor="middle">—</text>
+<circle cx="881.0" cy="1199.0" r="12" class="candidate-bg"/>
+<text x="881.0" y="1203.5" class="candidate-mark" text-anchor="middle">C</text>
+</g>
+<line x1="29" y1="1222" x2="931" y2="1222" class="rule"/>
+<rect x="29" y="1223" width="902" height="45" class="row-alt"/>
+<g><title>Lake County: Provisional identity</title>
+<text x="46" y="1250.0" class="name" text-anchor="start">Lake County</text>
+<text x="371.0" y="1250.0" class="empty" text-anchor="middle">—</text>
+<circle cx="473.0" cy="1245.0" r="12" class="candidate-bg"/>
+<text x="473.0" y="1249.5" class="candidate-mark" text-anchor="middle">C</text>
+<text x="575.0" y="1250.0" class="empty" text-anchor="middle">—</text>
+<circle cx="677.0" cy="1245.0" r="12" class="candidate-bg"/>
+<text x="677.0" y="1249.5" class="candidate-mark" text-anchor="middle">C</text>
+<circle cx="779.0" cy="1245.0" r="12" class="candidate-bg"/>
+<text x="779.0" y="1249.5" class="candidate-mark" text-anchor="middle">C</text>
+<circle cx="881.0" cy="1245.0" r="12" class="candidate-bg"/>
+<text x="881.0" y="1249.5" class="candidate-mark" text-anchor="middle">C</text>
+</g>
+<line x1="29" y1="1268" x2="931" y2="1268" class="rule"/>
+<g><title>Laramie: Provisional identity</title>
+<text x="46" y="1296.0" class="name" text-anchor="start">Laramie</text>
+<circle cx="371.0" cy="1291.0" r="12" class="candidate-bg"/>
+<text x="371.0" y="1295.5" class="candidate-mark" text-anchor="middle">C</text>
+<circle cx="473.0" cy="1291.0" r="12" class="candidate-bg"/>
+<text x="473.0" y="1295.5" class="candidate-mark" text-anchor="middle">C</text>
+<circle cx="575.0" cy="1291.0" r="12" class="candidate-bg"/>
+<text x="575.0" y="1295.5" class="candidate-mark" text-anchor="middle">C</text>
+<circle cx="677.0" cy="1291.0" r="12" class="candidate-bg"/>
+<text x="677.0" y="1295.5" class="candidate-mark" text-anchor="middle">C</text>
+<circle cx="779.0" cy="1291.0" r="12" class="candidate-bg"/>
+<text x="779.0" y="1295.5" class="candidate-mark" text-anchor="middle">C</text>
+<circle cx="881.0" cy="1291.0" r="12" class="candidate-bg"/>
+<text x="881.0" y="1295.5" class="candidate-mark" text-anchor="middle">C</text>
+</g>
+<line x1="29" y1="1314" x2="931" y2="1314" class="rule"/>
+<rect x="29" y="1315" width="902" height="45" class="row-alt"/>
+<g><title>Lauderdale Lakes: Cross-platform identity grouped; identity needs confirmation</title>
+<text x="46" y="1342.0" class="name" text-anchor="start">Lauderdale Lakes</text>
+<circle cx="371.0" cy="1337.0" r="12" class="candidate-bg"/>
+<text x="371.0" y="1341.5" class="candidate-mark" text-anchor="middle">C</text>
+<circle cx="473.0" cy="1337.0" r="12" class="candidate-bg"/>
+<text x="473.0" y="1341.5" class="candidate-mark" text-anchor="middle">C</text>
+<circle cx="575.0" cy="1337.0" r="12" class="candidate-bg"/>
+<text x="575.0" y="1341.5" class="candidate-mark" text-anchor="middle">C</text>
+<circle cx="677.0" cy="1337.0" r="12" class="candidate-bg"/>
+<text x="677.0" y="1341.5" class="candidate-mark" text-anchor="middle">C</text>
+<circle cx="779.0" cy="1337.0" r="12" class="candidate-bg"/>
+<text x="779.0" y="1341.5" class="candidate-mark" text-anchor="middle">C</text>
+<circle cx="881.0" cy="1337.0" r="12" class="candidate-bg"/>
+<text x="881.0" y="1341.5" class="candidate-mark" text-anchor="middle">C</text>
+</g>
+<line x1="29" y1="1360" x2="931" y2="1360" class="rule"/>
+<g><title>Lee County: Provisional identity</title>
+<text x="46" y="1388.0" class="name" text-anchor="start">Lee County</text>
+<circle cx="371.0" cy="1383.0" r="12" class="candidate-bg"/>
+<text x="371.0" y="1387.5" class="candidate-mark" text-anchor="middle">C</text>
+<circle cx="473.0" cy="1383.0" r="12" class="candidate-bg"/>
+<text x="473.0" y="1387.5" class="candidate-mark" text-anchor="middle">C</text>
+<text x="575.0" y="1388.0" class="empty" text-anchor="middle">—</text>
+<circle cx="677.0" cy="1383.0" r="12" class="candidate-bg"/>
+<text x="677.0" y="1387.5" class="candidate-mark" text-anchor="middle">C</text>
+<circle cx="779.0" cy="1383.0" r="12" class="candidate-bg"/>
+<text x="779.0" y="1387.5" class="candidate-mark" text-anchor="middle">C</text>
+<circle cx="881.0" cy="1383.0" r="12" class="candidate-bg"/>
+<text x="881.0" y="1387.5" class="candidate-mark" text-anchor="middle">C</text>
+</g>
+<line x1="29" y1="1406" x2="931" y2="1406" class="rule"/>
+<rect x="29" y="1407" width="902" height="45" class="row-alt"/>
+<g><title>Margate: Provisional identity</title>
+<text x="46" y="1434.0" class="name" text-anchor="start">Margate</text>
+<text x="371.0" y="1434.0" class="empty" text-anchor="middle">—</text>
+<text x="473.0" y="1434.0" class="empty" text-anchor="middle">—</text>
+<text x="575.0" y="1434.0" class="empty" text-anchor="middle">—</text>
+<text x="677.0" y="1434.0" class="empty" text-anchor="middle">—</text>
+<circle cx="779.0" cy="1429.0" r="12" class="candidate-bg"/>
+<text x="779.0" y="1433.5" class="candidate-mark" text-anchor="middle">C</text>
+<text x="881.0" y="1434.0" class="empty" text-anchor="middle">—</text>
+</g>
+<line x1="29" y1="1452" x2="931" y2="1452" class="rule"/>
+<g><title>Marion County: Historical domain aliases grouped; identity needs confirmation</title>
+<text x="46" y="1480.0" class="name" text-anchor="start">Marion County</text>
+<text x="371.0" y="1480.0" class="empty" text-anchor="middle">—</text>
+<circle cx="473.0" cy="1475.0" r="12" class="candidate-bg"/>
+<text x="473.0" y="1479.5" class="candidate-mark" text-anchor="middle">C</text>
+<circle cx="575.0" cy="1475.0" r="12" class="candidate-bg"/>
+<text x="575.0" y="1479.5" class="candidate-mark" text-anchor="middle">C</text>
+<circle cx="677.0" cy="1475.0" r="12" class="candidate-bg"/>
+<text x="677.0" y="1479.5" class="candidate-mark" text-anchor="middle">C</text>
+<circle cx="779.0" cy="1475.0" r="12" class="candidate-bg"/>
+<text x="779.0" y="1479.5" class="candidate-mark" text-anchor="middle">C</text>
+<circle cx="881.0" cy="1475.0" r="12" class="candidate-bg"/>
+<text x="881.0" y="1479.5" class="candidate-mark" text-anchor="middle">C</text>
+</g>
+<line x1="29" y1="1498" x2="931" y2="1498" class="rule"/>
+<rect x="29" y="1499" width="902" height="45" class="row-alt"/>
+<g><title>Martin County: Provisional identity</title>
+<text x="46" y="1526.0" class="name" text-anchor="start">Martin County</text>
+<text x="371.0" y="1526.0" class="empty" text-anchor="middle">—</text>
+<circle cx="473.0" cy="1521.0" r="12" class="candidate-bg"/>
+<text x="473.0" y="1525.5" class="candidate-mark" text-anchor="middle">C</text>
+<circle cx="575.0" cy="1521.0" r="12" class="candidate-bg"/>
+<text x="575.0" y="1525.5" class="candidate-mark" text-anchor="middle">C</text>
+<text x="677.0" y="1526.0" class="empty" text-anchor="middle">—</text>
+<circle cx="779.0" cy="1521.0" r="12" class="candidate-bg"/>
+<text x="779.0" y="1525.5" class="candidate-mark" text-anchor="middle">C</text>
+<circle cx="881.0" cy="1521.0" r="12" class="candidate-bg"/>
+<text x="881.0" y="1525.5" class="candidate-mark" text-anchor="middle">C</text>
+</g>
+<line x1="29" y1="1544" x2="931" y2="1544" class="rule"/>
+<g><title>Melbourne: Provisional identity</title>
+<text x="46" y="1572.0" class="name" text-anchor="start">Melbourne</text>
+<text x="371.0" y="1572.0" class="empty" text-anchor="middle">—</text>
+<circle cx="473.0" cy="1567.0" r="12" class="candidate-bg"/>
+<text x="473.0" y="1571.5" class="candidate-mark" text-anchor="middle">C</text>
+<text x="575.0" y="1572.0" class="empty" text-anchor="middle">—</text>
+<text x="677.0" y="1572.0" class="empty" text-anchor="middle">—</text>
+<circle cx="779.0" cy="1567.0" r="12" class="candidate-bg"/>
+<text x="779.0" y="1571.5" class="candidate-mark" text-anchor="middle">C</text>
+<circle cx="881.0" cy="1567.0" r="12" class="candidate-bg"/>
+<text x="881.0" y="1571.5" class="candidate-mark" text-anchor="middle">C</text>
+</g>
+<line x1="29" y1="1590" x2="931" y2="1590" class="rule"/>
+<rect x="29" y="1591" width="902" height="45" class="row-alt"/>
+<g><title>Miami-Dade: Provisional identity</title>
+<text x="46" y="1618.0" class="name" text-anchor="start">Miami-Dade</text>
+<circle cx="371.0" cy="1613.0" r="12" class="candidate-bg"/>
+<text x="371.0" y="1617.5" class="candidate-mark" text-anchor="middle">C</text>
+<circle cx="473.0" cy="1613.0" r="12" class="candidate-bg"/>
+<text x="473.0" y="1617.5" class="candidate-mark" text-anchor="middle">C</text>
+<circle cx="575.0" cy="1613.0" r="12" class="candidate-bg"/>
+<text x="575.0" y="1617.5" class="candidate-mark" text-anchor="middle">C</text>
+<text x="677.0" y="1618.0" class="empty" text-anchor="middle">—</text>
+<text x="779.0" y="1618.0" class="empty" text-anchor="middle">—</text>
+<circle cx="881.0" cy="1613.0" r="12" class="candidate-bg"/>
+<text x="881.0" y="1617.5" class="candidate-mark" text-anchor="middle">C</text>
+</g>
+<line x1="29" y1="1636" x2="931" y2="1636" class="rule"/>
+<g><title>Mount Dora: Provisional identity</title>
+<text x="46" y="1664.0" class="name" text-anchor="start">Mount Dora</text>
+<text x="371.0" y="1664.0" class="empty" text-anchor="middle">—</text>
+<text x="473.0" y="1664.0" class="empty" text-anchor="middle">—</text>
+<text x="575.0" y="1664.0" class="empty" text-anchor="middle">—</text>
+<text x="677.0" y="1664.0" class="empty" text-anchor="middle">—</text>
+<circle cx="779.0" cy="1659.0" r="12" class="candidate-bg"/>
+<text x="779.0" y="1663.5" class="candidate-mark" text-anchor="middle">C</text>
+<text x="881.0" y="1664.0" class="empty" text-anchor="middle">—</text>
+</g>
+<line x1="29" y1="1682" x2="931" y2="1682" class="rule"/>
+<rect x="29" y="1683" width="902" height="45" class="row-alt"/>
+<g><title>Natrona County, WY: Provisional identity</title>
+<text x="46" y="1710.0" class="name" text-anchor="start">Natrona County, WY</text>
+<circle cx="371.0" cy="1705.0" r="12" class="candidate-bg"/>
+<text x="371.0" y="1709.5" class="candidate-mark" text-anchor="middle">C</text>
+<text x="473.0" y="1710.0" class="empty" text-anchor="middle">—</text>
+<text x="575.0" y="1710.0" class="empty" text-anchor="middle">—</text>
+<circle cx="677.0" cy="1705.0" r="12" class="candidate-bg"/>
+<text x="677.0" y="1709.5" class="candidate-mark" text-anchor="middle">C</text>
+<text x="779.0" y="1710.0" class="empty" text-anchor="middle">—</text>
+<circle cx="881.0" cy="1705.0" r="12" class="candidate-bg"/>
+<text x="881.0" y="1709.5" class="candidate-mark" text-anchor="middle">C</text>
+</g>
+<line x1="29" y1="1728" x2="931" y2="1728" class="rule"/>
+<g><title>North Lauderdale: Unusual domain alias grouped; identity needs confirmation</title>
+<text x="46" y="1756.0" class="name" text-anchor="start">North Lauderdale</text>
+<text x="371.0" y="1756.0" class="empty" text-anchor="middle">—</text>
+<circle cx="473.0" cy="1751.0" r="12" class="candidate-bg"/>
+<text x="473.0" y="1755.5" class="candidate-mark" text-anchor="middle">C</text>
+<circle cx="575.0" cy="1751.0" r="12" class="candidate-bg"/>
+<text x="575.0" y="1755.5" class="candidate-mark" text-anchor="middle">C</text>
+<text x="677.0" y="1756.0" class="empty" text-anchor="middle">—</text>
+<text x="779.0" y="1756.0" class="empty" text-anchor="middle">—</text>
+<circle cx="881.0" cy="1751.0" r="12" class="candidate-bg"/>
+<text x="881.0" y="1755.5" class="candidate-mark" text-anchor="middle">C</text>
+</g>
+<line x1="29" y1="1774" x2="931" y2="1774" class="rule"/>
+<rect x="29" y="1775" width="902" height="45" class="row-alt"/>
+<g><title>North Port: Provisional identity</title>
+<text x="46" y="1802.0" class="name" text-anchor="start">North Port</text>
+<text x="371.0" y="1802.0" class="empty" text-anchor="middle">—</text>
+<circle cx="473.0" cy="1797.0" r="12" class="candidate-bg"/>
+<text x="473.0" y="1801.5" class="candidate-mark" text-anchor="middle">C</text>
+<circle cx="575.0" cy="1797.0" r="12" class="candidate-bg"/>
+<text x="575.0" y="1801.5" class="candidate-mark" text-anchor="middle">C</text>
+<circle cx="677.0" cy="1797.0" r="12" class="candidate-bg"/>
+<text x="677.0" y="1801.5" class="candidate-mark" text-anchor="middle">C</text>
+<text x="779.0" y="1802.0" class="empty" text-anchor="middle">—</text>
+<circle cx="881.0" cy="1797.0" r="12" class="candidate-bg"/>
+<text x="881.0" y="1801.5" class="candidate-mark" text-anchor="middle">C</text>
+</g>
+<line x1="29" y1="1820" x2="931" y2="1820" class="rule"/>
+<g><title>Orange County: Provisional identity</title>
+<text x="46" y="1848.0" class="name" text-anchor="start">Orange County</text>
+<text x="371.0" y="1848.0" class="empty" text-anchor="middle">—</text>
+<circle cx="473.0" cy="1843.0" r="12" class="candidate-bg"/>
+<text x="473.0" y="1847.5" class="candidate-mark" text-anchor="middle">C</text>
+<circle cx="575.0" cy="1843.0" r="12" class="candidate-bg"/>
+<text x="575.0" y="1847.5" class="candidate-mark" text-anchor="middle">C</text>
+<circle cx="677.0" cy="1843.0" r="12" class="candidate-bg"/>
+<text x="677.0" y="1847.5" class="candidate-mark" text-anchor="middle">C</text>
+<circle cx="779.0" cy="1843.0" r="12" class="candidate-bg"/>
+<text x="779.0" y="1847.5" class="candidate-mark" text-anchor="middle">C</text>
+<circle cx="881.0" cy="1843.0" r="12" class="candidate-bg"/>
+<text x="881.0" y="1847.5" class="candidate-mark" text-anchor="middle">C</text>
+</g>
+<line x1="29" y1="1866" x2="931" y2="1866" class="rule"/>
+<rect x="29" y="1867" width="902" height="45" class="row-alt"/>
+<g><title>Ormond Beach: Provisional identity</title>
+<text x="46" y="1894.0" class="name" text-anchor="start">Ormond Beach</text>
+<text x="371.0" y="1894.0" class="empty" text-anchor="middle">—</text>
+<text x="473.0" y="1894.0" class="empty" text-anchor="middle">—</text>
+<text x="575.0" y="1894.0" class="empty" text-anchor="middle">—</text>
+<text x="677.0" y="1894.0" class="empty" text-anchor="middle">—</text>
+<circle cx="779.0" cy="1889.0" r="12" class="candidate-bg"/>
+<text x="779.0" y="1893.5" class="candidate-mark" text-anchor="middle">C</text>
+<circle cx="881.0" cy="1889.0" r="12" class="candidate-bg"/>
+<text x="881.0" y="1893.5" class="candidate-mark" text-anchor="middle">C</text>
+</g>
+<line x1="29" y1="1912" x2="931" y2="1912" class="rule"/>
+<g><title>Osceola County: Provisional identity</title>
+<text x="46" y="1940.0" class="name" text-anchor="start">Osceola County</text>
+<circle cx="371.0" cy="1935.0" r="12" class="candidate-bg"/>
+<text x="371.0" y="1939.5" class="candidate-mark" text-anchor="middle">C</text>
+<text x="473.0" y="1940.0" class="empty" text-anchor="middle">—</text>
+<circle cx="575.0" cy="1935.0" r="12" class="candidate-bg"/>
+<text x="575.0" y="1939.5" class="candidate-mark" text-anchor="middle">C</text>
+<circle cx="677.0" cy="1935.0" r="12" class="candidate-bg"/>
+<text x="677.0" y="1939.5" class="candidate-mark" text-anchor="middle">C</text>
+<circle cx="779.0" cy="1935.0" r="12" class="candidate-bg"/>
+<text x="779.0" y="1939.5" class="candidate-mark" text-anchor="middle">C</text>
+<text x="881.0" y="1940.0" class="empty" text-anchor="middle">—</text>
+</g>
+<line x1="29" y1="1958" x2="931" y2="1958" class="rule"/>
+<rect x="29" y="1959" width="902" height="45" class="row-alt"/>
+<g><title>Palm Bay: Historical domain aliases grouped; identity needs confirmation</title>
+<text x="46" y="1986.0" class="name" text-anchor="start">Palm Bay</text>
+<circle cx="371.0" cy="1981.0" r="12" class="candidate-bg"/>
+<text x="371.0" y="1985.5" class="candidate-mark" text-anchor="middle">C</text>
+<circle cx="473.0" cy="1981.0" r="12" class="candidate-bg"/>
+<text x="473.0" y="1985.5" class="candidate-mark" text-anchor="middle">C</text>
+<circle cx="575.0" cy="1981.0" r="12" class="candidate-bg"/>
+<text x="575.0" y="1985.5" class="candidate-mark" text-anchor="middle">C</text>
+<circle cx="677.0" cy="1981.0" r="12" class="candidate-bg"/>
+<text x="677.0" y="1985.5" class="candidate-mark" text-anchor="middle">C</text>
+<circle cx="779.0" cy="1981.0" r="12" class="candidate-bg"/>
+<text x="779.0" y="1985.5" class="candidate-mark" text-anchor="middle">C</text>
+<circle cx="881.0" cy="1981.0" r="12" class="candidate-bg"/>
+<text x="881.0" y="1985.5" class="candidate-mark" text-anchor="middle">C</text>
+</g>
+<line x1="29" y1="2004" x2="931" y2="2004" class="rule"/>
+<g><title>Palm Beach County: Provisional identity</title>
+<text x="46" y="2032.0" class="name" text-anchor="start">Palm Beach County</text>
+<circle cx="371.0" cy="2027.0" r="12" class="candidate-bg"/>
+<text x="371.0" y="2031.5" class="candidate-mark" text-anchor="middle">C</text>
+<circle cx="473.0" cy="2027.0" r="12" class="candidate-bg"/>
+<text x="473.0" y="2031.5" class="candidate-mark" text-anchor="middle">C</text>
+<circle cx="575.0" cy="2027.0" r="12" class="candidate-bg"/>
+<text x="575.0" y="2031.5" class="candidate-mark" text-anchor="middle">C</text>
+<circle cx="677.0" cy="2027.0" r="12" class="candidate-bg"/>
+<text x="677.0" y="2031.5" class="candidate-mark" text-anchor="middle">C</text>
+<text x="779.0" y="2032.0" class="empty" text-anchor="middle">—</text>
+<circle cx="881.0" cy="2027.0" r="12" class="candidate-bg"/>
+<text x="881.0" y="2031.5" class="candidate-mark" text-anchor="middle">C</text>
+</g>
+<line x1="29" y1="2050" x2="931" y2="2050" class="rule"/>
+<rect x="29" y="2051" width="902" height="45" class="row-alt"/>
+<g><title>Palm Coast: Provisional identity</title>
+<text x="46" y="2078.0" class="name" text-anchor="start">Palm Coast</text>
+<circle cx="371.0" cy="2073.0" r="12" class="candidate-bg"/>
+<text x="371.0" y="2077.5" class="candidate-mark" text-anchor="middle">C</text>
+<circle cx="473.0" cy="2073.0" r="12" class="candidate-bg"/>
+<text x="473.0" y="2077.5" class="candidate-mark" text-anchor="middle">C</text>
+<text x="575.0" y="2078.0" class="empty" text-anchor="middle">—</text>
+<circle cx="677.0" cy="2073.0" r="12" class="candidate-bg"/>
+<text x="677.0" y="2077.5" class="candidate-mark" text-anchor="middle">C</text>
+<circle cx="779.0" cy="2073.0" r="12" class="candidate-bg"/>
+<text x="779.0" y="2077.5" class="candidate-mark" text-anchor="middle">C</text>
+<circle cx="881.0" cy="2073.0" r="12" class="candidate-bg"/>
+<text x="881.0" y="2077.5" class="candidate-mark" text-anchor="middle">C</text>
+</g>
+<line x1="29" y1="2096" x2="931" y2="2096" class="rule"/>
+<g><title>Pasco County: Provisional identity</title>
+<text x="46" y="2124.0" class="name" text-anchor="start">Pasco County</text>
+<text x="371.0" y="2124.0" class="empty" text-anchor="middle">—</text>
+<circle cx="473.0" cy="2119.0" r="12" class="candidate-bg"/>
+<text x="473.0" y="2123.5" class="candidate-mark" text-anchor="middle">C</text>
+<circle cx="575.0" cy="2119.0" r="12" class="candidate-bg"/>
+<text x="575.0" y="2123.5" class="candidate-mark" text-anchor="middle">C</text>
+<circle cx="677.0" cy="2119.0" r="12" class="candidate-bg"/>
+<text x="677.0" y="2123.5" class="candidate-mark" text-anchor="middle">C</text>
+<circle cx="779.0" cy="2119.0" r="12" class="candidate-bg"/>
+<text x="779.0" y="2123.5" class="candidate-mark" text-anchor="middle">C</text>
+<text x="881.0" y="2124.0" class="empty" text-anchor="middle">—</text>
+</g>
+<line x1="29" y1="2142" x2="931" y2="2142" class="rule"/>
+<rect x="29" y="2143" width="902" height="45" class="row-alt"/>
+<g><title>Pinellas County: Provisional identity</title>
+<text x="46" y="2170.0" class="name" text-anchor="start">Pinellas County</text>
+<text x="371.0" y="2170.0" class="empty" text-anchor="middle">—</text>
+<circle cx="473.0" cy="2165.0" r="12" class="candidate-bg"/>
+<text x="473.0" y="2169.5" class="candidate-mark" text-anchor="middle">C</text>
+<circle cx="575.0" cy="2165.0" r="12" class="candidate-bg"/>
+<text x="575.0" y="2169.5" class="candidate-mark" text-anchor="middle">C</text>
+<text x="677.0" y="2170.0" class="empty" text-anchor="middle">—</text>
+<circle cx="779.0" cy="2165.0" r="12" class="candidate-bg"/>
+<text x="779.0" y="2169.5" class="candidate-mark" text-anchor="middle">C</text>
+<circle cx="881.0" cy="2165.0" r="12" class="candidate-bg"/>
+<text x="881.0" y="2169.5" class="candidate-mark" text-anchor="middle">C</text>
+</g>
+<line x1="29" y1="2188" x2="931" y2="2188" class="rule"/>
+<g><title>Pittsburgh: Provisional identity</title>
+<text x="46" y="2216.0" class="name" text-anchor="start">Pittsburgh</text>
+<text x="371.0" y="2216.0" class="empty" text-anchor="middle">—</text>
+<text x="473.0" y="2216.0" class="empty" text-anchor="middle">—</text>
+<text x="575.0" y="2216.0" class="empty" text-anchor="middle">—</text>
+<circle cx="677.0" cy="2211.0" r="12" class="candidate-bg"/>
+<text x="677.0" y="2215.5" class="candidate-mark" text-anchor="middle">C</text>
+<text x="779.0" y="2216.0" class="empty" text-anchor="middle">—</text>
+<text x="881.0" y="2216.0" class="empty" text-anchor="middle">—</text>
+</g>
+<line x1="29" y1="2234" x2="931" y2="2234" class="rule"/>
+<rect x="29" y="2235" width="902" height="45" class="row-alt"/>
+<g><title>Plant City: Provisional identity</title>
+<text x="46" y="2262.0" class="name" text-anchor="start">Plant City</text>
+<circle cx="371.0" cy="2257.0" r="12" class="candidate-bg"/>
+<text x="371.0" y="2261.5" class="candidate-mark" text-anchor="middle">C</text>
+<circle cx="473.0" cy="2257.0" r="12" class="candidate-bg"/>
+<text x="473.0" y="2261.5" class="candidate-mark" text-anchor="middle">C</text>
+<text x="575.0" y="2262.0" class="empty" text-anchor="middle">—</text>
+<circle cx="677.0" cy="2257.0" r="12" class="candidate-bg"/>
+<text x="677.0" y="2261.5" class="candidate-mark" text-anchor="middle">C</text>
+<circle cx="779.0" cy="2257.0" r="12" class="candidate-bg"/>
+<text x="779.0" y="2261.5" class="candidate-mark" text-anchor="middle">C</text>
+<circle cx="881.0" cy="2257.0" r="12" class="candidate-bg"/>
+<text x="881.0" y="2261.5" class="candidate-mark" text-anchor="middle">C</text>
+</g>
+<line x1="29" y1="2280" x2="931" y2="2280" class="rule"/>
+<g><title>Plantation: Provisional identity</title>
+<text x="46" y="2308.0" class="name" text-anchor="start">Plantation</text>
+<text x="371.0" y="2308.0" class="empty" text-anchor="middle">—</text>
+<circle cx="473.0" cy="2303.0" r="12" class="candidate-bg"/>
+<text x="473.0" y="2307.5" class="candidate-mark" text-anchor="middle">C</text>
+<circle cx="575.0" cy="2303.0" r="12" class="candidate-bg"/>
+<text x="575.0" y="2307.5" class="candidate-mark" text-anchor="middle">C</text>
+<text x="677.0" y="2308.0" class="empty" text-anchor="middle">—</text>
+<text x="779.0" y="2308.0" class="empty" text-anchor="middle">—</text>
+<circle cx="881.0" cy="2303.0" r="12" class="candidate-bg"/>
+<text x="881.0" y="2307.5" class="candidate-mark" text-anchor="middle">C</text>
+</g>
+<line x1="29" y1="2326" x2="931" y2="2326" class="rule"/>
+<rect x="29" y="2327" width="902" height="45" class="row-alt"/>
+<g><title>Pompano Beach: Provisional identity</title>
+<text x="46" y="2354.0" class="name" text-anchor="start">Pompano Beach</text>
+<circle cx="371.0" cy="2349.0" r="12" class="candidate-bg"/>
+<text x="371.0" y="2353.5" class="candidate-mark" text-anchor="middle">C</text>
+<circle cx="473.0" cy="2349.0" r="12" class="candidate-bg"/>
+<text x="473.0" y="2353.5" class="candidate-mark" text-anchor="middle">C</text>
+<text x="575.0" y="2354.0" class="empty" text-anchor="middle">—</text>
+<text x="677.0" y="2354.0" class="empty" text-anchor="middle">—</text>
+<circle cx="779.0" cy="2349.0" r="12" class="candidate-bg"/>
+<text x="779.0" y="2353.5" class="candidate-mark" text-anchor="middle">C</text>
+<circle cx="881.0" cy="2349.0" r="12" class="candidate-bg"/>
+<text x="881.0" y="2353.5" class="candidate-mark" text-anchor="middle">C</text>
+</g>
+<line x1="29" y1="2372" x2="931" y2="2372" class="rule"/>
+<g><title>Port St. Lucie: Provisional identity</title>
+<text x="46" y="2400.0" class="name" text-anchor="start">Port St. Lucie</text>
+<circle cx="371.0" cy="2395.0" r="12" class="candidate-bg"/>
+<text x="371.0" y="2399.5" class="candidate-mark" text-anchor="middle">C</text>
+<circle cx="473.0" cy="2395.0" r="12" class="candidate-bg"/>
+<text x="473.0" y="2399.5" class="candidate-mark" text-anchor="middle">C</text>
+<circle cx="575.0" cy="2395.0" r="12" class="candidate-bg"/>
+<text x="575.0" y="2399.5" class="candidate-mark" text-anchor="middle">C</text>
+<text x="677.0" y="2400.0" class="empty" text-anchor="middle">—</text>
+<circle cx="779.0" cy="2395.0" r="12" class="candidate-bg"/>
+<text x="779.0" y="2399.5" class="candidate-mark" text-anchor="middle">C</text>
+<circle cx="881.0" cy="2395.0" r="12" class="candidate-bg"/>
+<text x="881.0" y="2399.5" class="candidate-mark" text-anchor="middle">C</text>
+</g>
+<line x1="29" y1="2418" x2="931" y2="2418" class="rule"/>
+<rect x="29" y="2419" width="902" height="45" class="row-alt"/>
+<g><title>Rockledge: Provisional identity</title>
+<text x="46" y="2446.0" class="name" text-anchor="start">Rockledge</text>
+<circle cx="371.0" cy="2441.0" r="12" class="candidate-bg"/>
+<text x="371.0" y="2445.5" class="candidate-mark" text-anchor="middle">C</text>
+<circle cx="473.0" cy="2441.0" r="12" class="candidate-bg"/>
+<text x="473.0" y="2445.5" class="candidate-mark" text-anchor="middle">C</text>
+<circle cx="575.0" cy="2441.0" r="12" class="candidate-bg"/>
+<text x="575.0" y="2445.5" class="candidate-mark" text-anchor="middle">C</text>
+<circle cx="677.0" cy="2441.0" r="12" class="candidate-bg"/>
+<text x="677.0" y="2445.5" class="candidate-mark" text-anchor="middle">C</text>
+<circle cx="779.0" cy="2441.0" r="12" class="candidate-bg"/>
+<text x="779.0" y="2445.5" class="candidate-mark" text-anchor="middle">C</text>
+<circle cx="881.0" cy="2441.0" r="12" class="candidate-bg"/>
+<text x="881.0" y="2445.5" class="candidate-mark" text-anchor="middle">C</text>
+</g>
+<line x1="29" y1="2464" x2="931" y2="2464" class="rule"/>
+<g><title>Sarasota County: Provisional identity</title>
+<text x="46" y="2492.0" class="name" text-anchor="start">Sarasota County</text>
+<text x="371.0" y="2492.0" class="empty" text-anchor="middle">—</text>
+<circle cx="473.0" cy="2487.0" r="12" class="candidate-bg"/>
+<text x="473.0" y="2491.5" class="candidate-mark" text-anchor="middle">C</text>
+<circle cx="575.0" cy="2487.0" r="12" class="candidate-bg"/>
+<text x="575.0" y="2491.5" class="candidate-mark" text-anchor="middle">C</text>
+<text x="677.0" y="2492.0" class="empty" text-anchor="middle">—</text>
+<circle cx="779.0" cy="2487.0" r="12" class="candidate-bg"/>
+<text x="779.0" y="2491.5" class="candidate-mark" text-anchor="middle">C</text>
+<circle cx="881.0" cy="2487.0" r="12" class="candidate-bg"/>
+<text x="881.0" y="2491.5" class="candidate-mark" text-anchor="middle">C</text>
+</g>
+<line x1="29" y1="2510" x2="931" y2="2510" class="rule"/>
+<rect x="29" y="2511" width="902" height="45" class="row-alt"/>
+<g><title>Satellite Beach: Provisional identity</title>
+<text x="46" y="2538.0" class="name" text-anchor="start">Satellite Beach</text>
+<circle cx="371.0" cy="2533.0" r="12" class="candidate-bg"/>
+<text x="371.0" y="2537.5" class="candidate-mark" text-anchor="middle">C</text>
+<circle cx="473.0" cy="2533.0" r="12" class="candidate-bg"/>
+<text x="473.0" y="2537.5" class="candidate-mark" text-anchor="middle">C</text>
+<circle cx="575.0" cy="2533.0" r="12" class="candidate-bg"/>
+<text x="575.0" y="2537.5" class="candidate-mark" text-anchor="middle">C</text>
+<circle cx="677.0" cy="2533.0" r="12" class="candidate-bg"/>
+<text x="677.0" y="2537.5" class="candidate-mark" text-anchor="middle">C</text>
+<circle cx="779.0" cy="2533.0" r="12" class="candidate-bg"/>
+<text x="779.0" y="2537.5" class="candidate-mark" text-anchor="middle">C</text>
+<text x="881.0" y="2538.0" class="empty" text-anchor="middle">—</text>
+</g>
+<line x1="29" y1="2556" x2="931" y2="2556" class="rule"/>
+<g><title>Scranton, PA: Provisional identity</title>
+<text x="46" y="2584.0" class="name" text-anchor="start">Scranton, PA</text>
+<circle cx="371.0" cy="2579.0" r="12" class="candidate-bg"/>
+<text x="371.0" y="2583.5" class="candidate-mark" text-anchor="middle">C</text>
+<text x="473.0" y="2584.0" class="empty" text-anchor="middle">—</text>
+<text x="575.0" y="2584.0" class="empty" text-anchor="middle">—</text>
+<circle cx="677.0" cy="2579.0" r="12" class="candidate-bg"/>
+<text x="677.0" y="2583.5" class="candidate-mark" text-anchor="middle">C</text>
+<circle cx="779.0" cy="2579.0" r="12" class="candidate-bg"/>
+<text x="779.0" y="2583.5" class="candidate-mark" text-anchor="middle">C</text>
+<circle cx="881.0" cy="2579.0" r="12" class="candidate-bg"/>
+<text x="881.0" y="2583.5" class="candidate-mark" text-anchor="middle">C</text>
+</g>
+<line x1="29" y1="2602" x2="931" y2="2602" class="rule"/>
+<rect x="29" y="2603" width="902" height="45" class="row-alt"/>
+<g><title>Seminole County: Provisional identity</title>
+<text x="46" y="2630.0" class="name" text-anchor="start">Seminole County</text>
+<circle cx="371.0" cy="2625.0" r="12" class="candidate-bg"/>
+<text x="371.0" y="2629.5" class="candidate-mark" text-anchor="middle">C</text>
+<circle cx="473.0" cy="2625.0" r="12" class="candidate-bg"/>
+<text x="473.0" y="2629.5" class="candidate-mark" text-anchor="middle">C</text>
+<text x="575.0" y="2630.0" class="empty" text-anchor="middle">—</text>
+<text x="677.0" y="2630.0" class="empty" text-anchor="middle">—</text>
+<text x="779.0" y="2630.0" class="empty" text-anchor="middle">—</text>
+<circle cx="881.0" cy="2625.0" r="12" class="candidate-bg"/>
+<text x="881.0" y="2629.5" class="candidate-mark" text-anchor="middle">C</text>
+</g>
+<line x1="29" y1="2648" x2="931" y2="2648" class="rule"/>
+<g><title>St. Lucie County: Provisional identity</title>
+<text x="46" y="2676.0" class="name" text-anchor="start">St. Lucie County</text>
+<circle cx="371.0" cy="2671.0" r="12" class="candidate-bg"/>
+<text x="371.0" y="2675.5" class="candidate-mark" text-anchor="middle">C</text>
+<text x="473.0" y="2676.0" class="empty" text-anchor="middle">—</text>
+<circle cx="575.0" cy="2671.0" r="12" class="candidate-bg"/>
+<text x="575.0" y="2675.5" class="candidate-mark" text-anchor="middle">C</text>
+<circle cx="677.0" cy="2671.0" r="12" class="candidate-bg"/>
+<text x="677.0" y="2675.5" class="candidate-mark" text-anchor="middle">C</text>
+<circle cx="779.0" cy="2671.0" r="12" class="candidate-bg"/>
+<text x="779.0" y="2675.5" class="candidate-mark" text-anchor="middle">C</text>
+<circle cx="881.0" cy="2671.0" r="12" class="candidate-bg"/>
+<text x="881.0" y="2675.5" class="candidate-mark" text-anchor="middle">C</text>
+</g>
+<line x1="29" y1="2694" x2="931" y2="2694" class="rule"/>
+<rect x="29" y="2695" width="902" height="45" class="row-alt"/>
+<g><title>St. Petersburg: Provisional identity</title>
+<text x="46" y="2722.0" class="name" text-anchor="start">St. Petersburg</text>
+<text x="371.0" y="2722.0" class="empty" text-anchor="middle">—</text>
+<text x="473.0" y="2722.0" class="empty" text-anchor="middle">—</text>
+<text x="575.0" y="2722.0" class="empty" text-anchor="middle">—</text>
+<text x="677.0" y="2722.0" class="empty" text-anchor="middle">—</text>
+<circle cx="779.0" cy="2717.0" r="12" class="candidate-bg"/>
+<text x="779.0" y="2721.5" class="candidate-mark" text-anchor="middle">C</text>
+<circle cx="881.0" cy="2717.0" r="12" class="candidate-bg"/>
+<text x="881.0" y="2721.5" class="candidate-mark" text-anchor="middle">C</text>
+</g>
+<line x1="29" y1="2740" x2="931" y2="2740" class="rule"/>
+<g><title>Stuart: Provisional identity</title>
+<text x="46" y="2768.0" class="name" text-anchor="start">Stuart</text>
+<circle cx="371.0" cy="2763.0" r="12" class="candidate-bg"/>
+<text x="371.0" y="2767.5" class="candidate-mark" text-anchor="middle">C</text>
+<text x="473.0" y="2768.0" class="empty" text-anchor="middle">—</text>
+<text x="575.0" y="2768.0" class="empty" text-anchor="middle">—</text>
+<circle cx="677.0" cy="2763.0" r="12" class="candidate-bg"/>
+<text x="677.0" y="2767.5" class="candidate-mark" text-anchor="middle">C</text>
+<circle cx="779.0" cy="2763.0" r="12" class="candidate-bg"/>
+<text x="779.0" y="2767.5" class="candidate-mark" text-anchor="middle">C</text>
+<circle cx="881.0" cy="2763.0" r="12" class="candidate-bg"/>
+<text x="881.0" y="2767.5" class="candidate-mark" text-anchor="middle">C</text>
+</g>
+<line x1="29" y1="2786" x2="931" y2="2786" class="rule"/>
+<rect x="29" y="2787" width="902" height="45" class="row-alt"/>
+<g><title>Sunrise: Provisional identity</title>
+<text x="46" y="2814.0" class="name" text-anchor="start">Sunrise</text>
+<circle cx="371.0" cy="2809.0" r="12" class="candidate-bg"/>
+<text x="371.0" y="2813.5" class="candidate-mark" text-anchor="middle">C</text>
+<circle cx="473.0" cy="2809.0" r="12" class="candidate-bg"/>
+<text x="473.0" y="2813.5" class="candidate-mark" text-anchor="middle">C</text>
+<circle cx="575.0" cy="2809.0" r="12" class="candidate-bg"/>
+<text x="575.0" y="2813.5" class="candidate-mark" text-anchor="middle">C</text>
+<circle cx="677.0" cy="2809.0" r="12" class="candidate-bg"/>
+<text x="677.0" y="2813.5" class="candidate-mark" text-anchor="middle">C</text>
+<circle cx="779.0" cy="2809.0" r="12" class="candidate-bg"/>
+<text x="779.0" y="2813.5" class="candidate-mark" text-anchor="middle">C</text>
+<circle cx="881.0" cy="2809.0" r="12" class="candidate-bg"/>
+<text x="881.0" y="2813.5" class="candidate-mark" text-anchor="middle">C</text>
+</g>
+<line x1="29" y1="2832" x2="931" y2="2832" class="rule"/>
+<g><title>Tamarac: Provisional identity</title>
+<text x="46" y="2860.0" class="name" text-anchor="start">Tamarac</text>
+<circle cx="371.0" cy="2855.0" r="12" class="candidate-bg"/>
+<text x="371.0" y="2859.5" class="candidate-mark" text-anchor="middle">C</text>
+<circle cx="473.0" cy="2855.0" r="12" class="candidate-bg"/>
+<text x="473.0" y="2859.5" class="candidate-mark" text-anchor="middle">C</text>
+<circle cx="575.0" cy="2855.0" r="12" class="candidate-bg"/>
+<text x="575.0" y="2859.5" class="candidate-mark" text-anchor="middle">C</text>
+<text x="677.0" y="2860.0" class="empty" text-anchor="middle">—</text>
+<circle cx="779.0" cy="2855.0" r="12" class="candidate-bg"/>
+<text x="779.0" y="2859.5" class="candidate-mark" text-anchor="middle">C</text>
+<circle cx="881.0" cy="2855.0" r="12" class="candidate-bg"/>
+<text x="881.0" y="2859.5" class="candidate-mark" text-anchor="middle">C</text>
+</g>
+<line x1="29" y1="2878" x2="931" y2="2878" class="rule"/>
+<rect x="29" y="2879" width="902" height="45" class="row-alt"/>
+<g><title>Titusville: Provisional identity</title>
+<text x="46" y="2906.0" class="name" text-anchor="start">Titusville</text>
+<circle cx="371.0" cy="2901.0" r="12" class="candidate-bg"/>
+<text x="371.0" y="2905.5" class="candidate-mark" text-anchor="middle">C</text>
+<circle cx="473.0" cy="2901.0" r="12" class="candidate-bg"/>
+<text x="473.0" y="2905.5" class="candidate-mark" text-anchor="middle">C</text>
+<circle cx="575.0" cy="2901.0" r="12" class="candidate-bg"/>
+<text x="575.0" y="2905.5" class="candidate-mark" text-anchor="middle">C</text>
+<circle cx="677.0" cy="2901.0" r="12" class="candidate-bg"/>
+<text x="677.0" y="2905.5" class="candidate-mark" text-anchor="middle">C</text>
+<circle cx="779.0" cy="2901.0" r="12" class="candidate-bg"/>
+<text x="779.0" y="2905.5" class="candidate-mark" text-anchor="middle">C</text>
+<circle cx="881.0" cy="2901.0" r="12" class="candidate-bg"/>
+<text x="881.0" y="2905.5" class="candidate-mark" text-anchor="middle">C</text>
+</g>
+<line x1="29" y1="2924" x2="931" y2="2924" class="rule"/>
+<g><title>Venice: Provisional identity</title>
+<text x="46" y="2952.0" class="name" text-anchor="start">Venice</text>
+<text x="371.0" y="2952.0" class="empty" text-anchor="middle">—</text>
+<text x="473.0" y="2952.0" class="empty" text-anchor="middle">—</text>
+<text x="575.0" y="2952.0" class="empty" text-anchor="middle">—</text>
+<text x="677.0" y="2952.0" class="empty" text-anchor="middle">—</text>
+<circle cx="779.0" cy="2947.0" r="12" class="candidate-bg"/>
+<text x="779.0" y="2951.5" class="candidate-mark" text-anchor="middle">C</text>
+<circle cx="881.0" cy="2947.0" r="12" class="candidate-bg"/>
+<text x="881.0" y="2951.5" class="candidate-mark" text-anchor="middle">C</text>
+</g>
+<line x1="29" y1="2970" x2="931" y2="2970" class="rule"/>
+<rect x="29" y="2971" width="902" height="45" class="row-alt"/>
+<g><title>Village of Palm Springs: Provisional identity</title>
+<text x="46" y="2998.0" class="name" text-anchor="start">Village of Palm Springs</text>
+<circle cx="371.0" cy="2993.0" r="12" class="candidate-bg"/>
+<text x="371.0" y="2997.5" class="candidate-mark" text-anchor="middle">C</text>
+<circle cx="473.0" cy="2993.0" r="12" class="candidate-bg"/>
+<text x="473.0" y="2997.5" class="candidate-mark" text-anchor="middle">C</text>
+<text x="575.0" y="2998.0" class="empty" text-anchor="middle">—</text>
+<circle cx="677.0" cy="2993.0" r="12" class="candidate-bg"/>
+<text x="677.0" y="2997.5" class="candidate-mark" text-anchor="middle">C</text>
+<text x="779.0" y="2998.0" class="empty" text-anchor="middle">—</text>
+<circle cx="881.0" cy="2993.0" r="12" class="candidate-bg"/>
+<text x="881.0" y="2997.5" class="candidate-mark" text-anchor="middle">C</text>
+</g>
+<line x1="29" y1="3016" x2="931" y2="3016" class="rule"/>
+<g><title>Volusia County: Provisional identity</title>
+<text x="46" y="3044.0" class="name" text-anchor="start">Volusia County</text>
+<circle cx="371.0" cy="3039.0" r="12" class="candidate-bg"/>
+<text x="371.0" y="3043.5" class="candidate-mark" text-anchor="middle">C</text>
+<text x="473.0" y="3044.0" class="empty" text-anchor="middle">—</text>
+<text x="575.0" y="3044.0" class="empty" text-anchor="middle">—</text>
+<text x="677.0" y="3044.0" class="empty" text-anchor="middle">—</text>
+<circle cx="779.0" cy="3039.0" r="12" class="candidate-bg"/>
+<text x="779.0" y="3043.5" class="candidate-mark" text-anchor="middle">C</text>
+<circle cx="881.0" cy="3039.0" r="12" class="candidate-bg"/>
+<text x="881.0" y="3043.5" class="candidate-mark" text-anchor="middle">C</text>
+</g>
+<line x1="29" y1="3062" x2="931" y2="3062" class="rule"/>
+<rect x="29" y="3063" width="902" height="45" class="row-alt"/>
+<g><title>Winter Garden: Provisional identity</title>
+<text x="46" y="3090.0" class="name" text-anchor="start">Winter Garden</text>
+<circle cx="371.0" cy="3085.0" r="12" class="candidate-bg"/>
+<text x="371.0" y="3089.5" class="candidate-mark" text-anchor="middle">C</text>
+<circle cx="473.0" cy="3085.0" r="12" class="candidate-bg"/>
+<text x="473.0" y="3089.5" class="candidate-mark" text-anchor="middle">C</text>
+<circle cx="575.0" cy="3085.0" r="12" class="candidate-bg"/>
+<text x="575.0" y="3089.5" class="candidate-mark" text-anchor="middle">C</text>
+<circle cx="677.0" cy="3085.0" r="12" class="candidate-bg"/>
+<text x="677.0" y="3089.5" class="candidate-mark" text-anchor="middle">C</text>
+<circle cx="779.0" cy="3085.0" r="12" class="candidate-bg"/>
+<text x="779.0" y="3089.5" class="candidate-mark" text-anchor="middle">C</text>
+<circle cx="881.0" cy="3085.0" r="12" class="candidate-bg"/>
+<text x="881.0" y="3089.5" class="candidate-mark" text-anchor="middle">C</text>
+</g>
+<line x1="29" y1="3108" x2="931" y2="3108" class="rule"/>
+<g><title>Winter Springs: Provisional identity</title>
+<text x="46" y="3136.0" class="name" text-anchor="start">Winter Springs</text>
+<text x="371.0" y="3136.0" class="empty" text-anchor="middle">—</text>
+<text x="473.0" y="3136.0" class="empty" text-anchor="middle">—</text>
+<circle cx="575.0" cy="3131.0" r="12" class="candidate-bg"/>
+<text x="575.0" y="3135.5" class="candidate-mark" text-anchor="middle">C</text>
+<circle cx="677.0" cy="3131.0" r="12" class="candidate-bg"/>
+<text x="677.0" y="3135.5" class="candidate-mark" text-anchor="middle">C</text>
+<circle cx="779.0" cy="3131.0" r="12" class="candidate-bg"/>
+<text x="779.0" y="3135.5" class="candidate-mark" text-anchor="middle">C</text>
+<circle cx="881.0" cy="3131.0" r="12" class="candidate-bg"/>
+<text x="881.0" y="3135.5" class="candidate-mark" text-anchor="middle">C</text>
+</g>
+<circle cx="42" cy="3182" r="12" class="candidate-bg"/>
+<text x="42" y="3186.5" class="candidate-mark" text-anchor="middle">C</text>
+<text x="64" y="3186" class="note" text-anchor="start">Subject signal · needs validation</text>
+<text x="28" y="3210" class="note" text-anchor="start">—  Not demonstrated · not proof of absence</text>
+<text x="28" y="3240" class="note" text-anchor="start">A signal family does not establish the exact milestone, email authenticity, or a match to a CRM deal.</text>
+<text x="28" y="3262" class="note" text-anchor="start">Real-AHJ parsers not enabled. No automatic CRM writes. Review the methodology before use.</text>
+<text x="28" y="3294" class="note" text-anchor="start">Evidence reviewed 2026-09-10 · Volumes and private evidence omitted</text>
+</svg>
