@@ -1,0 +1,11 @@
+# Allow-list only. Private mail, credentials, archives and git never enter builds.
+**
+!sunbridge/
+!sunbridge/__init__.py
+!sunbridge/gmail_listener.py
+!sunbridge/gmail_cloud.py
+!sunbridge/mail.py
+!deploy/
+!deploy/gmail-push/
+!deploy/gmail-push/Dockerfile
+!deploy/gmail-push/requirements.txt

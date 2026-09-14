@@ -1,0 +1,14 @@
+# Allow-list only; do not include .gitignore and accidentally broaden the upload.
+**
+!.dockerignore
+!.gcloudignore
+!sunbridge/
+!sunbridge/__init__.py
+!sunbridge/gmail_listener.py
+!sunbridge/gmail_cloud.py
+!sunbridge/mail.py
+!deploy/
+!deploy/gmail-push/
+!deploy/gmail-push/Dockerfile
+!deploy/gmail-push/requirements.txt
+!deploy/gmail-push/cloudbuild.yaml

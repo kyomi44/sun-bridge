@@ -19,7 +19,9 @@ ROOT = Path(__file__).resolve().parent.parent
 PRIVATE_DIRS = {"private", "data", "outputs", ".git", ".venv", "__pycache__"}
 ARCHIVES = {".mbox", ".eml", ".msg", ".zip", ".pem", ".key"}
 PATTERNS = [
-    ("local user path", re.compile(r"/Users/[A-Za-z0-9_-]+/|C:\\\\Users\\\\[A-Za-z0-9_-]+", re.I)),
+    # macOS's canonical home root is /Users; lowercase /users/me/ also occurs
+    # in public API URLs. Keep Windows matching case-insensitive independently.
+    ("local user path", re.compile(r"/Users/[A-Za-z0-9_-]+/|(?i:C:\\{1,2}Users\\{1,2}[A-Za-z0-9_-]+)")),
     ("GitHub token", re.compile(r"\b(?:gh[pousr]_[A-Za-z0-9]{20,}|github_pat_[A-Za-z0-9_]{30,})\b")),
     ("private key", re.compile(r"-----BEGIN (?:RSA |EC |OPENSSH )?PRIVATE KEY-----")),
     ("credential assignment", re.compile(r"(?i)(?:api[_-]?token|api[_-]?key|password)\s*[=:]\s*[\"']?[a-zA-Z0-9_-]{32,}")),
