@@ -152,6 +152,13 @@ messages is not proof of a failure or proof of successful group delivery. Logs
 contain fixed outcome labels, not message bodies or raw provider errors. Access
 Firestore only through authorized private tooling and establish a retention policy.
 
+For this implementation, `/push` HTTP `200` means synchronization completed.
+HTTP `204` acknowledges an invalid notification without synchronizing; it is not
+proof of successful intake. Alert on `push_rejected_invalid_notification` and
+`push_rejected_invalid_payload` in addition to server errors and delivery backlog.
+Rejection logs include only fixed reason codes, never the received payload. Keep
+catch-up enabled and preserve its saved cursor while investigating rejected pushes.
+
 To pause intake, pause both Scheduler jobs and remove both trigger identities'
 `roles/run.invoker` bindings from this service. Wait for already-running requests
 to finish. Do not delete the checkpoint, queue, subscription, or secret as a pause
