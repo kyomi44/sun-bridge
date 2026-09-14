@@ -58,6 +58,13 @@ def _history_id(value) -> bool:
     return isinstance(value, str) and _HISTORY_ID.fullmatch(value) is not None
 
 
+def _notification_history_id(value) -> bool:
+    # Live Gmail push hints can encode the uint64 as a JSON integer. Accept
+    # that representation only here; API and durable cursors remain strings.
+    return (_history_id(value)
+            or (type(value) is int and 0 <= value <= 2**64 - 1))
+
+
 def _plain_text(value, limit: int, *, empty: bool = False) -> bool:
     return (isinstance(value, str) and (empty or bool(value)) and len(value) <= limit
             and not any(ord(char) < 32 or 0xD800 <= ord(char) <= 0xDFFF for char in value))
@@ -129,7 +136,7 @@ def validate_notification(envelope, mailbox: str, expected_subscription: str) ->
     if (not isinstance(notification, dict)
             or set(notification) != {"emailAddress", "historyId"}
             or notification.get("emailAddress") != mailbox
-            or not _history_id(notification.get("historyId"))):
+            or not _notification_history_id(notification.get("historyId"))):
         raise InvalidNotification("Notification mailbox or history identifier is invalid.")
 
 

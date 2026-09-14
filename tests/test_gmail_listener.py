@@ -172,6 +172,27 @@ class ListenerTests(unittest.TestCase):
         self.assertEqual(self.store.state, {})
         self.assertEqual(self.gmail.history_calls, [])
 
+    def test_integer_push_hint_is_never_used_as_a_cursor(self):
+        result = self.listener.push(envelope(2**64 - 1), SUBSCRIPTION)
+        self.assertEqual(result["status"], "synced")
+        self.assertEqual(self.gmail.history_calls, [("100", None)])
+        self.assertEqual(self.store.state["processed_history_id"], "110")
+        self.assertNotIn(2**64 - 1, self.store.state.values())
+
+    def test_integer_push_before_bootstrap_does_not_initialize_a_cursor(self):
+        self.store.state = {}
+        with self.assertRaises(NotInitialized):
+            self.listener.push(envelope(2**64 - 1), SUBSCRIPTION)
+        self.assertEqual(self.store.state, {})
+        self.assertEqual(self.gmail.history_calls, [])
+
+    def test_integer_watch_api_cursor_is_still_rejected(self):
+        self.gmail.watch_result["historyId"] = 105
+        with self.assertRaises(Incomplete):
+            self.listener.renew()
+        self.assertEqual(self.store.state, {"processed_history_id": "100"})
+        self.assertEqual(self.store.save_calls, 0)
+
     def test_sync_multiple_pages_only_messages_added_and_one_fetch_per_unique_id(self):
         first = page("110", ("m1", "m1"), "next")
         first["history"][0].update(messages=[{"id": "not-added"}],
@@ -436,6 +457,21 @@ class NotificationTests(unittest.TestCase):
         value["deliveryAttempt"] = 0
         self.assertIsNone(validate_notification(value, MAILBOX, SUBSCRIPTION))
 
+    def test_integer_uint64_history_hints_are_accepted(self):
+        for history in (0, 110, 2**53 + 1, 2**64 - 1):
+            # Same inner JSON types observed from live Gmail, synthetic values.
+            value = envelope(history)
+            with self.subTest(history=history):
+                self.assertIsNone(validate_notification(value, MAILBOX, SUBSCRIPTION))
+
+    def test_non_integer_numeric_history_hints_are_rejected(self):
+        for literal in ("1.0", "1e2", "1E+2", "-1e2", "NaN", "Infinity", "-Infinity"):
+            raw = ('{"emailAddress":' + json.dumps(MAILBOX) + ',"historyId":' + literal + '}').encode()
+            value = envelope()
+            value["message"]["data"] = base64.b64encode(raw).decode("ascii")
+            with self.subTest(literal=literal), self.assertRaises(InvalidNotification):
+                validate_notification(value, MAILBOX, SUBSCRIPTION)
+
     def test_official_gmail_push_example_is_accepted(self):
         # https://developers.google.com/workspace/gmail/api/guides/push
         value = envelope(mailbox="user@example.com")
@@ -508,7 +544,8 @@ class NotificationTests(unittest.TestCase):
 
     def test_wrong_subscription_and_mailbox_and_invalid_history_rejected(self):
         invalid = [envelope(mailbox="other@example.invalid"), envelope(mailbox=MAILBOX.upper())]
-        for history in (110, True, None, "", "-1", "1.1", "1e2", "١١٠", "1" * 33):
+        for history in (True, False, -1, 2**64, 10**100, 110.0, 1.5,
+                        None, "", "-1", "1.1", "1e2", "١١٠", "1" * 33):
             invalid.append(envelope(history))
         value = envelope()
         value["subscription"] = SUBSCRIPTION + "-other"
