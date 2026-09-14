@@ -80,7 +80,7 @@ Use `catalog attach-review` with explicitly verified profile-to-catalog links to
 
 Pipedrive is the first native read adapter. Other CRMs can use the normalized JSON contract; planned adapters are not working connectors. See the [CRM support matrix](docs/crm-integrations.md) and [optional model setup](docs/llm-providers.md).
 
-For continuous intake, the experimental [Gmail push listener](docs/gmail-push.md) provides a separately deployed, read-only backend with scheduled watch renewal and missed-notification catch-up. A Google Group must deliver each email to a real Gmail mailbox. This backend stores private review items; it does not yet feed them into the local review report or update a CRM. Cloning this repository does not connect an account or start monitoring.
+For continuous intake, [bring your own permitting inbox](docs/email-intake.md). The Google Groups → Gmail → Pub/Sub example includes configurable mailbox/group settings, a private deployment runbook, daily watch renewal, and five-minute catch-up. It needs no CRM or model token. The live connector is Gmail/Google Workspace-specific; other providers can use local EML/MBOX imports or contribute a new connector. The backend stores private review items but does not yet feed the local report or update a CRM. Cloning this repository does not connect an account or start monitoring.
 
 This is review-only software. There are no CRM writes, saved approval controls, utility account connectors, or autonomous permit approvals. Real AHJ rule parsers remain disabled until privately validated; catalog coverage does not imply parser coverage. Optional model results always require review and no provider/model is live-certified.
 

@@ -46,20 +46,18 @@ private with uniform bucket-level access and public access prevention.
 
 ## Build and deploy
 
-Run from the repository root. Set your own non-secret values; these examples do
-not modify the globally configured gcloud project. Resource provisioning above
-must be complete first. Select a region supported by all required services.
+Run from the repository root in a POSIX terminal with an authenticated Google
+Cloud CLI. Copy [config.env.example](config.env.example) to
+`private/gmail/config.env`, replace its placeholders with your own non-secret
+values, and keep the private directory/file owner-only (`0700`/`0600`). If a
+private config already exists, edit it deliberately instead of replacing it.
+These examples do not modify the globally configured gcloud project. Resource
+provisioning above must be complete first. Select a region supported by all
+required services. Sourcing a shell file executes its contents; inspect your
+own private copy first and never source a config received from an untrusted party.
 
 ```sh
-export SUNBRIDGE_PROJECT='your-dedicated-project'
-export SUNBRIDGE_REGION='us-east1'
-export SUNBRIDGE_MAILBOX='listener@example.invalid'
-export SUNBRIDGE_GROUP='permitting@example.invalid'
-export SUNBRIDGE_SECRET_VERSION='1'
-export SUNBRIDGE_IMAGE="$SUNBRIDGE_REGION-docker.pkg.dev/$SUNBRIDGE_PROJECT/sunbridge/gmail-listener:pilot"
-export SUNBRIDGE_RUNTIME="sunbridge-gmail-runtime@$SUNBRIDGE_PROJECT.iam.gserviceaccount.com"
-export SUNBRIDGE_PUSH="sunbridge-gmail-push@$SUNBRIDGE_PROJECT.iam.gserviceaccount.com"
-export SUNBRIDGE_SCHEDULER="sunbridge-gmail-scheduler@$SUNBRIDGE_PROJECT.iam.gserviceaccount.com"
+. ./private/gmail/config.env
 
 gcloud meta list-files-for-upload
 gcloud builds submit . --project="$SUNBRIDGE_PROJECT" --region="$SUNBRIDGE_REGION" \

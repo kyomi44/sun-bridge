@@ -1,5 +1,10 @@
 # Gmail push listener setup
 
+For the organization-neutral Google Groups example and the supported intake paths,
+start with [Bring your own permitting inbox](email-intake.md). Mailbox and group
+addresses are operator settings; this connector implements Google's protocol,
+not a generic webhook for every email provider.
+
 The Gmail listener is an experimental, separately deployed intake backend. These instructions do not mean a Cloud project, service, subscription, or live mailbox watch has been deployed. The authorization helper prepares one private credential; it does not start a listener, call a model, or update a CRM. See the [deployment runbook](../deploy/gmail-push/README.md) for infrastructure, activation, verification, and pause procedures.
 
 ## Mailbox and project prerequisites
@@ -19,10 +24,23 @@ Do not use external **Testing** for a durable listener. With Gmail scopes, refre
 
 Use a local browser on the same computer as the helper. Install `google-auth-oauthlib` in a dedicated virtual environment; ordinary Sun Bridge imports and the synthetic helper tests do not require it. Keep the downloaded client JSON private, and do not paste it, tokens, or callback URLs into a task or issue.
 
+From a POSIX terminal in the repository root:
+
+```sh
+python3 -m venv .venv
+.venv/bin/python -m pip install 'google-auth-oauthlib>=1.2,<2'
+```
+
+The authorization helper assumes POSIX owner-only file permissions (macOS/Linux),
+and the cloud deployment recipe uses POSIX shell syntax. Native Windows credential
+permission handling is not yet validated; do not bypass the permission checks.
+Download the client file only after configuring the consent screen; do not use
+example credentials or another team's client.
+
 From the repository folder, substitute the real client-file path, primary mailbox, and dedicated project ID:
 
 ```sh
-python3 scripts/authorize_gmail_listener.py \
+.venv/bin/python scripts/authorize_gmail_listener.py \
   --client-file /absolute/private/path/desktop-client.json \
   --mailbox listener@example.invalid \
   --project YOUR_SUN_BRIDGE_PROJECT_ID \

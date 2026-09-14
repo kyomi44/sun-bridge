@@ -24,3 +24,16 @@ jobs:
       - run: python -m sunbridge run
       - run: python -m sunbridge integrations
       - run: python scripts/check_public_files.py --tracked
+  gmail-runtime:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - run: python -m pip install -r deploy/gmail-push/requirements.txt 'google-auth-oauthlib>=1.2,<2'
+      # Keep the ordinary matrix dependency-free; exercise optional HTTP boundary
+      # tests here instead of silently skipping them when Flask is not installed.
+      # All tests use synthetic data and mocks, never cloud credentials or mail.
+      - run: python -m unittest discover -s tests -v
+      - run: python -m compileall -q sunbridge/gmail_cloud.py sunbridge/gmail_listener.py scripts/authorize_gmail_listener.py

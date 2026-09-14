@@ -54,6 +54,8 @@ Profiles can become stale when an AHJ changes its portal, template, or process. 
 
 ## Public contribution boundaries
 
+For a new email-provider connector, follow the [intake contribution checklist](docs/email-intake.md#contribute-another-live-connector). Keep deployment settings organization-neutral, credentials and live mail private, and supported providers explicit. The Google Groups/Gmail scaffold is an example implementation, not a promise that other providers use the same webhook format.
+
 Use only original text, authorized contributions, appropriately licensed public source data, and synthetic message fixtures. Do not contribute real mailboxes, email bodies, attachments, customer names or addresses, real permit identifiers, deal IDs, private CRM organization exports, portal tokens, or credentials. Removing a name alone does not make a message anonymous. Follow [SECURITY.md](SECURITY.md) if private information was exposed.
 
 By contributing, you agree that your original contribution may be distributed under the project's [MIT License](LICENSE). Be respectful and follow the [Code of Conduct](CODE_OF_CONDUCT.md).
