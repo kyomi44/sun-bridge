@@ -450,6 +450,54 @@ class HttpBoundaryTests(unittest.TestCase):
         self.listener.renew.side_effect = InvalidNotification("sensitive-upstream-text")
         self.assertEqual(self.client.post("/renew").status_code, 400)
 
+    def test_notification_rejection_logs_only_fixed_reason_codes(self):
+        reasons = {
+            "Notification JSON contains duplicate fields.": "duplicate_fields",
+            "A valid expected subscription is required.": "subscription_configuration",
+            "Push subscription or envelope is invalid.": "subscription_or_envelope",
+            "Push delivery metadata is invalid.": "delivery_metadata",
+            "Push message is invalid.": "message_shape",
+            "Push message metadata is invalid.": "message_metadata",
+            "Push attributes are invalid.": "attributes",
+            "Notification data is missing or exceeds its size limit.": "data_size",
+            "Push envelope exceeds its size limit.": "envelope_size",
+            "Notification encoding is invalid or too large.": "encoding_or_size",
+            "Notification must contain valid base64-encoded JSON.": "encoding_or_json",
+            "Notification mailbox or history identifier is invalid.": "mailbox_or_history",
+        }
+        for message, reason in reasons.items():
+            with self.subTest(reason=reason):
+                self.listener.push.side_effect = InvalidNotification(message)
+                with self.assertLogs(self.app.logger, level="WARNING") as logs:
+                    response = self.client.post("/push", json={})
+                self.assertEqual(response.status_code, 204)
+                self.assertEqual(len(logs.records), 1)
+                self.assertEqual(logs.records[0].getMessage(),
+                                 "push_rejected_invalid_notification reason=" + reason)
+                self.assertEqual(response.get_data(), b"")
+
+    def test_unknown_notification_error_never_logs_exception_content(self):
+        secret = "refresh_token=private-test-secret mailbox=private@example.test"
+
+        class UnsafeArgument:
+            def __str__(self):
+                raise AssertionError("Exception argument must not be stringified")
+
+        for arguments in ((secret,), ("Push message is invalid. " + secret,),
+                          ("Push message is invalid.", secret), (),
+                          ({"refresh_token": secret},), (UnsafeArgument(),)):
+            with self.subTest(argument_types=tuple(type(value).__name__ for value in arguments)):
+                self.listener.push.side_effect = InvalidNotification(*arguments)
+                with self.assertLogs(self.app.logger, level="WARNING") as logs:
+                    response = self.client.post("/push", json={"private_payload": secret})
+                self.assertEqual(response.status_code, 204)
+                self.assertEqual(len(logs.records), 1)
+                self.assertEqual(logs.records[0].getMessage(),
+                                 "push_rejected_invalid_notification reason=unknown")
+                self.assertIsNone(logs.records[0].exc_info)
+                self.assertNotIn(secret, " ".join(logs.output))
+                self.assertEqual(response.get_data(), b"")
+
 
 if __name__ == "__main__":
     unittest.main()

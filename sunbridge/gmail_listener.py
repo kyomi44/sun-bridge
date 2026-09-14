@@ -19,6 +19,7 @@ MAX_MESSAGES = 10000
 _HISTORY_ID = re.compile(r"[0-9]{1,32}\Z")
 _MESSAGE_ID = re.compile(r"[A-Za-z0-9_-]{1,128}\Z")
 _SUBSCRIPTION = re.compile(r"projects/[^/\s]{1,128}/subscriptions/[^/\s]{1,255}\Z")
+_NOTIFICATION_ENCODING = re.compile(r"(?:[A-Za-z0-9+/]+|[A-Za-z0-9_-]+)={0,2}\Z")
 
 
 class ListenerError(RuntimeError):
@@ -84,9 +85,10 @@ def validate_notification(envelope, mailbox: str, expected_subscription: str) ->
             or not set(envelope) <= {"message", "subscription", "deliveryAttempt"}
             or envelope.get("subscription") != expected_subscription):
         raise InvalidNotification("Push subscription or envelope is invalid.")
+    # Pub/Sub uses zero when delivery counting has no dead-letter policy.
     if "deliveryAttempt" in envelope and (
             type(envelope["deliveryAttempt"]) is not int
-            or not 1 <= envelope["deliveryAttempt"] <= 2147483647):
+            or not 0 <= envelope["deliveryAttempt"] <= 2147483647):
         raise InvalidNotification("Push delivery metadata is invalid.")
     message = envelope.get("message")
     allowed = {"data", "messageId", "message_id", "publishTime", "publish_time",
@@ -108,8 +110,18 @@ def validate_notification(envelope, mailbox: str, expected_subscription: str) ->
         encoded_envelope = json.dumps(envelope, ensure_ascii=True, allow_nan=False).encode("utf-8")
         if len(encoded_envelope) > MAX_ENVELOPE_BYTES:
             raise InvalidNotification("Push envelope exceeds its size limit.")
-        raw = base64.b64decode(data, validate=True)
-        if len(raw) > MAX_NOTIFICATION_BYTES or base64.b64encode(raw).decode("ascii") != data:
+        # Gmail documents Base64URL; Pub/Sub also uses standard base64. Accept
+        # either alphabet with full padding or none, never mixed alphabets,
+        # partial/excess padding, whitespace, or noncanonical trailing bits.
+        if _NOTIFICATION_ENCODING.fullmatch(data) is None:
+            raise InvalidNotification("Notification encoding is invalid or too large.")
+        urlsafe = "-" in data or "_" in data
+        raw = base64.b64decode(data + "=" * (-len(data) % 4),
+                               altchars=b"-_" if urlsafe else None, validate=True)
+        canonical = (base64.urlsafe_b64encode(raw) if urlsafe else base64.b64encode(raw)).decode("ascii")
+        if not data.endswith("="):
+            canonical = canonical.rstrip("=")
+        if len(raw) > MAX_NOTIFICATION_BYTES or canonical != data:
             raise InvalidNotification("Notification encoding is invalid or too large.")
         notification = json.loads(raw.decode("utf-8"), object_pairs_hook=_json_object)
     except (ValueError, TypeError, UnicodeError, binascii.Error, RecursionError):

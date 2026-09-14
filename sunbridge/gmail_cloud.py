@@ -32,6 +32,22 @@ MAX_ITEM_BYTES = 50_000
 MAX_RESPONSE_BYTES = 1024 * 1024
 MAX_PARTS = 100
 HEADERS = ("From", "To", "Delivered-To", "List-Id", "Subject", "Date", "Message-ID")
+# Map only developer-owned literals to safe operational reason codes. Never log
+# exception text: future adapters may put upstream content or secrets in it.
+_NOTIFICATION_REJECTION_REASONS = {
+    "Notification JSON contains duplicate fields.": "duplicate_fields",
+    "A valid expected subscription is required.": "subscription_configuration",
+    "Push subscription or envelope is invalid.": "subscription_or_envelope",
+    "Push delivery metadata is invalid.": "delivery_metadata",
+    "Push message is invalid.": "message_shape",
+    "Push message metadata is invalid.": "message_metadata",
+    "Push attributes are invalid.": "attributes",
+    "Notification data is missing or exceeds its size limit.": "data_size",
+    "Push envelope exceeds its size limit.": "envelope_size",
+    "Notification encoding is invalid or too large.": "encoding_or_size",
+    "Notification must contain valid base64-encoded JSON.": "encoding_or_json",
+    "Notification mailbox or history identifier is invalid.": "mailbox_or_history",
+}
 _ID = re.compile(r"[A-Za-z0-9_-]{1,128}\Z")
 _EMAIL = re.compile(r"[^\s<>@,;]+@[^\s<>@,;]+\.[^\s<>@,;]+\Z")
 _SENSITIVE = re.compile(
@@ -546,8 +562,12 @@ def create_app(listener_factory=None, *, expected_subscription=None):
             else:
                 listener.sync()
             return jsonify(status="ok")
-        except InvalidNotification:
-            app.logger.warning("push_rejected_invalid_notification")
+        except InvalidNotification as error:
+            # Exact strings only: do not invoke __str__ on an arbitrary argument
+            # or permit user-supplied text to become a structured log field.
+            reason = (_NOTIFICATION_REJECTION_REASONS.get(error.args[0], "unknown")
+                      if len(error.args) == 1 and type(error.args[0]) is str else "unknown")
+            app.logger.warning("push_rejected_invalid_notification reason=%s", reason)
             return ("", 204) if operation == "push" else (jsonify(status="rejected"), 400)
         except MailboxMismatch:
             app.logger.error("gmail_configured_mailbox_mismatch")

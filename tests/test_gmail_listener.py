@@ -431,6 +431,81 @@ class NotificationTests(unittest.TestCase):
         value["message"]["orderingKey"] = ""
         self.assertIsNone(validate_notification(value, MAILBOX, SUBSCRIPTION))
 
+    def test_delivery_attempt_zero_without_dead_letter_policy_is_accepted(self):
+        value = envelope()
+        value["deliveryAttempt"] = 0
+        self.assertIsNone(validate_notification(value, MAILBOX, SUBSCRIPTION))
+
+    def test_official_gmail_push_example_is_accepted(self):
+        # https://developers.google.com/workspace/gmail/api/guides/push
+        value = envelope(mailbox="user@example.com")
+        value["message"]["data"] = (
+            "eyJlbWFpbEFkZHJlc3MiOiAidXNlckBleGFtcGxlLmNvbSIsICJoaXN0b3J5SWQi"
+            "OiAiMTIzNDU2Nzg5MCJ9"
+        )
+        self.assertIsNone(validate_notification(value, "user@example.com", SUBSCRIPTION))
+
+    def test_standard_and_urlsafe_encoding_with_and_without_padding(self):
+        # This synthetic local part ensures the standard encoding has both
+        # alphabet-specific characters; each history length changes padding.
+        mailbox = "a??~~~@example.invalid"
+        for history in ("1", "11", "111"):
+            raw = json.dumps({"emailAddress": mailbox, "historyId": history}).encode()
+            self.assertIn(b"+", base64.b64encode(raw))
+            self.assertIn(b"/", base64.b64encode(raw))
+            for encode in (base64.b64encode, base64.urlsafe_b64encode):
+                for padded in (True, False):
+                    data = encode(raw).decode("ascii")
+                    if not padded:
+                        data = data.rstrip("=")
+                    value = envelope(mailbox=mailbox)
+                    value["message"]["data"] = data
+                    with self.subTest(history=history, encoder=encode.__name__, padded=padded):
+                        self.assertIsNone(validate_notification(value, mailbox, SUBSCRIPTION))
+
+    def test_mixed_alphabets_and_noncanonical_padding_or_bits_are_rejected(self):
+        mailbox = "a??~~~@example.invalid"
+        raw = json.dumps({"emailAddress": mailbox, "historyId": "111"}).encode()
+        standard = base64.b64encode(raw).decode("ascii")
+        self.assertTrue(standard.endswith("="))
+        invalid_data = [standard.replace("+", "-"), standard.replace("/", "_"),
+                        standard + "=", standard + "\n", " " + standard,
+                        standard.rstrip("=") + "===", "A", "===="]
+        for encode in (base64.b64encode, base64.urlsafe_b64encode):
+            # Two padding characters are required for this payload. Changing
+            # the low bits still decodes to the same bytes, but is noncanonical.
+            canonical = encode(raw + b"  ").decode("ascii")
+            self.assertTrue(canonical.endswith("=="))
+            alphabet = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789+/"
+            index = alphabet.index(canonical[-3])
+            noncanonical = canonical[:-3] + alphabet[index + 1] + "=="
+            invalid_data.extend((canonical[:-1], noncanonical, noncanonical.rstrip("=")))
+        for data in invalid_data:
+            value = envelope(mailbox=mailbox)
+            value["message"]["data"] = data
+            with self.subTest(data=data), self.assertRaises(InvalidNotification):
+                validate_notification(value, mailbox, SUBSCRIPTION)
+
+    def test_decoded_size_limit_is_enforced_with_optional_padding(self):
+        raw = json.dumps({"emailAddress": MAILBOX, "historyId": "110"}).encode()
+        for length in (4096, 4097, 4098):
+            # All three lengths fit the encoded-character limit, so the
+            # decoded bound must still reject the latter two independently.
+            padded_json = raw + b" " * (length - len(raw))
+            for encode in (base64.b64encode, base64.urlsafe_b64encode):
+                for padded in (True, False):
+                    data = encode(padded_json).decode("ascii")
+                    if not padded:
+                        data = data.rstrip("=")
+                    value = envelope()
+                    value["message"]["data"] = data
+                    with self.subTest(length=length, encoder=encode.__name__, padded=padded):
+                        if length == 4096:
+                            self.assertIsNone(validate_notification(value, MAILBOX, SUBSCRIPTION))
+                        else:
+                            with self.assertRaises(InvalidNotification):
+                                validate_notification(value, MAILBOX, SUBSCRIPTION)
+
     def test_wrong_subscription_and_mailbox_and_invalid_history_rejected(self):
         invalid = [envelope(mailbox="other@example.invalid"), envelope(mailbox=MAILBOX.upper())]
         for history in (110, True, None, "", "-1", "1.1", "1e2", "١١٠", "1" * 33):
@@ -464,7 +539,7 @@ class NotificationTests(unittest.TestCase):
             value = envelope()
             value["message"][key] = item
             invalid.append(value)
-        for attempt in (True, 0, -1, "1"):
+        for attempt in (True, -1, "1", 2147483648):
             value = envelope()
             value["deliveryAttempt"] = attempt
             invalid.append(value)
