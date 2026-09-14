@@ -1,0 +1,9 @@
+# Only the source allow-list in .gcloudignore is uploaded. Never include OAuth
+# files, private mail, or the operator's working directory in the build context.
+steps:
+  - name: gcr.io/cloud-builders/docker
+    args: [build, -f, deploy/gmail-push/Dockerfile, -t, '${_IMAGE}', .]
+images: ['${_IMAGE}']
+options:
+  logging: CLOUD_LOGGING_ONLY
+timeout: 900s

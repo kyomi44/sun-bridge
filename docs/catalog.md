@@ -116,7 +116,7 @@ Use your actual report path. Every nonempty AHJ profile in the batch needs a ver
 
 Proposals retain the report digest, input position, source snapshot, extraction/matching results, warnings, and original supporting evidence. They are **not accepted decisions or confirmed current status**. Attachment does not alter benchmarks, requirements, CRM records, or approval state. Source-version changes do not erase prior proposals. Catalog lookup may show private evidence after attachment, so do not publish that output. Only the source-only export above is intended for source-data exchange.
 
-AHJ catalog coverage is not email-parser coverage. Utility catalog data are available now, but utility mail/account connectors and utility-specific event review are future work. No scheduled monitor or automatic updater ships in this release.
+AHJ catalog coverage is not email-parser coverage. Utility catalog data are available now, but utility mail/account connectors and utility-specific event review are future work. The optional [Gmail intake backend](gmail-push.md) requires separate deployment and does not update the catalog or CRM automatically.
 
 ## Source updates and local storage
 

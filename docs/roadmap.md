@@ -32,9 +32,9 @@ Validate a narrow permit type and event set with someone who knows the process. 
 
 Add saved review decisions before integrating external writes. The workflow owner must define allowed fields, supported events, approval authority, and corrective procedures. Require evidence, duplicate protection, conflict checks, an audit trail, and recovery that respects intervening edits.
 
-Live inbox connections and scheduled monitors need explicit access limits, health and coverage checks, a working pause control, and an owner for exceptions. Validate missed-run recovery and changed templates. Begin with observation and proposed updates; expand only within the user's authorization.
+The experimental [Gmail intake backend](gmail-push.md) supplies new-mail collection, daily watch renewal, catch-up, duplicate protection, and explicit history-gap detection. It requires a separate private deployment and mailbox consent; no live service is included with a clone. End-to-end monitoring still needs an owner, alerts, an operational pause procedure, and verified delivery. Connecting intake records to reviewed proposals is a next step.
 
-**Gate:** operators can reject, pause, investigate, escalate, and recover in a safe test environment. These controls, CRM writes, and live monitoring are not implemented today.
+**Gate:** operators can reject, pause, investigate, escalate, and recover in a safe test environment. Saved review controls, CRM writes, a review interface for live intake, and a complete operator monitoring dashboard remain unimplemented.
 
 ## 5. Transparent operational timelines — proposed
 

@@ -164,6 +164,20 @@ class PublicIndexTests(unittest.TestCase):
             self.assertEqual(checker.main(), 1)
         self.assertNotIn(token, stdout.getvalue() + stderr.getvalue())
 
+    def test_public_gmail_endpoint_is_not_a_local_home_path(self):
+        public = b"https://gmail.googleapis.com/gmail/v1/users/me/profile"
+        self.assertEqual(checker._content_problems(public), [])
+
+    def test_canonical_home_paths_are_still_private(self):
+        # Assemble fictional paths so this regression fixture stays publishable.
+        paths = ["/" + "Users/fictional/private.txt",
+                 "C:" + "\\Users\\fictional\\private.txt",
+                 "c:" + "\\users\\fictional\\private.txt",
+                 "C:" + "\\\\Users\\\\fictional\\\\private.txt"]
+        for path in paths:
+            with self.subTest(path=path):
+                self.assertIn("local user path", checker._content_problems(path.encode()))
+
 
 if __name__ == "__main__":
     unittest.main()
